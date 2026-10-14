@@ -169,7 +169,7 @@ export const siteConfig: SiteConfig = {
     offerTypeAr: "ترخيص دائم مدى الحياة + مرافقة كاملة"
   },
   contact: {
-    whatsappNumber: "TODO_WHATSAPP_NUMBER", // À renseigner (ex: +213550000000)
+    whatsappNumber: "+213857111543", // Numéro officiel WhatsApp
     whatsappDefaultMessageFr: "Bonjour StellarSoft, je souhaite découvrir le logiciel de caisse Utopia pour mon commerce.",
     whatsappDefaultMessageAr: "السلام عليكم، أريد التعرف على برنامج يوتوبيا لنقاط البيع الخاص بمحلي.",
     email: "contact@stellarsoft.com"
