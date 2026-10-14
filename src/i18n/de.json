@@ -1,0 +1,280 @@
+{
+  "nav": {
+    "skipToContent": "Zum Hauptinhalt springen",
+    "features": "Funktionen",
+    "problems": "Herausforderungen & Lösungen",
+    "gallery": "Software-Screenshots",
+    "benefits": "Vorteile",
+    "demo": "Geführte Demo",
+    "trust": "Sicherheit & Vertrauen",
+    "pricing": "Preise",
+    "beforeAfter": "Vorher / Nachher",
+    "start": "Schnellstart",
+    "faq": "Häufige Fragen",
+    "downloadCta": "Kostenlose Demo anfordern",
+    "themeLight": "Helles Design",
+    "themeDark": "Dunkles Design",
+    "switchLang": "Sprachen"
+  },
+  "hero": {
+    "badge": "Kassensystem & Warenwirtschaftslösung für den Einzelhandel",
+    "terminalCommand": "./kasse --schnell --lokal",
+    "titlePrefix": "Ihr Einzelhandel im Griff,",
+    "titleHighlight": "jeden Abend ohne Differenzen.",
+    "subtitle": "Utopia unterstützt Einzelhändler dabei, Warenbestand, tägliche Verkäufe und Kundenkredite jeden Abend lückenlos zu überblicken – ganz ohne Excel oder Papiernotizen.",
+    "target": "Für Supermärkte, Baumärkte, Kosmetikgeschäfte, Textilhandel und Facheinzelhändler",
+    "cta": "Kostenlose Demo anfordern",
+    "requirements": "Windows 10 oder 11 (64-Bit) • 173 MB • Funktioniert 100% offline ohne Internet",
+    "watchVideo": "90s Video ansehen",
+    "exploreFeatures": "Funktionen entdecken",
+    "stat1Value": "15 Min",
+    "stat1Label": "Schnelle Einrichtung",
+    "stat2Value": "100%",
+    "stat2Label": "Offline & Lokal",
+    "stat3Value": "Kostenlos",
+    "stat3Label": "Unverbindlich",
+    "cap1Title": "Touch-Kasse",
+    "cap1Sub": "Ultraschneller Kassiervorgang",
+    "cap2Title": "Kundenkredite",
+    "cap2Sub": "Offene Posten im Blick",
+    "cap3Title": "Z-Abschluss",
+    "cap3Sub": "Feierabendkontrolle",
+    "cap4Title": "Lokales LAN",
+    "cap4Sub": "Netzwerk für mehrere Kassen"
+  },
+  "problems": {
+    "tag": "Tägliche Hürden im Handel",
+    "title": "3 kostspielige Probleme, die Einzelhändler täglich belasten",
+    "item1": {
+      "title": "Vergessene Kundenkredite & Außenstände",
+      "problem": "Papiernotizen gehen verloren, Schrift verblasst und offene Beträge bleiben unbezahlt.",
+      "solution": "Jeder Kunde besitzt ein digitales Kundenkonto mit exaktem Kontostand und lückenloser Kaufhistorie."
+    },
+    "item2": {
+      "title": "Lange Schlangen in Stoßzeiten",
+      "problem": "Kopfrechnen oder Handtaschenrechner führen zu Warteschlangen und Fehlern beim Wechselgeld.",
+      "solution": "Barcode scannen oder Touch-Schnellwahl tippen: Gesamtsumme und Wechselgeld erscheinen sofort."
+    },
+    "item3": {
+      "title": "Zeitaufwendiger Kassensturz am Feierabend",
+      "problem": "45 Minuten Zählen, ohne Gewissheit, ob Geld in der Kassenlade fehlt.",
+      "solution": "Ein geführter Z-Abschluss in 3 Minuten, der den Soll-Bestand berechnet und Differenzen sofort ausweist."
+    }
+  },
+  "features": {
+    "tag": "Aus der Praxis für die Praxis",
+    "title": "5 konkrete Werkzeuge für mehr Tempo und Sicherheit im Verkauf",
+    "item1": {
+      "badge": "Kredite unter Kontrolle",
+      "title": "Keinen Cent an Kundenforderungen mehr verlieren",
+      "desc": "Schluss mit Zettelwirtschaft und Diskussionen über Beträge. Erfassen Sie Anschreibungen mit zwei Klicks und sehen Sie offene Posten in 2 Sekunden.",
+      "points": [
+        "Echtzeit-Saldo in 2 Sekunden pro Kundenkonto abrufbar",
+        "Individuelles Kreditlimit zur Vermeidung von Zahlungsausfällen",
+        "Vollständige Historie aller Teilzahlungen und Anzahlungen"
+      ]
+    },
+    "item2": {
+      "badge": "Kassiergeschwindigkeit",
+      "title": "Jeden Kunden in unter 10 Sekunden bedienen",
+      "desc": "Flüssig und reaktionsschnell auch bei vollem Geschäft. Artikel scannen oder Schnelltasten nutzen: Gesamtsumme und Wechselgeld stimmen automatisch.",
+      "points": [
+        "Sofortsuche nach Barcode, Artikelnummer oder Artikelname",
+        "Automatische und fehlerfreie Wechselgeldberechnung",
+        "Sofortdruck auf Thermobondruckern (80 mm / 58 mm)"
+      ]
+    },
+    "item3": {
+      "badge": "Entspannter Feierabend",
+      "title": "Tagesabschluss in nur 3 Minuten erledigen",
+      "desc": "Wissen Sie jeden Abend genau, was in der Kasse sein muss. Das System vergleicht die Buchhaltung mit dem gezählten Bargeldbestand.",
+      "points": [
+        "Vorläufiger X-Bericht zu jedem Zeitpunkt des Tages abrufbar",
+        "Täglicher, fortlaufend nummerierter Z-Abschluss",
+        "Geführte Differenzenerkennung mit Bemerkungsfeld"
+      ]
+    },
+    "item4": {
+      "badge": "Sichere Mitarbeiterverwaltung",
+      "title": "Die Kasse beruhigt Ihren Angestellten überlassen",
+      "desc": "Jeder Kassierer loggt sich mit eigener PIN ein. Verfolgen Sie Verkäufe, ohne Zugriff auf sensible Systemeinstellungen freizugeben.",
+      "points": [
+        "Schneller Login über individuelle PIN in 3 Sekunden",
+        "Mitarbeiter auf die Erfassung eigener Verkäufe beschränkt",
+        "Stornierungen und Systemeinstellungen bleiben dem Chef vorbehalten"
+      ]
+    },
+    "item5": {
+      "badge": "Lokale Unabhängigkeit",
+      "title": "Unterbrechungsfrei verkaufen – auch ohne Internet",
+      "desc": "Internetausfall oder Netzwerkstörung? Der Verkauf geht ohne Verzögerung weiter. Sämtliche Daten liegen direkt auf Ihrem PC im Geschäft.",
+      "points": [
+        "100% garantierter Offline-Betrieb",
+        "Lokale Datenbank direkt auf Ihrem Kassen-PC installiert",
+        "Kein Cloud-Zwang: Ihre Unternehmensdaten bleiben bei Ihnen"
+      ]
+    }
+  },
+  "showcase": {
+    "tag": "Software-Galerie",
+    "title": "Übersichtliche, schnelle Benutzeroberfläche für den Verkaufsalltag",
+    "subtitle": "Entdecken Sie die wichtigsten Bildschirme und Module des Utopia POS Kassensystems.",
+    "tab1": "Touch-Kasse",
+    "tab2": "Kundenkredite",
+    "tab3": "Z-Abschluss",
+    "tab4": "Warenwirtschaft",
+    "tab5": "Mehrkassensystem",
+    "placeholderLabel": "Offizieller Utopia POS Screenshot"
+  },
+  "benefits": {
+    "tag": "Messbare Vorteile",
+    "title": "3 zentrale Vorteile für Ihren Geschäftsalltag",
+    "subtitle": "Sparen Sie täglich wertvolle Zeit, behalten Sie die Margen im Blick und senken Sie den Verwaltungsstress.",
+    "item1Title": "Tägliche Zeitersparnis",
+    "item1Metric": "+40 Min / Tag",
+    "item1Desc": "Ultraschnelles Kassieren mit Barcode und Touchscreen. Nie wieder Taschenrechner oder Suchen im Kassenbuch; Feierabend in 3 Minuten.",
+    "item2Title": "Volle finanzielle Transparenz",
+    "item2Metric": "100% in Echtzeit",
+    "item2Desc": "Kennen Sie Ihren Umsatz, Ihre Rohgewinne, Mindestbestände und Kundenguthaben sekundengenau ohne Schätzungen.",
+    "item3Title": "Kontrolle & Gelassenheit",
+    "item3Metric": "0 ungeklärte Differenzen",
+    "item3Desc": "Wechselgeldfehler und Kassenfehlbeträge gehören der Vergangenheit an. Gehen Sie jeden Abend mit geprüfter Kasse beruhigt nach Hause."
+  },
+  "demo": {
+    "tag": "Geführter Ablauf",
+    "title": "Ein typischer Tag mit Utopia in 3 Schritten",
+    "subtitle": "Sehen Sie, wie sich Utopia nahtlos vom Morgen bis zum Feierabend in Ihren Laden einfügt.",
+    "step1Time": "Morgens • 08:00",
+    "step1Title": "Sicherer Kassenstart",
+    "step1Desc": "Login mit PIN in 3 Sekunden. Wechselgeldbestand bestätigt, Kasse bereit für die ersten Kunden.",
+    "step2Time": "Tagsüber • Laufender Betrieb",
+    "step2Title": "Flüssiges Kassieren & Anschreiben",
+    "step2Desc": "Schneller Barcode-Scan, automatische Rückgeldanzeige, Parken von Bons und Kundenkredit mit einem Klick.",
+    "step3Time": "Abends • 20:00",
+    "step3Title": "Z-Abschluss ohne Differenzen",
+    "step3Desc": "Z-Bericht in 3 Minuten gedruckt mit detaillierter Aufstellung von Bar-, Karten- und Kreditzahlungen. Saubere Bücher jeden Abend.",
+    "cta": "Kostenlose Demo anfordern"
+  },
+  "trust": {
+    "tag": "Sicherheit & Verlässlichkeit",
+    "title": "Entwickelt, um Ihr Geschäft zu schützen",
+    "subtitle": "Ein robustes Kassensystem, das kompromisslosen Datenschutz und geprüfte Kassensicherheit gewährleistet.",
+    "item1Title": "100% Offline & Private Daten",
+    "item1Badge": "Keine Cloud",
+    "item1Desc": "Alle Verkaufs- und Kundendaten verbleiben ausschließlich auf Ihrem Rechner vor Ort. Kein Cloud-Leck, kein Internetrisiko.",
+    "item2Title": "Kassierer-Rollen & PIN-Sicherheit",
+    "item2Badge": "Berechtigungen",
+    "item2Desc": "Jeder Mitarbeiter erhält eine individuelle PIN mit anpassbaren Rechten. Stornos und Rabatte werden nachvollziehbar protokolliert.",
+    "item3Title": "Persönlicher StellarSoft Support",
+    "item3Badge": "Direkter Support",
+    "item3Desc": "Technisches Expertenteam an Ihrer Seite: Unterstützung bei der Installation, Excel-Artikelimport und schnelle Hilfe via WhatsApp."
+  },
+  "beforeAfter": {
+    "tag": "Vergleich",
+    "title": "Kassenbuch & Excel vs Utopia POS",
+    "manualCol": "Mit Kassenbuch oder Excel",
+    "utopiaCol": "Mit Utopia POS",
+    "point1": {
+      "manual": "Kundenstände mühsam durch Blättern in Notizbüchern suchen dauert Minuten.",
+      "utopia": "Kundenname in 2 Sekunden eingegeben: Kontostand erscheint sofort auf dem Bildschirm."
+    },
+    "point2": {
+      "manual": "Häufige Rechenfehler bei Preisen und Wechselgeldrückgabe.",
+      "utopia": "Centgenaue Gesamtsumme, garantiertes fehlerfreies Wechselgeld."
+    },
+    "point3": {
+      "manual": "Feierabendzählung voller Ungewissheit über Diebstahl oder Rechenfehler.",
+      "utopia": "Klarer Kassenabschluss: Der Inhalt der Kassenlade stimmt exakt mit den Bons überein."
+    }
+  },
+  "quickStart": {
+    "tag": "Schnellstart",
+    "title": "In 15 Minuten verkaufsbereit",
+    "step1Title": "1. Herunterladen & Installieren",
+    "step1Desc": "Installieren Sie Utopia auf Ihrem Windows-PC in unter 2 Minuten.",
+    "step2Title": "2. Artikel erfassen",
+    "step2Desc": "Legen Sie Ihre ersten Artikel, Preise und Stammkunden an.",
+    "step3Title": "3. Sofort verkaufen",
+    "step3Desc": "Scannen, ersten Kassenbon drucken und WhatsApp-Begleitung nutzen."
+  },
+  "pricing": {
+    "tag": "Klare Preisgestaltung",
+    "title": "Eine rentable Investition für Ihr Geschäft",
+    "subtitle": "Transparentes und faires Paket ohne monatliche Abokosten oder versteckte Gebühren.",
+    "trialBadge": "Dauerlizenz",
+    "cta": "Demo & Angebot anfordern",
+    "feature1": "Lebenslange Dauerlizenz für Ihren Kassenarbeitsplatz",
+    "feature2": "100% offline einsatzbereit ohne Internetverbindung",
+    "feature3": "Regelmäßige Updates und Weiterentwicklungen inklusive",
+    "feature4": "Direkte Unterstützung durch StellarSoft per WhatsApp",
+    "feature5": "Hilfe beim Import Ihres bestehenden Excel-Artikelstamms",
+    "customNote": "Benötigen Sie ein Mehrkassensystem oder Hardware-Pakete (Scanner, Bondrucker)? Kontaktieren Sie uns für ein Komplettangebot."
+  },
+  "testimonials": {
+    "tag": "Erfahrungsberichte",
+    "title": "Was Einzelhändler über Utopia sagen"
+  },
+  "faq": {
+    "tag": "Antworten auf Ihre Fragen",
+    "title": "Häufig gestellte Fragen (FAQ)",
+    "q1": {
+      "q": "Wie wird Utopia auf meinem Computer installiert?",
+      "a": "Utopia ist eine Windows-Desktop-Anwendung für Windows 10 und 11 (64-Bit). Laden Sie das Installationsprogramm herunter (173 MB) und starten Sie es: Die Installation dauert weniger als 2 Minuten."
+    },
+    "q2": {
+      "q": "Benötigt die Software eine Internetverbindung?",
+      "a": "Nein. Utopia arbeitet vollständig offline. Verkäufe, Bestände und Kundenkonten werden lokal auf Ihrem PC ohne Internetabhängigkeit verwaltet."
+    },
+    "q3": {
+      "q": "Wo werden die Daten meines Ladens gespeichert?",
+      "a": "Sämtliche Daten verbleiben lokal auf Ihrem Computer in Ihrem Geschäft. Es werden keine Daten an Cloud-Server übertragen."
+    },
+    "q4": {
+      "q": "Welche Sprachen unterstützt Utopia?",
+      "a": "Die Software und Website unterstützen mehrere internationale Sprachen: Deutsch, Englisch, Französisch, Türkisch, Spanisch, Italienisch sowie Arabisch (RTL)."
+    },
+    "q5": {
+      "q": "Welche Kassenperipherie kann angeschlossen werden?",
+      "a": "Utopia ist kompatibel mit USB-Barcodescannern, Touchscreens, Kassenladen und gängigen Thermobondruckern (80 mm und 58 mm)."
+    },
+    "q6": {
+      "q": "Wie funktioniert Support und Einarbeitung?",
+      "a": "Das StellarSoft-Team begleitet Sie direkt per WhatsApp bei der Ersteinrichtung und beantwortet alle Fragen."
+    }
+  },
+  "finalCta": {
+    "title": "Bereit, Utopia in Ihrem Geschäft im Einsatz zu sehen?",
+    "subtitle": "Fordern Sie eine geführte Demo an oder installieren Sie Utopia in 2 Minuten, um direkt zu starten.",
+    "cta": "Kostenlose Demo anfordern",
+    "requirements": "Windows 10 oder 11 (64-Bit) • Unverbindlich • Persönlicher StellarSoft Support"
+  },
+  "modal": {
+    "title": "Kostenlose Utopia Demo anfordern",
+    "subtitle": "Geben Sie Ihre Kontaktdaten ein, um eine Demo zu vereinbaren oder den Installationslink zu erhalten.",
+    "firstName": "Vorname",
+    "firstNamePlaceholder": "z. B. Michael",
+    "contact": "WhatsApp-Nummer oder E-Mail",
+    "contactPlaceholder": "+49 170 1234567 oder kontakt@domain.de",
+    "storeType": "Branche / Geschäftstyp",
+    "city": "Stadt (optional)",
+    "cityPlaceholder": "z. B. Berlin, München, Wien...",
+    "consent": "Ich stimme zu, unverbindliche Begleitnachrichten zu Utopia (per WhatsApp oder E-Mail) zu erhalten. Jederzeit abbestellbar.",
+    "submit": "Meine kostenlose Demo anfordern",
+    "submitting": "Wird gesendet...",
+    "errorContact": "Bitte geben Sie eine gültige Telefonnummer oder E-Mail-Adresse ein.",
+    "errorName": "Bitte geben Sie Ihren Vornamen ein.",
+    "successTitle": "Anfrage erfolgreich übermittelt!",
+    "successSubtitle": "Unser StellarSoft-Team bereitet Ihre Demo und den Downloadlink für Sie vor.",
+    "fallbackLink": "Klicken Sie hier, um das Windows-Installationsprogramm direkt herunterzuladen.",
+    "whatsappFollowup": "Jetzt WhatsApp Support öffnen",
+    "close": "Schließen"
+  },
+  "footer": {
+    "editor": "von StellarSoft",
+    "desc": "Kassen- und Warenwirtschaftssoftware für selbstständige Einzelhändler und Fachgeschäfte.",
+    "whatsappSupport": "WhatsApp Support",
+    "legalNotice": "Impressum",
+    "privacyPolicy": "Datenschutzerklärung",
+    "rights": "Alle Rechte vorbehalten."
+  }
+}

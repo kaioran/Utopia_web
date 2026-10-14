@@ -1,0 +1,426 @@
+---
+import type { SupportedLocale } from '../i18n';
+import { getTranslations } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+
+const demoSteps = [
+  {
+    id: 'matin',
+    time: t.demo.step1Time,
+    title: t.demo.step1Title,
+    desc: t.demo.step1Desc,
+    img: '/screens/01-connexion-caissier-pin.png',
+    badge: t.demo.step1Title,
+    color: '#06b6d4',
+  },
+  {
+    id: 'journee',
+    time: t.demo.step2Time,
+    title: t.demo.step2Title,
+    desc: t.demo.step2Desc,
+    img: '/screens/04-caisse-retail-tactile-dark.png',
+    badge: t.demo.step2Title,
+    color: '#a855f7',
+  },
+  {
+    id: 'soir',
+    time: t.demo.step3Time,
+    title: t.demo.step3Title,
+    desc: t.demo.step3Desc,
+    img: '/screens/12-pilotage-clotures-statistiques.png',
+    badge: t.demo.step3Title,
+    color: '#10b981',
+  },
+];
+---
+
+<section class="demo-section" id="demonstration" aria-labelledby="demo-title">
+  <div class="demo-container">
+    {/* En-tête de section Technova */}
+    <div class="section-header reveal">
+      <div class="terminal-badge">
+        <span class="pulse-dot"></span>
+        <span>&gt;_ ./demonstration --parcours --journee-type</span>
+      </div>
+      <h2 class="section-title" id="demo-title">
+        {t.demo.title}
+      </h2>
+      <p class="section-subtitle">
+        {t.demo.subtitle}
+      </p>
+    </div>
+
+    {/* Parcours Interactif Démo */}
+    <div class="demo-interactive-wrapper reveal">
+      {/* Sélecteur des 3 étapes (Timeline tabs) */}
+      <div class="demo-steps-nav" role="tablist">
+        {demoSteps.map((step, idx) => (
+          <button 
+            type="button" 
+            class={`demo-step-btn ${idx === 0 ? 'active' : ''}`}
+            data-demo-target={step.id}
+            role="tab"
+            aria-selected={idx === 0 ? 'true' : 'false'}
+            id={`tab-${step.id}`}
+          >
+            <span class="step-num">0{idx + 1}</span>
+            <div class="step-meta">
+              <span class="step-time">{step.time}</span>
+              <span class="step-heading">{step.title}</span>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {/* Cadre de visualisation de l'écran avec Mac-dots */}
+      <div class="demo-display-card">
+        {demoSteps.map((step, idx) => (
+          <div 
+            class={`demo-panel ${idx === 0 ? 'active' : ''}`}
+            id={`panel-${step.id}`}
+            data-panel-id={step.id}
+          >
+            <div class="demo-window-bar">
+              <div class="window-dots">
+                <span class="dot d-red"></span>
+                <span class="dot d-yellow"></span>
+                <span class="dot d-green"></span>
+              </div>
+              <div class="window-title">
+                <span>Utopia POS 2026 // {step.badge}</span>
+              </div>
+              <div class="window-status">
+                <span class="live-dot" style={`background-color: ${step.color};`}></span>
+                <span>{step.time}</span>
+              </div>
+            </div>
+
+            <div class="demo-screen-box">
+              <img 
+                src={step.img} 
+                alt={step.title} 
+                class="demo-screenshot" 
+                loading="lazy" 
+              />
+            </div>
+
+            <div class="demo-panel-footer">
+              <div class="footer-info">
+                <h4 class="footer-title">{step.title}</h4>
+                <p class="footer-desc">{step.desc}</p>
+              </div>
+              <a href="#telecharger" class="btn-primary demo-cta-btn">
+                <span>{t.demo.cta}</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupDemoInteractive() {
+    const navButtons = document.querySelectorAll<HTMLButtonElement>('.demo-step-btn');
+    const panels = document.querySelectorAll<HTMLElement>('.demo-panel');
+
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-demo-target');
+        if (!targetId) return;
+
+        navButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const activePanel = document.getElementById(`panel-${targetId}`);
+        if (activePanel) {
+          activePanel.classList.add('active');
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupDemoInteractive);
+  } else {
+    setupDemoInteractive();
+  }
+</script>
+
+<style>
+  .demo-section {
+    position: relative;
+    padding: 5rem 1.5rem 5.5rem 1.5rem;
+    background-color: var(--content-bg-alt, rgba(16, 22, 30, 0.7));
+    overflow: hidden;
+    scroll-margin-top: 5.5rem;
+  }
+
+  .demo-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+  }
+
+  .terminal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: #c084fc;
+    margin-bottom: 1rem;
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #c084fc;
+    box-shadow: 0 0 8px #c084fc;
+  }
+
+  .section-title {
+    font-size: 2.15rem;
+    font-weight: 800;
+    color: var(--content-text);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--content-text-muted);
+    line-height: 1.6;
+  }
+
+  .demo-interactive-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .demo-steps-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .demo-steps-nav {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .demo-step-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+  }
+
+  :global([dir="rtl"]) .demo-step-btn {
+    text-align: right;
+  }
+
+  .demo-step-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .demo-step-btn.active {
+    background: rgba(6, 182, 212, 0.08);
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.15);
+  }
+
+  .step-num {
+    font-size: 1.25rem;
+    font-weight: 800;
+    font-family: monospace;
+    color: var(--content-text-muted);
+    transition: color 0.2s ease;
+  }
+
+  .demo-step-btn.active .step-num {
+    color: #22d3ee;
+  }
+
+  .step-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .step-time {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--content-text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .step-heading {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--content-text);
+  }
+
+  .demo-display-card {
+    background: #0f1722;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .demo-panel {
+    display: none;
+    flex-direction: column;
+  }
+
+  .demo-panel.active {
+    display: flex;
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .demo-window-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .window-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .d-red { background: #ff5f56; }
+  .d-yellow { background: #ffbd2e; }
+  .d-green { background: #27c93f; }
+
+  .window-title {
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: var(--content-text-muted);
+  }
+
+  .window-status {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--content-text-muted);
+  }
+
+  .live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+
+  .demo-screen-box {
+    width: 100%;
+    background: #090e15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 420px;
+    overflow: hidden;
+  }
+
+  .demo-screenshot {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .demo-panel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 640px) {
+    .demo-panel-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .demo-cta-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .footer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--content-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    color: var(--content-text-muted);
+    line-height: 1.5;
+  }
+
+  .demo-cta-btn {
+    white-space: nowrap;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import bn from '../../i18n/bn.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${bn.hero.titlePrefix} ${bn.hero.titleHighlight}`;
+const pageDesc = bn.hero.subtitle;
+---
+
+<BaseLayout locale="bn" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : প্রমিজ + আসল স্ক্রিনশট + ডেমো */}
+  <Hero locale="bn" />
+
+  {/* 02. সমস্যা → সমাধান : খুচরা দোকানের চ্যালেঞ্জ */}
+  <Problems locale="bn" />
+
+  {/* 03. সফটওয়্যার গ্যালারি : আসল ইন্টারফেস */}
+  <ScreenShowcase locale="bn" />
+
+  {/* 04. মূল সুবিধাসমূহ : ৫টি কার্যকর ফিচার */}
+  <Features locale="bn" />
+
+  {/* 05. লাভজনক দিক : সময়, স্বচ্ছতা, নিয়ন্ত্রণ */}
+  <Benefits locale="bn" />
+
+  {/* 06. নির্দেশিত ডেমো : ৩ ধাপে কর্মদিবস */}
+  <Demo locale="bn" />
+
+  {/* 07. আস্থা ও বিশ্বাস : ১০০% লোকাল নিরাপত্তা, পিন কোড, সাপোর্ট */}
+  <Trust locale="bn" />
+  <Testimonials locale="bn" />
+
+  {/* 08. মূল্য তালিকা : স্বচ্ছ ও স্পষ্ট প্যাকেজ */}
+  <Pricing locale="bn" />
+
+  {/* 09. সাধারণ জিজ্ঞাসা : স্পষ্ট উত্তর */}
+  <Faq locale="bn" />
+
+  {/* 10. ফাইনাল কল টু অ্যাকশন : ফ্রি ডেমো নিন */}
+  <FinalCta locale="bn" />
+
+  {/* ডেমো ও ডাউনলোড ইন্টারেক্টিভ মোডাল */}
+  <DownloadModal client:load locale="bn" labels={bn.modal} />
+</BaseLayout>

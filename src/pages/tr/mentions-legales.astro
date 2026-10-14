@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Yasal Uyarı • ${siteConfig.brand.name}`;
+const pageDesc = "StellarSoft tarafından geliştirilen Utopia POS yazılımı yasal bildirimleri.";
+---
+
+<BaseLayout locale="tr" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/tr/" class="back-link">← Ana Sayfaya Dön</a>
+
+      <h1 class="legal-title">Yasal Uyarı</h1>
+      <p class="legal-meta">Geliştirici: StellarSoft • Utopia POS</p>
+
+      <div class="legal-content">
+        <h2>1. Yazılım ve Web Sitesi Yayımcısı</h2>
+        <p>
+          <strong>Utopia POS</strong> kasa ve ticari yönetim yazılımı ile bu web sitesi <strong>StellarSoft</strong> tarafından geliştirilmekte ve yayımlanmaktadır.
+        </p>
+        <ul>
+          <li><strong>Yayımcı Şirket:</strong> StellarSoft</li>
+          <li><strong>E-posta:</strong> contact@stellarsoft.com</li>
+          <li><strong>WhatsApp:</strong> Doğrudan teknik ve ticari destek</li>
+          <li><strong>Hedef İşletim Sistemi:</strong> Windows 10, Windows 11 (64-bit)</li>
+        </ul>
+
+        <h2>2. Fikri Mülkiyet</h2>
+        <p>
+          Bu web sitesinde ve Utopia POS yazılımında yer alan tüm ticari markalar, logolar, arayüz tasarımları, kaynak kodları ve metin içerikleri StellarSoft'un münhasır mülkiyetindedir.
+        </p>
+
+        <h2>3. Çevrimdışı Çalışma ve Sorumluluk</h2>
+        <p>
+          Utopia POS, perakendecinin donanımı üzerinde yerel ve bağımsız kullanım için sunulmaktadır. Yerel veritabanı yedeklerinin korunması ve yerel mali mevzuata uyum kullanıcının sorumluluğundadır.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .legal-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    color: var(--chrome-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--chrome-border);
+  }
+  .legal-content h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content ul {
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    color: var(--chrome-text-muted);
+  }
+  .legal-content ul {
+    padding-left: 1.5rem;
+  }
+</style>

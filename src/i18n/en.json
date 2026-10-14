@@ -1,0 +1,280 @@
+{
+  "nav": {
+    "skipToContent": "Skip to main content",
+    "features": "Features",
+    "problems": "Challenges & Solutions",
+    "gallery": "Software Screenshots",
+    "benefits": "Benefits",
+    "demo": "Guided Demo",
+    "trust": "Security & Trust",
+    "pricing": "Pricing",
+    "beforeAfter": "Before / After",
+    "start": "Getting Started",
+    "faq": "Frequently Asked Questions",
+    "downloadCta": "Get a Free Demo",
+    "themeLight": "Light Theme",
+    "themeDark": "Dark Theme",
+    "switchLang": "Languages"
+  },
+  "hero": {
+    "badge": "POS Software & Retail Management Solution",
+    "terminalCommand": "./pos --fast --retail",
+    "titlePrefix": "Your business under control,",
+    "titleHighlight": "every single evening.",
+    "subtitle": "Utopia empowers retailers and store owners to track stock, daily sales, and customer credit effortlessly—without Excel or paper notebooks.",
+    "target": "For retail shops, convenience stores, hardware, fashion, cosmetics, and independent boutiques",
+    "cta": "Get a Free Demo",
+    "requirements": "Windows 10 or 11 (64-bit) • 173 MB • 100% Offline & No internet needed",
+    "watchVideo": "Watch 90s Overview",
+    "exploreFeatures": "Explore Key Features",
+    "stat1Value": "15 min",
+    "stat1Label": "Setup time",
+    "stat2Value": "100%",
+    "stat2Label": "Offline & Local",
+    "stat3Value": "Free",
+    "stat3Label": "No commitment",
+    "cap1Title": "Touch POS",
+    "cap1Sub": "Ultra-fast checkout",
+    "cap2Title": "Customer Credit",
+    "cap2Sub": "Debt tracking",
+    "cap3Title": "Z Closure",
+    "cap3Sub": "Evening audit",
+    "cap4Title": "Local LAN",
+    "cap4Sub": "Multi-terminal network"
+  },
+  "problems": {
+    "tag": "Daily Retail Headaches",
+    "title": "3 Costly Problems Retailers Face Every Day",
+    "item1": {
+      "title": "Forgotten Customer Credit & Debts",
+      "problem": "Paper ledgers get lost, handwritten notes fade away, and customer debts remain unpaid.",
+      "solution": "Every customer has a dedicated digital profile showing their exact balance and complete transaction history."
+    },
+    "item2": {
+      "title": "Slow Checkout During Rush Hours",
+      "problem": "Mental math or pocket calculators create long queues and change calculation mistakes.",
+      "solution": "Scan barcodes or tap touch shortcuts: totals and change due are calculated instantly."
+    },
+    "item3": {
+      "title": "Lengthy & Stressful Evening Cash Audits",
+      "problem": "Spending 45 minutes counting bills without knowing if money is missing in the till.",
+      "solution": "A guided 3-minute Z-closure that calculates expected cash and flags any discrepancy immediately."
+    }
+  },
+  "features": {
+    "tag": "Built for Practical Retail",
+    "title": "5 Practical Tools to Save Time and Secure Your Sales",
+    "item1": {
+      "badge": "Credit Under Control",
+      "title": "Never Lose Track of Customer Credit Again",
+      "desc": "No more scattered paper notes or payment disputes. Record credit sales in two clicks and check any customer's debt in seconds.",
+      "points": [
+        "Real-time balance visible within 2 seconds per customer profile",
+        "Custom credit limits to prevent overdue debt buildup",
+        "Complete history of partial payments and cash installments"
+      ]
+    },
+    "item2": {
+      "badge": "Checkout Velocity",
+      "title": "Ring Up Every Customer in Under 10 Seconds",
+      "desc": "Smooth and responsive even during rush peak hours. Scan items with your barcode reader or tap quick buttons: total and change are computed automatically.",
+      "points": [
+        "Instant search by barcode, reference code, or item name",
+        "Automatic change calculation with zero errors",
+        "Instant printing of clean thermal receipts (80mm / 58mm)"
+      ]
+    },
+    "item3": {
+      "badge": "Stress-Free Evening",
+      "title": "Close Your Register in Just 3 Minutes",
+      "desc": "Know exactly what should be inside your cash drawer every night. The system calculates theoretical takings and compares them with physical count.",
+      "points": [
+        "Provisional X-audit available at any moment during the shift",
+        "Sequential and numbered daily Z-closure reports",
+        "Guided discrepancy detection with audit notes"
+      ]
+    },
+    "item4": {
+      "badge": "Secure Multi-Cashier",
+      "title": "Hand Over the Register with Total Peace of Mind",
+      "desc": "Each cashier operates on their own PIN-protected session. Monitor performance without granting access to sensitive management settings.",
+      "points": [
+        "Quick login via individual confidential PIN codes",
+        "Cashiers restricted to entering their own sales transactions",
+        "Item line voids and global settings reserved for store managers"
+      ]
+    },
+    "item5": {
+      "badge": "Local Autonomy",
+      "title": "Sell Non-Stop, Even Without an Internet Connection",
+      "desc": "Internet outage or network failure? Your sales continue uninterrupted. All your business data is hosted directly on your computer inside your store.",
+      "points": [
+        "Guaranteed 100% offline operation at all times",
+        "Local database installed directly on your PC",
+        "Zero mandatory cloud subscriptions: your data stays yours"
+      ]
+    }
+  },
+  "showcase": {
+    "tag": "Software Gallery",
+    "title": "A Clean, Ultra-Fast Interface Designed for Real Retail",
+    "subtitle": "Discover screenshots of the key screens and modules of Utopia POS software.",
+    "tab1": "Touch POS",
+    "tab2": "Customer Credit",
+    "tab3": "Z Closure",
+    "tab4": "Stock Management",
+    "tab5": "Multi-Terminal",
+    "placeholderLabel": "Official Utopia POS Screen Capture"
+  },
+  "benefits": {
+    "tag": "Tangible Benefits",
+    "title": "3 Major Benefits for Your Daily Business",
+    "subtitle": "Save valuable time every day, maintain crystal-clear visibility on margins, and eliminate management stress.",
+    "item1Title": "Daily Time Saved",
+    "item1Metric": "+40 min / day",
+    "item1Desc": "Ultra-fast barcode and touch checkout. No more calculators or searching through paper books; close your drawer in 3 minutes flat.",
+    "item2Title": "Total Financial Clarity",
+    "item2Metric": "100% Real-Time",
+    "item2Desc": "Know your revenue, gross margins, low stock alerts, and customer balances instantly without rough estimates.",
+    "item3Title": "Control & Peace of Mind",
+    "item3Metric": "0 Unexplained Gaps",
+    "item3Desc": "Eliminate change-giving mistakes and unexplained cash gaps. Go home every evening confident with an audited, archived cash drawer."
+  },
+  "demo": {
+    "tag": "Guided Walkthrough",
+    "title": "A Typical Retail Day with Utopia in 3 Steps",
+    "subtitle": "See how seamlessly Utopia integrates into your store routine from morning opening to evening closing.",
+    "step1Time": "Morning • 08:00",
+    "step1Title": "Secure Register Login",
+    "step1Desc": "Staff sign-in in 3 seconds via PIN code. Starting float validated, register ready for the first customers.",
+    "step2Time": "Daytime • Continuous",
+    "step2Title": "Fluid Checkout & Credit Handling",
+    "step2Desc": "Fast barcode scan, automatic change calculation, hold-ticket feature, and one-click customer credit allocation.",
+    "step3Time": "Evening • 20:00",
+    "step3Title": "Z Closure & Balanced Audit",
+    "step3Desc": "Daily Z report printed in 3 minutes showing cash, card, credit totals, and exact variance. Clean books every night.",
+    "cta": "Get a Free Demo"
+  },
+  "trust": {
+    "tag": "Security & Confidence",
+    "title": "Engineered to Protect Your Business",
+    "subtitle": "A robust POS system that guarantees absolute data privacy and foolproof checkout security.",
+    "item1Title": "100% Offline & Private Data",
+    "item1Badge": "Zero Cloud",
+    "item1Desc": "All your business records remain strictly on your local PC in your store. Zero cloud dependence, zero risk of data leakage.",
+    "item2Title": "Cashier Roles & PIN Security",
+    "item2Badge": "Permissions",
+    "item2Desc": "Each team member has a unique PIN with customizable access rights. Voids, discounts, and deletions are traced.",
+    "item3Title": "Dedicated StellarSoft Support",
+    "item3Badge": "Active Support",
+    "item3Desc": "Dedicated technical support by your side: setup assistance, Excel product catalogue import, and fast guidance via WhatsApp."
+  },
+  "beforeAfter": {
+    "tag": "Comparison",
+    "title": "Paper Ledgers & Excel vs Utopia POS",
+    "manualCol": "Paper Ledgers or Excel",
+    "utopiaCol": "With Utopia POS",
+    "point1": {
+      "manual": "Searching for a customer's balance takes minutes flipping through notebook pages.",
+      "utopia": "Type customer name in 2 seconds: balance displayed immediately on screen."
+    },
+    "point2": {
+      "manual": "Frequent calculation errors on item prices and customer change.",
+      "utopia": "Automated totals down to the cent, accurate change calculation guaranteed."
+    },
+    "point3": {
+      "manual": "Approximated evening cash counts with lingering doubt about shrinkage or mistakes.",
+      "utopia": "Crystal-clear daily closure: actual till drawer matches recorded receipts."
+    }
+  },
+  "quickStart": {
+    "tag": "Quick Setup",
+    "title": "Up and Running in 15 Minutes",
+    "step1Title": "1. Download & Install",
+    "step1Desc": "Install Utopia on your Windows PC in less than 2 minutes.",
+    "step2Title": "2. Add Your Products",
+    "step2Desc": "Register your first items, customer accounts, and prices.",
+    "step3Title": "3. Start Selling Immediately",
+    "step3Desc": "Scan, print your first receipt, and get onboarding help on WhatsApp."
+  },
+  "pricing": {
+    "tag": "Clear Pricing",
+    "title": "A High-Return Investment for Your Store",
+    "subtitle": "Transparent and affordable package, with no recurring subscriptions and no hidden fees.",
+    "trialBadge": "Lifetime License",
+    "cta": "Request a Free Demo & Quote",
+    "feature1": "Lifetime software license for your POS terminal",
+    "feature2": "100% offline operation without internet connectivity",
+    "feature3": "Regular updates and software enhancements included",
+    "feature4": "Direct technical assistance from StellarSoft via WhatsApp",
+    "feature5": "Assistance importing your existing Excel product catalogue",
+    "customNote": "Need multiple networked terminals or hardware bundles (barcode scanner, thermal printer)? Contact us for a turnkey quote."
+  },
+  "testimonials": {
+    "tag": "Verified Reviews",
+    "title": "What Independent Retailers Say"
+  },
+  "faq": {
+    "tag": "Answers to Your Questions",
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "q": "How is Utopia installed on my computer?",
+      "a": "Utopia is a native desktop application built for Windows 10 and 11 (64-bit). Simply download the installer (173 MB) and run it: setup takes under 2 minutes."
+    },
+    "q2": {
+      "q": "Does Utopia require an Internet connection to work?",
+      "a": "No. Utopia operates 100% offline. Your sales, stock, and customer accounts are managed locally on your computer with zero internet dependence."
+    },
+    "q3": {
+      "q": "Where is my store data stored?",
+      "a": "All your business data stays locally on your PC inside your store. No commercial data is sent to external cloud servers."
+    },
+    "q4": {
+      "q": "Which languages does Utopia support?",
+      "a": "The software and web application support multiple international languages including English, French, Turkish, German, Spanish, Italian, and Arabic with native RTL layout."
+    },
+    "q5": {
+      "q": "Which hardware peripherals can I connect to Utopia?",
+      "a": "Utopia is compatible with standard USB barcode scanners, touchscreens, cash drawers, and standard thermal receipt printers (80mm and 58mm)."
+    },
+    "q6": {
+      "q": "How does technical support and onboarding work?",
+      "a": "The StellarSoft team assists you directly via WhatsApp to guide your first startup and answer any questions."
+    }
+  },
+  "finalCta": {
+    "title": "Ready to See Utopia in Action in Your Store?",
+    "subtitle": "Request a guided demonstration or install Utopia in 2 minutes to get started today.",
+    "cta": "Get a Free Demo",
+    "requirements": "Windows 10 or 11 (64-bit) • No commitment • Dedicated StellarSoft Support"
+  },
+  "modal": {
+    "title": "Request a Free Utopia Demo",
+    "subtitle": "Fill in your details to schedule your demo or receive your direct installer download.",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "e.g. John",
+    "contact": "WhatsApp Number or Email",
+    "contactPlaceholder": "+1 234 567 8900 or contact@domain.com",
+    "storeType": "Type of Store",
+    "city": "City (optional)",
+    "cityPlaceholder": "e.g. London, Berlin, Istanbul...",
+    "consent": "I agree to receive onboarding messages regarding Utopia (via WhatsApp or email). I can unsubscribe anytime.",
+    "submit": "Request My Free Demo",
+    "submitting": "Submitting...",
+    "errorContact": "Please enter a valid phone number or email address.",
+    "errorName": "Please enter your first name.",
+    "successTitle": "Request Sent Successfully!",
+    "successSubtitle": "Our StellarSoft team is preparing your demonstration and software download link.",
+    "fallbackLink": "Click here to download the Windows installer directly.",
+    "whatsappFollowup": "Open WhatsApp Support Now",
+    "close": "Close"
+  },
+  "footer": {
+    "editor": "by StellarSoft",
+    "desc": "POS and retail management software for independent store owners and merchants.",
+    "whatsappSupport": "WhatsApp Support",
+    "legalNotice": "Legal Notice",
+    "privacyPolicy": "Privacy Policy",
+    "rights": "All rights reserved."
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "nav": {
+    "skipToContent": "Vai al contenuto principale",
+    "features": "Funzionalità",
+    "problems": "Problemi e Soluzioni",
+    "gallery": "Schermate del Software",
+    "benefits": "Vantaggi",
+    "demo": "Demo Guidata",
+    "trust": "Sicurezza e Fiducia",
+    "pricing": "Prezzi",
+    "beforeAfter": "Prima / Dopo",
+    "start": "Inizia Subito",
+    "faq": "Domande Frequenti",
+    "downloadCta": "Richiedi Demo Gratuita",
+    "themeLight": "Tema Chiaro",
+    "themeDark": "Tema Scuro",
+    "switchLang": "Lingue"
+  },
+  "hero": {
+    "badge": "Software Punto Vendita (POS) & Gestione per Negozi",
+    "terminalCommand": "./cassa --rapida --commercio",
+    "titlePrefix": "La tua attività sotto controllo,",
+    "titleHighlight": "ogni sera senza ammanchi.",
+    "subtitle": "Utopia aiuta commercianti e negozianti a gestire inventario, vendite quotidiane e crediti dei clienti ogni sera senza fogli Excel né registri cartacei.",
+    "target": "Per alimentari, ferramenta, moda, cosmesi, negozi al dettaglio e attività indipendenti",
+    "cta": "Richiedi Demo Gratuita",
+    "requirements": "Windows 10 o 11 (64-bit) • 173 MB • 100% Offline senza internet obbligatorio",
+    "watchVideo": "Guarda il video (90s)",
+    "exploreFeatures": "Scopri le funzionalità",
+    "stat1Value": "15 min",
+    "stat1Label": "Avvio rapido",
+    "stat2Value": "100%",
+    "stat2Label": "Offline & Locale",
+    "stat3Value": "Gratis",
+    "stat3Label": "Senza impegno",
+    "cap1Title": "Cassa Touch",
+    "cap1Sub": "Vendita ultra-rapida",
+    "cap2Title": "Crediti Clienti",
+    "cap2Sub": "Tracciamento debiti",
+    "cap3Title": "Chiusura Z",
+    "cap3Sub": "Riconciliazione serale",
+    "cap4Title": "Rete LAN Locale",
+    "cap4Sub": "Multi-cassa autonomo"
+  },
+  "problems": {
+    "tag": "Difficoltà Quotidiane nel Commercio",
+    "title": "3 problemi costosi che i commercianti affrontano ogni giorno",
+    "item1": {
+      "title": "Crediti e debiti dei clienti dimenticati",
+      "problem": "Il quaderno cartaceo si perde, i conti si cancellano e i debiti restano non riscossi.",
+      "solution": "Scheda digitale per ogni cliente con saldo esatto in tempo reale e cronologia completa degli acquisti."
+    },
+    "item2": {
+      "title": "Cassa rallentata nelle ore di punta",
+      "problem": "Calcolare a mente o con la calcolatrice crea code e frequenti errori di resto.",
+      "solution": "Scansiona il codice a barre o tocca lo schermo: totale e resto dovuto appaiono all'istante."
+    },
+    "item3": {
+      "title": "Chiusura di cassa serale lunga e stressante",
+      "problem": "Passare 45 minuti a contare banconote senza sapere se manca denaro nel cassetto.",
+      "solution": "Una chiusura Z guidata in 3 minuti che calcola il contante teorico ed evidenzia subito gli scostamenti."
+    }
+  },
+  "features": {
+    "tag": "Progettato per il lavoro sul campo",
+    "title": "5 strumenti concreti per risparmiare tempo e proteggere le vendite",
+    "item1": {
+      "badge": "Crediti sotto controllo",
+      "title": "Non perdere più nemmeno un centesimo di credito ai clienti",
+      "desc": "Basta foglietti volanti e contestazioni sui conti. Registra le vendite a credito in due clic e visualizza i debiti di ogni cliente in 2 secondi.",
+      "points": [
+        "Saldo in tempo reale visibile in 2 secondi per ogni scheda cliente",
+        "Limite di credito personalizzabile per prevenire insoluti",
+        "Cronologia completa di acconti e pagamenti parziali"
+      ]
+    },
+    "item2": {
+      "badge": "Velocità in cassa",
+      "title": "Servi ogni cliente in meno di 10 secondi",
+      "desc": "Fluido e reattivo anche nei momenti di massima affluenza. Scansiona i codici a barre o tocca i tasti rapidi: il resto è calcolato in automatico.",
+      "points": [
+        "Ricerca immediata per codice a barre, codice articolo o nome",
+        "Calcolo del resto garantito senza errori",
+        "Stampa immediata di scontrini termici chiari (80 mm / 58 mm)"
+      ]
+    },
+    "item3": {
+      "badge": "Fine giornata serena",
+      "title": "Chiudi la tua cassa in tutta tranquillità in 3 minuti",
+      "desc": "Sappi con precisione cosa deve esserci nel tuo cassetto contanti ogni sera. Il sistema confronta gli incassi teorici con il contante effettivo.",
+      "points": [
+        "Rapporto X provvisorio consultabile in qualsiasi momento della giornata",
+        "Chiusura Z giornaliera sequenziale e numerata",
+        "Rilevamento guidato delle differenze di cassa con giustificativo"
+      ]
+    },
+    "item4": {
+      "badge": "Multi-cassiere protetto",
+      "title": "Affida la cassa al personale con totale serenità",
+      "desc": "Ogni cassiere effettua l'accesso con il proprio codice PIN. Monitori le vendite senza concedere l'accesso alle impostazioni critiche del negozio.",
+      "points": [
+        "Accesso rapido con PIN personale in 3 secondi",
+        "Cassieri limitati all'inserimento delle sole proprie vendite",
+        "Storni e impostazioni sensibili riservati al titolare"
+      ]
+    },
+    "item5": {
+      "badge": "Autonomia locale",
+      "title": "Vendi senza interruzioni, anche senza connessione internet",
+      "desc": "Guasto di rete o interruzione internet? Le vendite continuano senza rallentamenti. Tutti i dati risiedono sul tuo computer in negozio.",
+      "points": [
+        "Funzionamento garantito 100% offline",
+        "Database locale installato direttamente sul tuo PC",
+        "Nessun abbonamento cloud obbligatorio: i tuoi dati restano tuoi"
+      ]
+    }
+  },
+  "showcase": {
+    "tag": "Galleria del Software",
+    "title": "Un'interfaccia chiara, veloce e concepita per il bancone",
+    "subtitle": "Scopri le schermate principali e i moduli operativi del software Utopia POS.",
+    "tab1": "Cassa Touch",
+    "tab2": "Crediti Clienti",
+    "tab3": "Chiusura Z",
+    "tab4": "Gestione Magazzino",
+    "tab5": "Multi-Postazione",
+    "placeholderLabel": "Cattura schermata ufficiale Utopia POS"
+  },
+  "benefits": {
+    "tag": "Vantaggi Concreti",
+    "title": "3 vantaggi principali per la tua attività quotidiana",
+    "subtitle": "Risparmia tempo ogni giorno, mantieni piena visibilità sui margini ed elimina lo stress di gestione.",
+    "item1Title": "Tempo Risparmiato Ogni Giorno",
+    "item1Metric": "+40 min / giorno",
+    "item1Desc": "Incasso ultra-rapido con lettore e schermo touch. Niente calcolatrici né ricerche su registri cartacei; chiusura serale in 3 minuti netti.",
+    "item2Title": "Piena Chiarezza Finanziaria",
+    "item2Metric": "100% in Tempo Reale",
+    "item2Desc": "Conosci all'istante fatturato, margini effettivi, prodotti sottoscorta e debiti esatti di ogni cliente senza stime approssimative.",
+    "item3Title": "Controllo & Serenità",
+    "item3Metric": "0 Ammanchi Inaspettati",
+    "item3Desc": "Elimina errori di resto e ammanchi misteriosi nel cassetto. Torna a casa ogni sera con una cassa verificata e archiviata."
+  },
+  "demo": {
+    "tag": "Percorso Guidato",
+    "title": "Una giornata tipo con Utopia in 3 passaggi",
+    "subtitle": "Guarda come Utopia si inserisce naturalmente nella vita del tuo negozio, dal mattino alla chiusura.",
+    "step1Time": "Mattina • 08:00",
+    "step1Title": "Apertura Cassa Protetta",
+    "step1Desc": "Login rapido con PIN in 3 secondi. Fondo cassa iniziale confermato, postazione pronta per i primi clienti.",
+    "step2Time": "Giorno • Continuo",
+    "step2Title": "Vendite Fluide & Conti Sospesi",
+    "step2Desc": "Scansione rapida barcode, resto automatico, scontrino in attesa e assegnazione del credito cliente con un gesto.",
+    "step3Time": "Sera • 20:00",
+    "step3Title": "Chiusura Z e Bilancio Senza Errori",
+    "step3Desc": "Report Z stampato in 3 minuti con riepilogo di contanti, carte, crediti e scostamenti. Conti perfetti ogni sera.",
+    "cta": "Richiedi Demo Gratuita"
+  },
+  "trust": {
+    "tag": "Sicurezza & Riservatezza",
+    "title": "Progettato per proteggere la tua attività",
+    "subtitle": "Un software robusto che tutela la riservatezza dei tuoi dati commerciali e la sicurezza degli incassi.",
+    "item1Title": "100% Offline & Dati Protetti",
+    "item1Badge": "Zero Cloud",
+    "item1Desc": "Tutti i tuoi dati commerciali restano esclusivamente sul tuo PC in negozio. Nessuna dipendenza da internet, nessun rischio cloud.",
+    "item2Title": "Ruoli Cassieri & Sicurezza PIN",
+    "item2Badge": "Permessi",
+    "item2Desc": "Ogni dipendente ha un proprio PIN con permessi personalizzati. Storni e sconti sono tracciati per evitare sorprese.",
+    "item3Title": "Supporto Diretto StellarSoft",
+    "item3Badge": "Assistenza Dedicata",
+    "item3Desc": "Un team tecnico al tuo fianco: assistenza all'installazione, importazione del catalogo Excel e supporto rapido su WhatsApp."
+  },
+  "beforeAfter": {
+    "tag": "Confronto",
+    "title": "Quaderno cartaceo o Excel vs Utopia POS",
+    "manualCol": "Con quaderno o Excel",
+    "utopiaCol": "Con Utopia POS",
+    "point1": {
+      "manual": "Cercare il debito di un cliente richiede minuti sfogliando pagine cartacee.",
+      "utopia": "Nome cliente digitato in 2 secondi: saldo visibile all'istante sullo schermo."
+    },
+    "point2": {
+      "manual": "Frequenti errori di calcolo sui prezzi e sul resto da consegnare.",
+      "utopia": "Totale automatico al centesimo, resto corretto garantito."
+    },
+    "point3": {
+      "manual": "Conteggio serale incerto con continui dubbi su ammanchi o sviste.",
+      "utopia": "Chiusura giornaliera trasparente: il cassetto coincide esattamente con gli scontrini."
+    }
+  },
+  "quickStart": {
+    "tag": "Avvio Rapido",
+    "title": "Pronto all'uso in 15 minuti",
+    "step1Title": "1. Scarica e Installa",
+    "step1Desc": "Installa Utopia sul tuo PC Windows in meno di 2 minuti.",
+    "step2Title": "2. Inserisci i tuoi Prodotti",
+    "step2Desc": "Registra i tuoi primi articoli, prezzi e clienti abituali.",
+    "step3Title": "3. Inizia a Vendere Subito",
+    "step3Desc": "Scansiona, stampa il primo scontrino e ricevi supporto su WhatsApp."
+  },
+  "pricing": {
+    "tag": "Prezzi Trasparenti",
+    "title": "Un investimento redditizio per il tuo negozio",
+    "subtitle": "Formula chiara e accessibile, senza abbonamenti ricorrenti né costi nascosti.",
+    "trialBadge": "Licenza a Vita",
+    "cta": "Richiedi Demo & Preventivo",
+    "feature1": "Licenza a vita per la tua postazione di cassa",
+    "feature2": "Funzionamento 100% offline senza connessione internet",
+    "feature3": "Aggiornamenti ed evoluzioni software inclusi",
+    "feature4": "Assistenza tecnica diretta StellarSoft su WhatsApp",
+    "feature5": "Supporto per l'importazione del tuo catalogo prodotti Excel",
+    "customNote": "Hai bisogno di più casse in rete o di pacchetti hardware (lettore barcode, stampante termica)? Contattaci per un preventivo chiavi in mano."
+  },
+  "testimonials": {
+    "tag": "Recensioni Verificate",
+    "title": "Cosa dicono i commercianti di Utopia"
+  },
+  "faq": {
+    "tag": "Risposte alle Tue Domande",
+    "title": "Domande Frequenti",
+    "q1": {
+      "q": "Come si installa Utopia sul mio computer?",
+      "a": "Utopia è un'applicazione desktop per Windows 10 e 11 (64-bit). Scarica l'installer (173 MB) e avvialo: l'installazione richiede meno di 2 minuti."
+    },
+    "q2": {
+      "q": "Il software necessita di connessione internet per funzionare?",
+      "a": "No. Utopia funziona al 100% offline. Vendite, giacenze di magazzino e crediti clienti sono gestiti localmente sul tuo PC senza dipendenza da internet."
+    },
+    "q3": {
+      "q": "Dove vengono salvati i dati del mio negozio?",
+      "a": "Tutti i dati rimangono esclusivamente sul tuo computer all'interno del tuo punto vendita. Nessun dato commerciale viene inviato a server cloud remoti."
+    },
+    "q4": {
+      "q": "Quali lingue supporta Utopia?",
+      "a": "Il software e il sito supportano italiano, inglese, francese, turco, tedesco, spagnolo e arabo con impaginazione naturale RTL."
+    },
+    "q5": {
+      "q": "Quali periferiche posso collegare alla cassa?",
+      "a": "Utopia è compatibile con lettori barcode USB, schermi touchscreen, cassetti rendiresto e stampanti termiche standard (80 mm e 58 mm)."
+    },
+    "q6": {
+      "q": "Come funzionano assistenza e formazione?",
+      "a": "Il team StellarSoft ti assiste direttamente su WhatsApp per guidarti al primo avvio e rispondere a ogni tua domanda."
+    }
+  },
+  "finalCta": {
+    "title": "Pronto a vedere Utopia in azione nel tuo negozio?",
+    "subtitle": "Richiedi una dimostrazione guidata o installa Utopia in 2 minuti per iniziare subito.",
+    "cta": "Richiedi Demo Gratuita",
+    "requirements": "Windows 10 o 11 (64-bit) • Senza impegno • Supporto Diretto StellarSoft"
+  },
+  "modal": {
+    "title": "Richiedi una Demo Gratuita di Utopia",
+    "subtitle": "Inserisci i tuoi dati per concordare la tua demo o scaricare direttamente l'installer.",
+    "firstName": "Nome",
+    "firstNamePlaceholder": "Es: Marco",
+    "contact": "Numero WhatsApp o E-mail",
+    "contactPlaceholder": "+39 333 1234567 o contatto@dominio.it",
+    "storeType": "Settore del negozio",
+    "city": "Città (facoltativo)",
+    "cityPlaceholder": "Es: Roma, Milano, Napoli...",
+    "consent": "Accetto di ricevere messaggi di assistenza su Utopia (tramite WhatsApp o email). Posso disiscrivermi in qualsiasi momento.",
+    "submit": "Richiedi la Mia Demo",
+    "submitting": "Invio in corso...",
+    "errorContact": "Inserisci un numero di telefono o un indirizzo email valido.",
+    "errorName": "Inserisci il tuo nome.",
+    "successTitle": "Richiesta inviata con successo!",
+    "successSubtitle": "Il team StellarSoft sta preparando la tua demo e il link di download.",
+    "fallbackLink": "Clicca qui per scaricare direttamente l'installer Windows.",
+    "whatsappFollowup": "Apri subito il supporto su WhatsApp",
+    "close": "Chiudi"
+  },
+  "footer": {
+    "editor": "sviluppato da StellarSoft",
+    "desc": "Software di cassa e gestione commerciale per negozianti e commercianti indipendenti.",
+    "whatsappSupport": "Assistenza WhatsApp",
+    "legalNotice": "Note legali",
+    "privacyPolicy": "Informativa sulla privacy",
+    "rights": "Tutti i diritti riservati."
+  }
+}

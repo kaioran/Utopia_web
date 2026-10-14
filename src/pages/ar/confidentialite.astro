@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `سياسة الخصوصية • ${siteConfig.brand.name}`;
+const pageDesc = "سياسة حماية البيانات والخصوصية لبرنامج يوتوبيا لنقاط البيع والتسيير التجاري (StellarSoft).";
+---
+
+<BaseLayout locale="ar" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/ar/" class="back-link">→ العودة إلى الصفحة الرئيسية</a>
+
+      <h1 class="legal-title">سياسة الخصوصية وحماية البيانات</h1>
+      <p class="legal-meta">آخر تحديث : 11 أكتوبر 2026 • المطور والناشر : StellarSoft</p>
+
+      <div class="legal-content">
+        <h2>1. مبدأ الاستقلالية التامة (يعمل محلياً بدون إنترنت 100%)</h2>
+        <p>
+          تم تصميم برنامج يوتوبيا (Utopia POS) وفق مبدأ السيادة التامة على بياناتك التجارية. البرنامج يشتغل بالكامل على جهاز الكمبيوتر الخاص بك (نظام ويندوز)، وجميع بيانات المحل (السلع، الأسعار، المبيعات، سجلات الديون وأسماء الزبائن) تُحفظ محلياً على جهازك فقط ولا يتم إرسالها إلى أي خوادم سحابية خارجية.
+        </p>
+
+        <h2>2. البيانات المجمعة عبر هذا الموقع</h2>
+        <p>
+          عند طلب تحميل النسخة التجريبية أو التواصل معنا عبر النموذج :
+        </p>
+        <ul>
+          <li><strong>البيانات المطلوبة :</strong> الاسم الأول، رقم الهاتف (واتساب) أو البريد الإلكتروني، والنشاط التجاري والمدينة.</li>
+          <li><strong>الهدف :</strong> إرسال رابط التحميل المباشر للبرنامج، وتقديم الدعم الفني لمساعدتك على تثبيت البرنامج واستخدامه بنجاح.</li>
+          <li><strong>الموافقة الأخلاقية :</strong> خانة الموافقة غير محددة مسبقاً. يمكنك إلغاء اشتراكك في رسائل الدعم في أي وقت بمجرد إرسال كلمة "توقف" عبر واتساب.</li>
+        </ul>
+
+        <h2>3. خلو الموقع من أدوات التتبع المزعجة</h2>
+        <p>
+          موقعنا لا يحتوي على أدوات تتبع إعلانية متطفلة أو بيكسل فيسبوك يثقل التصفح عند التحميل الأولي للصفحة.
+        </p>
+
+        <h2>4. حقوقك والتواصل معنا</h2>
+        <p>
+          لديك الحق الكامل في تعديل أو حذف بيانات الاتصال الخاصة بك في أي وقت. لأي استفسار، تواصل مباشرة مع فريق StellarSoft عبر البريد الإلكتروني : <strong>contact@stellarsoft.com</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-text-muted);
+    margin-bottom: 2.5rem;
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--content-text-muted);
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    padding-right: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `আইনি নোটিশ • ${siteConfig.brand.name}`;
+const pageDesc = "ইউটোপিয়া পিওএস ও স্টেলারসফটের অফিসিয়াল আইনি তথ্য।";
+---
+
+<BaseLayout locale="bn" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/bn/" class="back-link">← মূল পাতায় ফিরুন</a>
+
+      <h1 class="legal-title">আইনি নোটিশ</h1>
+      <p class="legal-meta">প্রস্তুতকারক: স্টেলারসফট • সফটওয়্যার: ইউটোপিয়া পিওএস</p>
+
+      <div class="legal-content">
+        <h2>১. সফটওয়্যার ও ওয়েবসাইটের স্বত্বাধিকারী</h2>
+        <p>
+          ক্যাশিয়ার ও বাণিজ্যিক ব্যবস্থাপনা সফটওয়্যার <strong>ইউটোপিয়া পিওএস</strong> এবং এই ওয়েবসাইটটি তৈরি ও পরিচালনা করে <strong>স্টেলারসফট</strong>।
+        </p>
+        <ul>
+          <li><strong>কোম্পানি:</strong> স্টেলারসফট</li>
+          <li><strong>ইমেইল:</strong> contact@stellarsoft.com</li>
+          <li><strong>হোয়াটসঅ্যাপ সহায়তা:</strong> সরাসরি বাণিজ্যিক ও কারিগরি সেবা</li>
+          <li><strong>অপারেটিং সিস্টেম:</strong> উইন্ডোজ ১০, উইন্ডোজ ১১ (৬৪-বিট)</li>
+        </ul>
+
+        <h2>২. মেধা সম্পত্তি ও কপিরাইট</h2>
+        <p>
+          সকল ট্রেডমার্ক, লোগো, ইন্টারফেস ডিজাইন, সোর্স কোড এবং লিখিত বিষয়বস্তু স্টেলারসফটের একচ্ছত্র সম্পত্তি।
+        </p>
+
+        <h2>৩. অফলাইন ব্যবহার ও দায়িত্ব</h2>
+        <p>
+          ইউটোপিয়া পিওএস কম্পিউটারে স্থানীয় ব্যবহারের জন্য সরবরাহ করা হয়। ব্যবসায়িক ডেটার স্থানীয় ব্যাকআপ রাখা এবং স্থানীয় বাণিজ্যিক নিয়মাবলী মেনে চলার দায়িত্ব ব্যবসায়ীর নিজস্ব।
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--content-text);
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--content-text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content p {
+    color: var(--content-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: var(--content-text);
+  }
+</style>

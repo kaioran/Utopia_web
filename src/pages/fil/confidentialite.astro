@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Patakaran sa Pagkapribado • ${siteConfig.brand.name}`;
+const pageDesc = "Opisyal na patakaran sa pagkapribado ng Utopia POS mula sa StellarSoft.";
+---
+
+<BaseLayout locale="fil" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/fil/" class="back-link">← Bumalik sa simula</a>
+
+      <h1 class="legal-title">Patakaran sa Pagkapribado</h1>
+      <p class="legal-meta">Huling na-update: Oktubre 2026 • May-akda: StellarSoft</p>
+
+      <div class="legal-content">
+        <h2>1. Prinsipyong Zero Cloud (100% Offline at Lokal)</h2>
+        <p>
+          Ang Utopia POS ay nakatuntong sa ganap na soberanya ng iyong data. Ang aplikasyon ay buong tumatakbo sa iyong Windows computer. Ang iyong impormasyon sa negosyo (mga produkto, benta, resibo, kita, at utang ng suki) ay nananatili lamang sa iyong device at kailanman ay hindi ipinapadala sa mga panlabas na server.
+        </p>
+
+        <h2>2. Pangongolekta ng Data sa Website na Ito</h2>
+        <p>
+          Kapag humihingi ka ng libreng demo o nagda-download ng Utopia POS:
+        </p>
+        <ul>
+          <li><strong>Nakokolektang impormasyon:</strong> Pangalan, WhatsApp number o email, lungsod, at uri ng tindahan.</li>
+          <li><strong>Layunin:</strong> Upang maipadala ang link ng Windows installer at magbigay ng paunang tulong sa setup.</li>
+          <li><strong>Etikal na pagsang-ayon:</strong> Walang sapilitang check-box. Maaari kang mag-unsubscribe anumang oras sa pamamagitan ng simpleng mensahe.</li>
+        </ul>
+
+        <h2>3. Walang Advertising Trackers</h2>
+        <p>
+          Ang website na ito ay hindi naglo-load ng mga third-party advertising tracking pixel o cookies ng pagsubaybay.
+        </p>
+
+        <h2>4. Ang Iyong mga Karapatan</h2>
+        <p>
+          Mayroon kang permanenteng karapatan na ma-access, maiwasto, o maipabura ang iyong impormasyon. Makipag-ugnayan sa: <strong>contact@stellarsoft.com</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--content-text);
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--content-text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content p {
+    color: var(--content-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: var(--content-text);
+  }
+</style>

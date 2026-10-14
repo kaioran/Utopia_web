@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `गोपनीयता नीति • ${siteConfig.brand.name}`;
+const pageDesc = "यूटोपिया पीओएस और स्टेलरसॉफ्ट की आधिकारिक डेटा गोपनीयता नीति।";
+---
+
+<BaseLayout locale="hi" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/hi/" class="back-link">← मुख्य पृष्ठ पर वापस जाएं</a>
+
+      <h1 class="legal-title">गोपनीयता नीति</h1>
+      <p class="legal-meta">अंतिम अद्यतन: अक्टूबर 2026 • प्रकाशक: स्टेलरसॉफ्ट</p>
+
+      <div class="legal-content">
+        <h2>1. जीरो क्लाउड सिद्धांत (100% ऑफलाइन और लोकल)</h2>
+        <p>
+          यूटोपिया पीओएस आपके डेटा की संप्रभुता और पूर्ण गोपनीयता के सिद्धांत पर कार्य करता है। यह सॉफ्टवेयर पूरी तरह से आपके विंडोज कंप्यूटर पर चलता है। आपका कोई भी व्यापारिक डेटा (उत्पाद, बिक्री, रसीदें, मुनाफा और ग्राहकों की उधारी) कभी भी बाहरी सर्वर पर नहीं भेजा जाता है।
+        </p>
+
+        <h2>2. इस वेबसाइट पर डेटा संग्रह</h2>
+        <p>
+          जब आप मुफ्त डेमो का अनुरोध करते हैं या यूटोपिया डाउनलोड करते हैं:
+        </p>
+        <ul>
+          <li><strong>एकत्रित जानकारी:</strong> नाम, व्हाट्सएप नंबर या ईमेल, शहर और दुकान का प्रकार।</li>
+          <li><strong>उद्देश्य:</strong> आपको विंडोज इंस्टॉलर लिंक भेजना और प्रारंभिक सेटअप में मार्गदर्शन प्रदान करना।</li>
+          <li><strong>स्वैच्छिक सहमति:</strong> कोई जबरन सहमति नहीं। आप कभी भी एक संदेश भेजकर अपनी जानकारी हटवा सकते हैं।</li>
+        </ul>
+
+        <h2>3. कोई विज्ञापन ट्रैकर नहीं</h2>
+        <p>
+          हमारी वेबसाइट किसी भी प्रकार के तृतीय-पक्ष विज्ञापन ट्रैकिंग पिक्सल या उपयोगकर्ता ट्रैकिंग कुकीज का उपयोग नहीं करती है।
+        </p>
+
+        <h2>4. आपके अधिकार</h2>
+        <p>
+          आपको अपनी जानकारी में संशोधन या उसे हटाने का पूर्ण कानूनी अधिकार है। संपर्क करें: <strong>contact@stellarsoft.com</strong>।
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--content-text);
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--content-text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content p {
+    color: var(--content-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: var(--content-text);
+  }
+</style>

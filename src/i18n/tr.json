@@ -1,0 +1,280 @@
+{
+  "nav": {
+    "skipToContent": "Ana içeriğe atla",
+    "features": "Özellikler",
+    "problems": "Zorluklar ve Çözümler",
+    "gallery": "Yazılım Ekranları",
+    "benefits": "Kazanımlar",
+    "demo": "Rehberli Demo",
+    "trust": "Güvenlik ve Gizlilik",
+    "pricing": "Fiyatlandırma",
+    "beforeAfter": "Önce / Sonra",
+    "start": "Hızlı Başlangıç",
+    "faq": "Sıkça Sorulan Sorular",
+    "downloadCta": "Ücretsiz Demo Alın",
+    "themeLight": "Açık Tema",
+    "themeDark": "Koyu Tema",
+    "switchLang": "Diller"
+  },
+  "hero": {
+    "badge": "Hızlı Kasa & Perakende Satış Yönetim Sistemi",
+    "terminalCommand": "./pos --hizli --perakende",
+    "titlePrefix": "Mağazanız tam kontrol altında,",
+    "titleHighlight": "her akşam sıfır hata.",
+    "subtitle": "Utopia; perakendecilerin ve mağaza sahiplerinin stoklarını, günlük satışlarını ve veresiye bakiyelerini defter ya da Excel olmadan kolayca yönetmelerini sağlar.",
+    "target": "Süpermarketler, hırdavat, kozmetik, tekstil, bakkaliye ve tüm bağımsız perakende mağazaları için",
+    "cta": "Ücretsiz Demo Alın",
+    "requirements": "Windows 10 veya 11 (64-bit) • 173 MB • %100 İnternetsiz ve Yerel Çalışır",
+    "watchVideo": "90 Saniyelik Tanıtımı İzleyin",
+    "exploreFeatures": "Özellikleri Keşfedin",
+    "stat1Value": "15 dk",
+    "stat1Label": "Hızlı kurulum",
+    "stat2Value": "%100",
+    "stat2Label": "Çevrimdışı & Yerel",
+    "stat3Value": "Ücretsiz",
+    "stat3Label": "Taahhütsüz",
+    "cap1Title": "Dokunmatik Kasa",
+    "cap1Sub": "Işık hızında satış",
+    "cap2Title": "Müşteri Veresiye",
+    "cap2Sub": "Borç ve bakiye takibi",
+    "cap3Title": "Z Raporu",
+    "cap3Sub": "Akşam kasa denetimi",
+    "cap4Title": "Yerel Ağ (LAN)",
+    "cap4Sub": "Çoklu terminal desteği"
+  },
+  "problems": {
+    "tag": "Esnafın Günlük Zorlukları",
+    "title": "Mağaza Sahiplerine Pahalıya Mal Olan 3 Büyük Sorun",
+    "item1": {
+      "title": "Unutulan Müşteri Veresiyeleri ve Borçlar",
+      "problem": "Kağıt veresiye defterleri kaybolur, yazılar silinir ve alacaklar tahsil edilemez hale gelir.",
+      "solution": "Her müşterinin net bakiyesini ve tüm alışveriş geçmişini gösteren dijital müşteri kartı."
+    },
+    "item2": {
+      "title": "Yoğun Saatlerde Yavaşlayan Kasa ve Kuyruklar",
+      "problem": "Aklından ya da hesap makinesiyle hesaplamak kuyruklara ve para üstü hatalarına neden olur.",
+      "solution": "Barkod okutun veya ekrana dokunun: Genel toplam ve verilmesi gereken para üstü anında hesaplanır."
+    },
+    "item3": {
+      "title": "Akşam Saatlerce Süren Stresli Kasa Kapatma",
+      "problem": "Kasada para açığı olup olmadığını bilmeden paraları saymak için 45 dakika harcamak.",
+      "solution": "Teorik nakit tutarını hesaplayan ve farkları anında gösteren 3 dakikalık rehberli Z raporu."
+    }
+  },
+  "features": {
+    "tag": "Saha Deneyimiyle Geliştirildi",
+    "title": "Zaman Kazandıran ve Satışlarınızı Koruyan 5 Güçlü Araç",
+    "item1": {
+      "badge": "Veresiyeler Kontrol Altında",
+      "title": "Tek Bir Kuruş Veresiyeyi Bile Unutmayın",
+      "desc": "Uçuşan kağıtlara ve tutar tartışmalarına son. İki tıklamayla veresiye satış yapın ve her müşterinin güncel borcunu 2 saniyede görün.",
+      "points": [
+        "Müşteri kartında 2 saniyede anlık bakiye görüntüleme",
+        "Aşırı borçlanmayı önleyen özelleştirilebilir veresiye limiti",
+        "Tüm kısmi ödeme ve avans tahsilatlarının eksiksiz dökümü"
+      ]
+    },
+    "item2": {
+      "badge": "Satış Hızı",
+      "title": "Her Müşteriyi 10 Saniyeden Kısa Sürede Uğurlayın",
+      "desc": "En yoğun anlarda bile akıcı ve takılmasız. Ürünleri barkodla okutun veya favori kısayollara dokunun: Para üstü otomatik hesaplanır.",
+      "points": [
+        "Barkod, ürün kodu veya isme göre anında arama",
+        "Hatasız, garantili para üstü hesaplama",
+        "Termal fiş yazıcılarından (80mm / 58mm) anında baskı"
+      ]
+    },
+    "item3": {
+      "badge": "Huzurlu Gün Sonu",
+      "title": "Kasanızı Akşam Sadece 3 Dakikada Kapatın",
+      "desc": "Her akşam para çekmecenizde tam olarak ne kadar olması gerektiğini bilin. Sistem teorik tahsilatları sayılan fiziki nakitle karşılaştırır.",
+      "points": [
+        "Gün içinde istenildiği an alınabilen geçici X raporu",
+        "Sıralı ve numaralandırılmış resmi günlük Z raporu",
+        "Kasa farklarının gerekçeli ve açıklamalı tespiti"
+      ]
+    },
+    "item4": {
+      "badge": "Güvenli Kasiyer Yönetimi",
+      "title": "Kasanızı Çalışanlarınıza Gönül Rahatlığıyla Teslim Edin",
+      "desc": "Her kasiyer kendi PIN koduyla giriş yapar. Mağazanızın kritik mali ayarlarına erişim vermeden çalışanlarınızın satışlarını takip edin.",
+      "points": [
+        "Kişiye özel güvenli PIN koduyla 3 saniyede giriş",
+        "Kasiyerlerin yalnızca kendi satışlarını yapabilmesi kısıtlaması",
+        "Satış iptalleri ve genel ayarların yönetici onayına bağlanması"
+      ]
+    },
+    "item5": {
+      "badge": "Yerel Bağımsızlık",
+      "title": "İnternet Kesilse Bile Satışa Kesintisiz Devam Edin",
+      "desc": "Elektrik veya internet kesintisi mi oldu? Satışlarınız duraksamadan sürer. Tüm verileriniz mağazanızdaki bilgisayarda yerel olarak saklanır.",
+      "points": [
+        "%100 çevrimdışı (offline) çalışma garantisi",
+        "Doğrudan kendi bilgisayarınıza kurulan yerel veritabanı",
+        "Zorunlu bulut aboneliği yok: verileriniz tamamen sizde kalır"
+      ]
+    }
+  },
+  "showcase": {
+    "tag": "Yazılım Galerisi",
+    "title": "Saha İçin Tasarlanmış Sade, Hızlı ve Güçlü Arayüz",
+    "subtitle": "Utopia POS yazılımının gerçek ekran görüntülerini ve modüllerini inceleyin.",
+    "tab1": "Dokunmatik Kasa",
+    "tab2": "Müşteri Veresiye",
+    "tab3": "Z Raporu",
+    "tab4": "Stok Yönetimi",
+    "tab5": "Çoklu Terminal",
+    "placeholderLabel": "Utopia POS Resmi Ekran Görüntüsü"
+  },
+  "benefits": {
+    "tag": "Somut Kazanımlar",
+    "title": "Mağazanız İçin 3 Büyük Temel Kazanım",
+    "subtitle": "Her gün değerli vaktinizi kazanın, kâr marjlarınızı net görün ve yönetim stresini tamamen geride bırakın.",
+    "item1Title": "Günlük Zaman Tasarrufu",
+    "item1Metric": "+40 dk / gün",
+    "item1Desc": "Barkod ve dokunmatik ekranla ışık hızında kasa. Hesap makinelerine ve defter yaprakları aramaya son; gün sonu 3 dakikada hazır.",
+    "item2Title": "Tam Finansal Görünürlük",
+    "item2Metric": "%100 Anlık",
+    "item2Desc": "Cironuzu, net kârınızı, azalan stokları ve müşteri borçlarını tahmini değil kuruşu kuruşuna kesin olarak görün.",
+    "item3Title": "Kontrol ve İç Huzuru",
+    "item3Metric": "0 Açıklanamayan Açık",
+    "item3Desc": "Para üstü hatalarını ve kasa açıklarını ortadan kaldırın. Her akşam arşive kaydedilmiş denetimli kasayla evinize huzurla dönün."
+  },
+  "demo": {
+    "tag": "Adım Adım Yolculuk",
+    "title": "Utopia ile Örnek Bir İş Günü: 3 Adım",
+    "subtitle": "Utopia'nın sabah açılışından akşam kapanışına kadar mağazanıza nasıl kusursuz uyum sağladığını görün.",
+    "step1Time": "Sabah • 08:00",
+    "step1Title": "Güvenli Kasa Açılışı",
+    "step1Desc": "PIN kodu ile 3 saniyede giriş. Başlangıç kasa avansı onaylanır, sistem ilk müşteriler için hazırdır.",
+    "step2Time": "Gün Boyu • Kesintisiz",
+    "step2Title": "Akıcı Satış ve Veresiye Kaydı",
+    "step2Desc": "Hızlı barkod tarama, otomatik para üstü, fiş bekletme ve tek tuşla veresiye müşteri hesabına aktarma.",
+    "step3Time": "Akşam • 20:00",
+    "step3Title": "Z Raporu ve Sıfır Hata Kapanış",
+    "step3Desc": "Nakit, kart ve veresiye dökümünü içeren Z raporu 3 dakikada basılır. Hesaplarınız her akşam kusursuzdur.",
+    "cta": "Ücretsiz Demo Alın"
+  },
+  "trust": {
+    "tag": "Güvenlik & Gizlilik",
+    "title": "İşinizi Korumak İçin İnşa Edildi",
+    "subtitle": "Ticari verilerinizin gizliliğini ve kasa güvenliğinizi tavizsiz koruyan sağlam bir POS sistemi.",
+    "item1Title": "%100 Çevrimdışı ve Özel Veriler",
+    "item1Badge": "Sıfır Bulut",
+    "item1Desc": "Tüm ticari verileriniz sadece mağazanızdaki bilgisayarda saklanır. İnternet bağımlılığı yoktur, bulut sızıntısı riski bulunmaz.",
+    "item2Title": "Kasiyer Rolleri ve PIN Güvenliği",
+    "item2Badge": "Yetkilendirme",
+    "item2Desc": "Her çalışanın kendi PIN kodu ve özel yetkileri vardır. Fiş iptalleri ve indirimler denetim için kayıt altına alınır.",
+    "item3Title": "StellarSoft Doğrudan Desteği",
+    "item3Badge": "Özel Destek",
+    "item3Desc": "Yanınızda hazır teknik ekip: Kurulum desteği, Excel ürün listesi aktarımı ve WhatsApp üzerinden hızlı teknik yardım."
+  },
+  "beforeAfter": {
+    "tag": "Karşılaştırma",
+    "title": "Veresiye Defteri & Excel vs Utopia POS",
+    "manualCol": "Defter veya Excel ile",
+    "utopiaCol": "Utopia POS ile",
+    "point1": {
+      "manual": "Müşterinin borcunu bulmak için defter sayfalarını dakikalarca karıştırmak gerekir.",
+      "utopia": "Müşteri adı 2 saniyede yazılır: net bakiye anında ekranda belirir."
+    },
+    "point2": {
+      "manual": "Fiyatlarda ve para üstü hesaplarında sık sık hesaplama hataları yaşanır.",
+      "utopia": "Kuruşu kuruşuna otomatik genel toplam, garantili doğru para üstü."
+    },
+    "point3": {
+      "manual": "Unutulan kalemler veya açıklar konusunda sürekli şüpheyle akşam hesapları kapatılır.",
+      "utopia": "Net günlük kapanış: Kasa çekmecesi kesilen fişlerle birebir uyuşur."
+    }
+  },
+  "quickStart": {
+    "tag": "Hızlı Başlangıç",
+    "title": "15 Dakika İçinde Satışa Hazır",
+    "step1Title": "1. İndirin ve Kurun",
+    "step1Desc": "Utopia'yı Windows bilgisayarınıza 2 dakikada kolayca yükleyin.",
+    "step2Title": "2. Ürünlerinizi Ekleyin",
+    "step2Desc": "İlk ürünlerinizi, fiyatlarınızı ve müşteri kartlarınızı kaydedin.",
+    "step3Title": "3. Hemen Satışa Başlayın",
+    "step3Desc": "Barkodu okutun, ilk fişinizi basın ve WhatsApp üzerinden destek alın."
+  },
+  "pricing": {
+    "tag": "Şeffaf Fiyatlandırma",
+    "title": "Mağazanız İçin En Karlı Yatırım",
+    "subtitle": "Aylık yinelenen ücret veya gizli masraf içermeyen, şeffaf ve ekonomik paket.",
+    "trialBadge": "Kalıcı Lisans",
+    "cta": "Demo ve Fiyat Teklifi İsteyin",
+    "feature1": "Kasa terminaliniz için ömür boyu kalıcı lisans",
+    "feature2": "İnternet bağlantısı gerektirmeyen %100 çevrimdışı çalışma",
+    "feature3": "Yazılım güncellemeleri ve geliştirmeleri dahil",
+    "feature4": "WhatsApp üzerinden StellarSoft doğrudan teknik desteği",
+    "feature5": "Mevcut Excel ürün listenizin sisteme aktarım desteği",
+    "customNote": "Birden fazla kasa veya donanım paketi (barkod okuyucu, fiş yazıcı) için anahtar teslim teklif isteyebilirsiniz."
+  },
+  "testimonials": {
+    "tag": "Kullanıcı Yorumları",
+    "title": "Perakendeciler Utopia Hakkında Ne Diyor?"
+  },
+  "faq": {
+    "tag": "Sorularınızın Cevapları",
+    "title": "Sıkça Sorulan Sorular",
+    "q1": {
+      "q": "Utopia bilgisayarıma nasıl kurulur?",
+      "a": "Utopia, Windows 10 ve 11 (64-bit) için özel olarak geliştirilmiş yerel bir masaüstü yazılımıdır. Kurulum dosyasını (173 MB) indirip çalıştırmanız yeterlidir; işlem 2 dakikadan az sürer."
+    },
+    "q2": {
+      "q": "Yazılımın çalışması için internet bağlantısı gerekir mi?",
+      "a": "Hayır. Utopia tamamen çevrimdışı (offline) çalışır. Satışlarınız, stoklarınız ve müşteri hesaplarınız bilgisayarınızda yerel olarak yönetilir."
+    },
+    "q3": {
+      "q": "Mağaza verilerim nerede saklanıyor?",
+      "a": "Tüm ticari verileriniz sadece kendi bilgisayarınızda saklanır. Hiçbir ticari veri harici bulut sunucularına gönderilmez."
+    },
+    "q4": {
+      "q": "Utopia hangi dilleri destekliyor?",
+      "a": "Yazılım ve web sitesi; Türkçe, İngilizce, Fransızca, Almanca, İspanyolca, İtalyanca ve doğal RTL Arapça dillerini desteklemektedir."
+    },
+    "q5": {
+      "q": "Kasaya hangi çevre birimlerini bağlayabilirim?",
+      "a": "Utopia standart USB barkod okuyucular, dokunmatik monitörler, para çekmeceleri ve standart termal fiş yazıcıları (80mm ve 58mm) ile tam uyumludur."
+    },
+    "q6": {
+      "q": "Teknik destek ve eğitim süreci nasıl işliyor?",
+      "a": "StellarSoft ekibi, ilk kullanımınızdan itibaren WhatsApp üzerinden doğrudan rehberlik eder ve tüm sorularınızı yanıtlar."
+    }
+  },
+  "finalCta": {
+    "title": "Utopia'yı Mağazanızda Çalışırken Görmeye Hazır mısınız?",
+    "subtitle": "Rehberli bir demo talep edin veya hemen bugün başlamak için Utopia'yı 2 dakikada yükleyin.",
+    "cta": "Ücretsiz Demo Alın",
+    "requirements": "Windows 10 veya 11 (64-bit) • Taahhüt Yok • StellarSoft Uzman Desteği"
+  },
+  "modal": {
+    "title": "Ücretsiz Utopia Demosu Talep Edin",
+    "subtitle": "Demonuzu planlamak veya doğrudan kurulum dosyasını almak için bilgilerinizi girin.",
+    "firstName": "Adınız",
+    "firstNamePlaceholder": "Örn: Ahmet",
+    "contact": "WhatsApp Numarası veya E-posta",
+    "contactPlaceholder": "+90 5XX XXX XX XX veya iletisim@alanadi.com",
+    "storeType": "Mağaza Türü",
+    "city": "Şehir (İsteğe bağlı)",
+    "cityPlaceholder": "Örn: İstanbul, Ankara, İzmir...",
+    "consent": "Utopia ile ilgili destek mesajları almayı kabul ediyorum (WhatsApp veya e-posta ile). İstediğim zaman ayrılabilirim.",
+    "submit": "Ücretsiz Demomu Talep Et",
+    "submitting": "Gönderiliyor...",
+    "errorContact": "Lütfen geçerli bir telefon numarası veya e-posta adresi girin.",
+    "errorName": "Lütfen adınızı girin.",
+    "successTitle": "Talebiniz Başarıyla Alındı!",
+    "successSubtitle": "StellarSoft ekibimiz demonuzu ve doğrudan yazılım indirme bağlantısını hazırlıyor.",
+    "fallbackLink": "Doğrudan Windows kurulum dosyasını indirmek için buraya tıklayın.",
+    "whatsappFollowup": "Şimdi WhatsApp Desteğini Aç",
+    "close": "Kapat"
+  },
+  "footer": {
+    "editor": "StellarSoft tarafından geliştirildi",
+    "desc": "Bağımsız mağazalar ve perakendeciler için modern kasa ve ticari yönetim yazılımı.",
+    "whatsappSupport": "WhatsApp Desteği",
+    "legalNotice": "Yasal Uyarı",
+    "privacyPolicy": "Gizlilik Politikası",
+    "rights": "Tüm hakları saklıdır."
+  }
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01-connexion-caissier-pin",
+    "title": "Connexion Caissier & Contrôle PIN",
+    "category": "Sécurité & Accès",
+    "badge": "Contrôle d'Accès",
+    "description": "Interface de prise de poste avec clavier PIN tactile, sélection de caisse (Poste 1 à 5) et badges vendeurs sécurisés.",
+    "file": "/screens/01-connexion-caissier-pin.png"
+  },
+  {
+    "id": "02-dashboard-journal-ventes",
+    "title": "Tableau de Bord & Pilotage Général",
+    "category": "Gestion Générale",
+    "badge": "Vue Direction",
+    "description": "Vue d'ensemble du chiffre d'affaires, courbe des ventes en temps réel, alertes stocks et raccourcis métiers.",
+    "file": "/screens/02-dashboard-journal-ventes.png"
+  },
+  {
+    "id": "03-caisse-retail-delphi-classic",
+    "title": "Caisse Retail • Thème Delphi Classique",
+    "category": "Commerce & Retail",
+    "badge": "Retail Standard",
+    "description": "Caisse de vente haute productivité avec écran LCD ticket, recherche rapide d'articles, pavé numérique et encaissement multi-règlements.",
+    "file": "/screens/03-caisse-retail-delphi-classic.png"
+  },
+  {
+    "id": "04-caisse-retail-tactile-dark",
+    "title": "Caisse Retail • Thème Tactile Sombre",
+    "category": "Commerce & Retail",
+    "badge": "Mode Sombre",
+    "description": "Design tactile moderne optimisé pour les terminaux point de vente POS à écran tactile et environnements à éclairage tamisé.",
+    "file": "/screens/04-caisse-retail-tactile-dark.png"
+  },
+  {
+    "id": "05-caisse-boulangerie-snacking",
+    "title": "Caisse Boulangerie, Pâtisserie & Snacking",
+    "category": "Boulangerie & Snacking",
+    "badge": "Métier Boulangerie",
+    "description": "Touches tactiles visuelles pour baguettes, viennoiseries, formules midi sandwichs et rendu de monnaie express.",
+    "file": "/screens/05-caisse-boulangerie-snacking.png"
+  },
+  {
+    "id": "06-caisse-restaurant-plan-tables",
+    "title": "Caisse Restauration • Plan de Salles & Tables",
+    "category": "Restauration & Bar",
+    "badge": "Plan de Tables",
+    "description": "Disposition interactive des salles, tables en terrasse et bar, gestion des couverts, commandes en cours et notes séparées.",
+    "file": "/screens/06-caisse-restaurant-plan-tables.png"
+  },
+  {
+    "id": "07-caisse-tabac-presse-fdj",
+    "title": "Caisse Tabac, Presse & Loterie FDJ",
+    "category": "Tabac & Presse",
+    "badge": "Tabac & Loterie",
+    "description": "Accès direct paquets et cartouches x10, tickets de grattage FDJ, timbres fiscaux, dématérialisé et paiement rapide des gains joueurs.",
+    "file": "/screens/07-caisse-tabac-presse-fdj.png"
+  },
+  {
+    "id": "08-caisse-boucherie-primeur-balance",
+    "title": "Caisse Boucherie, Primeur & Balance",
+    "category": "Boucherie & Primeur",
+    "badge": "Pesée & Balance",
+    "description": "Interface connectée balance au gramme près, gestion du prix au kilo, codes-barres poids-prix et découpe boucherie.",
+    "file": "/screens/08-caisse-boucherie-primeur-balance.png"
+  },
+  {
+    "id": "09-caisse-salon-coiffure-planning",
+    "title": "Caisse Salon de Coiffure & Collaborateurs",
+    "category": "Coiffure & Beauté",
+    "badge": "Planning Salon",
+    "description": "Attribution des collaborateurs par prestation, forfaits coupe-couleur, planning des rendez-vous et pourboires.",
+    "file": "/screens/09-caisse-salon-coiffure-planning.png"
+  },
+  {
+    "id": "10-gestion-articles-stocks",
+    "title": "Gestion du Catalogue Articles & Alertes Stocks",
+    "category": "Catalogue & Stocks",
+    "badge": "Stocks & Prix",
+    "description": "Base de données articles avec codes-barres EAN-13, seuils d'alerte de rupture, marges, taux de TVA et gestion multi-rayons.",
+    "file": "/screens/10-gestion-articles-stocks.png"
+  },
+  {
+    "id": "11-gestion-clients-credits",
+    "title": "Fiches Clients & Suivi des Dettes (Kredy)",
+    "category": "Fichier Clients",
+    "badge": "Crédits & Fidélité",
+    "description": "Suivi du compte client, encours maximum autorisé, historique des achats au comptant et solde débiteur en direct.",
+    "file": "/screens/11-gestion-clients-credits.png"
+  },
+  {
+    "id": "12-pilotage-clotures-statistiques",
+    "title": "Hub de Pilotage, Clôtures Z & Statistiques Fiscales",
+    "category": "Pilotage & Clôture",
+    "badge": "Clôture Z Fiscale",
+    "description": "Édition du ticket Z de fin de journée, ventilation de TVA, calcul des écarts de caisse et conformité de caisse.",
+    "file": "/screens/12-pilotage-clotures-statistiques.png"
+  },
+  {
+    "id": "13-gestion-fournisseurs-achats",
+    "title": "Fournisseurs & Commandes d'Achats",
+    "category": "Achats & Fournisseurs",
+    "badge": "Réapprovisionnement",
+    "description": "Répertoire des fournisseurs, suivi des factures d'achat, commandes de réapprovisionnement et entrées de stock.",
+    "file": "/screens/13-gestion-fournisseurs-achats.png"
+  }
+]

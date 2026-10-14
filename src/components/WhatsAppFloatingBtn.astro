@@ -1,0 +1,108 @@
+---
+import type { SupportedLocale } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isRtl = locale === 'ar' || locale === 'ur';
+const isAr = locale === 'ar';
+const isUr = locale === 'ur';
+
+import { siteConfig } from '../config/site.config';
+const cleanPhone = siteConfig.contact.whatsappNumber.replace(/[^0-9]/g, '');
+const defaultWaMsg = isAr 
+  ? siteConfig.contact.whatsappDefaultMessageAr 
+  : (isUr ? "السلام علیکم، میں یوٹوپیا پی او ایس کے بارے میں جاننا چاہتا ہوں۔" : siteConfig.contact.whatsappDefaultMessageFr);
+
+const emailUrl = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent("Assistance Utopia POS")}`;
+const whatsappUrl = cleanPhone.length >= 8
+  ? `https://wa.me/${cleanPhone}?text=${encodeURIComponent(defaultWaMsg)}`
+  : emailUrl;
+---
+
+<a 
+  href={whatsappUrl} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="whatsapp-float-btn"
+  style={`position: fixed !important; bottom: 2rem !important; ${isRtl ? 'left: 2rem !important; right: auto !important;' : 'right: 2rem !important; left: auto !important;'} z-index: 99999 !important;`}
+  aria-label={isAr ? "تواصل معنا مباشرة عبر واتساب" : (isUr ? "واٹس ایپ پر رابطہ کریں" : "Assistance directe sur WhatsApp")}
+  title={isAr ? "مرافقة عبر واتساب" : (isUr ? "واٹس ایپ سپورٹ" : "Assistance WhatsApp")}
+>
+  <span class="whatsapp-ping-ring" aria-hidden="true"></span>
+  <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+  </svg>
+</a>
+
+<style>
+  .whatsapp-float-btn {
+    position: fixed !important;
+    bottom: 2rem !important;
+    right: 2rem !important;
+    left: auto !important;
+    z-index: 99999 !important;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #FFFFFF;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 15px rgba(37, 211, 102, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: whatsappFloat 4s ease-in-out infinite;
+  }
+
+  :global([dir="rtl"]) .whatsapp-float-btn {
+    right: auto !important;
+    left: 2rem !important;
+  }
+
+  .whatsapp-ping-ring {
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    opacity: 0;
+    animation: whatsappRing 3s cubic-bezier(0.1, 0.8, 0.2, 1) infinite;
+    pointer-events: none;
+  }
+
+  @keyframes whatsappRing {
+    0% { transform: scale(0.95); opacity: 0.85; }
+    50% { transform: scale(1.35); opacity: 0; }
+    100% { transform: scale(1.35); opacity: 0; }
+  }
+
+  @keyframes whatsappFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  .whatsapp-float-btn:hover {
+    animation-play-state: paused;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.65), 0 0 25px rgba(37, 211, 102, 0.5);
+  }
+
+
+  @media (max-width: 640px) {
+    .whatsapp-float-btn {
+      bottom: 1.25rem !important;
+      right: 1.25rem !important;
+      left: auto !important;
+      width: 50px;
+      height: 50px;
+    }
+
+    :global([dir="rtl"]) .whatsapp-float-btn {
+      right: auto !important;
+      left: 1.25rem !important;
+    }
+  }
+</style>

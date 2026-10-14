@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Legal Notice • ${siteConfig.brand.name}`;
+const pageDesc = "Official legal notice for Utopia POS software by StellarSoft.";
+---
+
+<BaseLayout locale="en" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/en/" class="back-link">← Return to Home</a>
+
+      <h1 class="legal-title">Legal Notice</h1>
+      <p class="legal-meta">Publisher: StellarSoft • Utopia POS</p>
+
+      <div class="legal-content">
+        <h2>1. Software & Website Publisher</h2>
+        <p>
+          The <strong>Utopia POS</strong> point-of-sale and retail management software and this website are published by <strong>StellarSoft</strong>.
+        </p>
+        <ul>
+          <li><strong>Company:</strong> StellarSoft</li>
+          <li><strong>Email:</strong> contact@stellarsoft.com</li>
+          <li><strong>WhatsApp:</strong> Direct commercial & technical assistance</li>
+          <li><strong>Target OS:</strong> Windows 10, Windows 11 (64-bit)</li>
+        </ul>
+
+        <h2>2. Intellectual Property</h2>
+        <p>
+          All trademarks, logos, interface mockups, source code, and textual contents on this website and within Utopia POS are the exclusive property of StellarSoft. Any unauthorized duplication or distribution is prohibited.
+        </p>
+
+        <h2>3. Local Offline Operation & Responsibility</h2>
+        <p>
+          Utopia POS is provided for autonomous local operation on the retailer's hardware. The merchant is responsible for maintaining regular local database backups and complying with local tax and accounting regulations.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .legal-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    color: var(--chrome-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--chrome-border);
+  }
+  .legal-content h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content ul {
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    color: var(--chrome-text-muted);
+  }
+  .legal-content ul {
+    padding-left: 1.5rem;
+  }
+</style>

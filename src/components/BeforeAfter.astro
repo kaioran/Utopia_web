@@ -1,0 +1,318 @@
+---
+interface Props {
+  locale: 'fr' | 'ar';
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+
+import fr from '../i18n/fr.json';
+import ar from '../i18n/ar.json';
+const t = isAr ? ar : fr;
+
+import { siteConfig } from '../config/site.config';
+const { beforeAfterMeasurements } = siteConfig;
+---
+
+<section class="before-after-section" id="avant-apres" aria-labelledby="before-after-title">
+  <div class="before-after-container">
+    <div class="section-header reveal">
+      <div class="terminal-badge">
+        <span class="pulse-dot"></span>
+        <span>&gt;_ ./comparatif --cahier --vs --utopia</span>
+      </div>
+      <h2 class="section-title" id="before-after-title">
+        {isAr ? "مع الدفتر وإكسيل مقابل " : "Avec le cahier ou Excel vs "}
+        <span class="text-gradient">{isAr ? "مع يوتوبيا" : "Avec Utopia"}</span>
+      </h2>
+    </div>
+
+    {/* Tableau comparatif Technova */}
+    <div class="comparison-table-wrapper reveal-scale">
+      <div class="comparison-table reveal-stagger">
+        {/* En-têtes */}
+        <div class="table-header-row">
+          <div class="th-col manual-header">
+            <span class="th-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </span>
+            <span>{t.beforeAfter.manualCol}</span>
+          </div>
+          <div class="th-col utopia-header">
+            <span class="th-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </span>
+            <span>{t.beforeAfter.utopiaCol}</span>
+          </div>
+        </div>
+
+        {/* Ligne 1 : Crédit & Dettes */}
+        <div class="table-content-row reveal interactive-card">
+          <div class="td-col manual-col">
+            <div class="row-indicator red">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <p>{t.beforeAfter.point1.manual}</p>
+          </div>
+          <div class="td-col utopia-col">
+            <div class="row-indicator green pulse-beacon-emerald">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <p>{t.beforeAfter.point1.utopia}</p>
+          </div>
+        </div>
+
+        {/* Ligne 2 : Encaissement & Monnaie */}
+        <div class="table-content-row reveal interactive-card">
+          <div class="td-col manual-col">
+            <div class="row-indicator red">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <p>{t.beforeAfter.point2.manual}</p>
+          </div>
+          <div class="td-col utopia-col">
+            <div class="row-indicator green pulse-beacon-emerald">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <p>{t.beforeAfter.point2.utopia}</p>
+          </div>
+        </div>
+
+        {/* Ligne 3 : Caisse du soir & Clôture */}
+        <div class="table-content-row reveal interactive-card">
+          <div class="td-col manual-col">
+            <div class="row-indicator red">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <p>{t.beforeAfter.point3.manual}</p>
+          </div>
+          <div class="td-col utopia-col">
+            <div class="row-indicator green pulse-beacon-emerald">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <p>{t.beforeAfter.point3.utopia}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Chronomètre / Mesures réelles (UNIQUEMENT si configuré) */}
+    {beforeAfterMeasurements.enabled && (
+      <div class="measurements-card reveal">
+        <div class="meas-item">
+          <span class="meas-lbl">{isAr ? "الوقت المستغرق للإغلاق يدوياً :" : "Temps de clôture manuelle :"}</span>
+          <span class="meas-val manual">{beforeAfterMeasurements.caisseClosingManualMinutes} min</span>
+        </div>
+        <div class="meas-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="meas-item">
+          <span class="meas-lbl">{isAr ? "مع إغلاق Z في يوتوبيا :" : "Avec clôture Z Utopia :"}</span>
+          <span class="meas-val utopia">{beforeAfterMeasurements.caisseClosingUtopiaMinutes} min</span>
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .before-after-section {
+    padding: 5rem 1.5rem;
+    background-color: var(--content-bg-alt);
+    transition: background-color var(--transition-normal);
+  }
+
+  .before-after-container {
+    max-width: 1050px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-cyan-hover);
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-border);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--content-text);
+    letter-spacing: -0.02em;
+  }
+
+  .comparison-table-wrapper {
+    background: var(--content-surface);
+    border: 1px solid var(--content-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .table-header-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--content-border);
+  }
+
+  .th-col {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .manual-header {
+    background: rgba(239, 68, 68, 0.07);
+    color: #DC2626;
+    border-inline-end: 1px solid var(--content-border);
+  }
+
+  .utopia-header {
+    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+  }
+
+  .table-content-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--content-border);
+    transition: background-color var(--transition-normal);
+  }
+
+  .table-content-row:hover {
+    background-color: var(--chrome-surface-hover);
+  }
+
+  .table-content-row:last-child {
+    border-bottom: none;
+  }
+
+  .td-col {
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .manual-col {
+    border-inline-end: 1px solid var(--content-border);
+    color: var(--content-text-muted);
+  }
+
+  .utopia-col {
+    color: var(--content-text);
+    font-weight: 600;
+    background: rgba(16, 185, 129, 0.02);
+  }
+
+  .row-indicator {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .row-indicator.red {
+    background: rgba(239, 68, 68, 0.15);
+    color: #DC2626;
+  }
+
+  .row-indicator.green {
+    background: rgba(16, 185, 129, 0.18);
+    color: #059669;
+  }
+
+  /* Chronomètres conditionnels */
+  .measurements-card {
+    margin-top: 2rem;
+    background: var(--content-surface);
+    border: 1px solid var(--content-border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .meas-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .meas-lbl {
+    font-size: 0.8rem;
+    color: var(--content-text-muted);
+  }
+
+  .meas-val {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+  }
+
+  .meas-val.manual { color: #DC2626; }
+  .meas-val.utopia { color: #10B981; }
+  .meas-arrow { font-size: 1.4rem; color: var(--accent-cyan); }
+
+  @media (max-width: 640px) {
+    .table-header-row, .table-content-row {
+      grid-template-columns: 1fr;
+    }
+    .manual-header, .manual-col {
+      border-inline-end: none;
+      border-bottom: 1px solid var(--content-border);
+    }
+    .section-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

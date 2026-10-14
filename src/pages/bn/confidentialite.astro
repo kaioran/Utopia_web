@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `গোপনীয়তা নীতি • ${siteConfig.brand.name}`;
+const pageDesc = "ইউটোপিয়া পিওএস ও স্টেলারসফটের অফিসিয়াল ডেটা গোপনীয়তা নীতি।";
+---
+
+<BaseLayout locale="bn" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/bn/" class="back-link">← মূল পাতায় ফিরুন</a>
+
+      <h1 class="legal-title">গোপনীয়তা নীতি</h1>
+      <p class="legal-meta">সর্বশেষ আপডেট: অক্টোবর ২০২৬ • প্রস্তুতকারক: স্টেলারসফট</p>
+
+      <div class="legal-content">
+        <h2>১. জিরো ক্লাউড নীতি (১০০% অফলাইন ও লোকাল)</h2>
+        <p>
+          ইউটোপিয়া পিওএস আপনার তথ্যের পূর্ণ নিরাপত্তার ওপর ভিত্তি করে গঠিত। এই সফটওয়্যার সম্পূর্ণভাবে আপনার উইন্ডোজ কম্পিউটারে চলে। আপনার দোকানের কোনো বাণিজ্যিক তথ্য (পণ্য, বিক্রি, রসিদ, লাভ ও গ্রাহকের বাকি) বাইরের কোনো সার্ভারে যায় না।
+        </p>
+
+        <h2>২. এই ওয়েবসাইটে ডেটা সংগ্রহ</h2>
+        <p>
+          যখন আপনি ফ্রি ডেমো অনুরোধ করেন বা ইউটোপিয়া ডাউনলোড করেন:
+        </p>
+        <ul>
+          <li><strong>সংগৃহীত তথ্য:</strong> নাম, হোয়াটসঅ্যাপ নম্বর বা ইমেইল, শহর এবং দোকানের ধরণ।</li>
+          <li><strong>উদ্দেশ্য:</strong> আপনাকে উইন্ডোজ ইনস্টলার লিংক পাঠানো এবং প্রাথমিক সেটআপে সহায়তা প্রদান।</li>
+          <li><strong>স্বেচ্ছায় সম্মতি:</strong> কোনো জোরপূর্বক সম্মতি নেই। আপনি যেকোনো সময় একটি মেসেজ পাঠিয়ে আপনার তথ্য মুছে ফেলতে পারেন।</li>
+        </ul>
+
+        <h2>৩. কোনো বিজ্ঞাপন ট্র্যাকার নেই</h2>
+        <p>
+          আমাদের ওয়েবসাইট কোনো থার্ড-পার্টি বিজ্ঞাপন ট্র্যাকিং পিক্সেল বা ব্যবহারকারী ট্র্যাকিং কুকিজ ব্যবহার করে না।
+        </p>
+
+        <h2>৪. আপনার অধিকার</h2>
+        <p>
+          আপনার তথ্যের সংশোধন বা মুছে ফেলার সম্পূর্ণ অধিকার রয়েছে। আমাদের সাথে যোগাযোগ করুন: <strong>contact@stellarsoft.com</strong>।
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--content-text);
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--content-text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content p {
+    color: var(--content-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: var(--content-text);
+  }
+</style>

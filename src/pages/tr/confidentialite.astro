@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Gizlilik Politikası • ${siteConfig.brand.name}`;
+const pageDesc = "StellarSoft tarafından geliştirilen Utopia POS veri koruma ve gizlilik politikası.";
+---
+
+<BaseLayout locale="tr" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/tr/" class="back-link">← Ana Sayfaya Dön</a>
+
+      <h1 class="legal-title">Gizlilik Politikası</h1>
+      <p class="legal-meta">Son Güncelleme: Ekim 2026 • Geliştirici: StellarSoft</p>
+
+      <div class="legal-content">
+        <h2>1. Sıfır Bulut Prensibi (%100 Çevrimdışı ve Yerel)</h2>
+        <p>
+          Utopia POS, mutlak veri egemenliği ilkesiyle tasarlanmıştır. Uygulama tamamen Windows bilgisayarınızda yerel olarak çalışır. Ticari verileriniz (ürün kataloğu, satışlar, fişler, kâr marjları, müşteri veresiyeleri) yalnızca yerel makinenizde saklanır ve asla harici sunuculara iletilmez.
+        </p>
+
+        <h2>2. Web Sitesinde Veri Toplama</h2>
+        <p>
+          Web sitemiz üzerinden demo talep ettiğinizde veya Utopia POS indirdiğinizde:
+        </p>
+        <ul>
+          <li><strong>Toplanan Veriler:</strong> Adınız, WhatsApp telefon numaranız veya e-posta adresiniz, şehir ve mağaza türünüz.</li>
+          <li><strong>Amaç:</strong> Doğrudan Windows kurulum bağlantısını iletmek ve ilk kurulumda teknik destek sağlamak.</li>
+          <li><strong>Açık Rıza:</strong> Önceden işaretlenmiş kutucuk yoktur. İstediğiniz an iletişimi sonlandırabilirsiniz.</li>
+        </ul>
+
+        <h2>3. Takip Çerezleri Yoktur</h2>
+        <p>
+          Web sitemiz ilk sayfa yüklemesinde herhangi bir üçüncü taraf reklam pikseli veya izleme kodu yüklemez.
+        </p>
+
+        <h2>4. Haklarınız</h2>
+        <p>
+          İletişim bilgilerinize erişme, düzeltme veya silme hakkına her zaman sahipsiniz. Doğrudan StellarSoft ekibiyle iletişime geçebilirsiniz: <strong>contact@stellarsoft.com</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .legal-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    color: var(--chrome-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--chrome-border);
+  }
+  .legal-content h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content ul {
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    color: var(--chrome-text-muted);
+  }
+  .legal-content ul {
+    padding-left: 1.5rem;
+  }
+</style>

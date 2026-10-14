@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import pt from '../../i18n/pt.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${pt.hero.titlePrefix} ${pt.hero.titleHighlight}`;
+const pageDesc = pt.hero.subtitle;
+---
+
+<BaseLayout locale="pt" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : Promessa + capturas reais + demo */}
+  <Hero locale="pt" />
+
+  {/* 02. Problemas → Soluções : Desafios diários do retalho */}
+  <Problems locale="pt" />
+
+  {/* 03. Software em imagens : Galeria de ecrãs reais */}
+  <ScreenShowcase locale="pt" />
+
+  {/* 04. Funcionalidades-chave : 5 blocos ilustrados */}
+  <Features locale="pt" />
+
+  {/* 05. Benefícios : Tempo, visibilidade, controlo */}
+  <Benefits locale="pt" />
+
+  {/* 06. Demonstração guiada : Um dia típico em 3 passos */}
+  <Demo locale="pt" />
+
+  {/* 07. Confiança : Segurança 100% local, perfis PIN, suporte */}
+  <Trust locale="pt" />
+  <Testimonials locale="pt" />
+
+  {/* 08. Tarifas : Pacote claro e transparente */}
+  <Pricing locale="pt" />
+
+  {/* 09. Perguntas frequentes : Respostas diretas */}
+  <Faq locale="pt" />
+
+  {/* 10. CTA final : Solicitar demonstração gratuita */}
+  <FinalCta locale="pt" />
+
+  {/* Modal interativo de demonstração e download */}
+  <DownloadModal client:load locale="pt" labels={pt.modal} />
+</BaseLayout>

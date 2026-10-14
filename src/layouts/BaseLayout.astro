@@ -1,0 +1,159 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloatingBtn from '../components/WhatsAppFloatingBtn.astro';
+import { antiFlashScript } from '../scripts/theme';
+import '../styles/global.css';
+
+import type { SupportedLocale } from '../i18n';
+import { getTranslations } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+  title?: string;
+  description?: string;
+}
+
+const { locale, title, description } = Astro.props;
+const isRtl = locale === 'ar' || locale === 'ur';
+const isAr = locale === 'ar';
+const t = getTranslations(locale);
+
+import { siteConfig } from '../config/site.config';
+const pageTitle = title || (isAr 
+  ? `${siteConfig.brand.name} • ${siteConfig.brand.baselineAr}`
+  : `${siteConfig.brand.name} • ${siteConfig.brand.baselineFr}`);
+
+const pageDesc = description || (isAr
+  ? siteConfig.heroPromise.ar
+  : siteConfig.heroPromise.fr);
+---
+
+<!DOCTYPE html>
+<html lang={locale} dir={isRtl ? 'rtl' : 'ltr'}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDesc} />
+
+  {/* Canonical & Hreflang pour toutes les langues internationales */}
+  <link rel="canonical" href={`https://utopia-pos.dz/${locale}/`} />
+  <link rel="alternate" hreflang="fr" href="https://utopia-pos.dz/fr/" />
+  <link rel="alternate" hreflang="en" href="https://utopia-pos.dz/en/" />
+  <link rel="alternate" hreflang="pt" href="https://utopia-pos.dz/pt/" />
+  <link rel="alternate" hreflang="es" href="https://utopia-pos.dz/es/" />
+  <link rel="alternate" hreflang="it" href="https://utopia-pos.dz/it/" />
+  <link rel="alternate" hreflang="de" href="https://utopia-pos.dz/de/" />
+  <link rel="alternate" hreflang="tr" href="https://utopia-pos.dz/tr/" />
+  <link rel="alternate" hreflang="ar" href="https://utopia-pos.dz/ar/" />
+  <link rel="alternate" hreflang="ur" href="https://utopia-pos.dz/ur/" />
+  <link rel="alternate" hreflang="hi" href="https://utopia-pos.dz/hi/" />
+  <link rel="alternate" hreflang="bn" href="https://utopia-pos.dz/bn/" />
+  <link rel="alternate" hreflang="fil" href="https://utopia-pos.dz/fil/" />
+  <link rel="alternate" hreflang="x-default" href="https://utopia-pos.dz/fr/" />
+
+  {/* Open Graph & Réseaux Sociaux */}
+  <meta property="og:site_name" content="Utopia POS" />
+  <meta property="og:url" content={`https://utopia-pos.dz/${locale}/`} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDesc} />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://utopia-pos.dz/logo/logo-utopia-fond-sombre-transparent.png" />
+  <meta property="og:locale" content={isAr ? 'ar' : locale} />
+
+  {/* Twitter Cards */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDesc} />
+  <meta name="twitter:image" content="https://utopia-pos.dz/logo/logo-utopia-fond-sombre-transparent.png" />
+
+  {/* Favicon & Web App */}
+  <link rel="icon" type="image/png" href="/logo/logo-utopia-transparent.png" />
+  <meta name="theme-color" content="#F8FAFC" />
+
+  {/* Google Fonts CAIRO (avec toutes les graisses et alphabets Latin, Turc, Arabe) */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+  />
+
+  {/* Données Structurées Schema.org SoftwareApplication */}
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Utopia POS",
+    "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+    "applicationCategory": "BusinessApplication",
+    "fileSize": `${siteConfig.cta.installerSizeMb}MB`,
+    "softwareVersion": siteConfig.brand.version,
+    "description": pageDesc,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "DZD",
+      "description": isAr ? "نسخة تجريبية مجانية" : "Essai gratuit sans engagement"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": siteConfig.brand.editor,
+      "url": "https://utopia-pos.dz"
+    }
+  })} />
+
+  {/* Script Anti-Flash Inline OBLIGATOIRE */}
+  <script is:inline set:html={antiFlashScript} />
+</head>
+<body>
+  {/* Animations de fond Technova : Cyber-grille, Système solaire Canvas avec sphères 3D & Orbes */}
+  <div class="cyber-grid" aria-hidden="true"></div>
+  <canvas id="solar-canvas" aria-hidden="true"></canvas>
+  <div class="floating-orb orb-bg-1" aria-hidden="true"></div>
+  <div class="floating-orb orb-bg-2" aria-hidden="true"></div>
+  <div class="floating-orb orb-bg-3" aria-hidden="true"></div>
+
+  {/* Lien d'évitement accessibilité */}
+  <a href="#main-content" class="skip-link">
+    {t.nav.skipToContent}
+  </a>
+
+  {/* En-tête collant sombre */}
+  <Header locale={locale} />
+
+  {/* Contenu principal de la page */}
+  <main id="main-content">
+    <slot />
+  </main>
+
+  {/* Pied de page cadre sombre */}
+  <Footer locale={locale} />
+
+  {/* Bouton WhatsApp flottant discret */}
+  <WhatsAppFloatingBtn locale={locale} />
+
+  {/* Initialisation des scripts client-side */}
+  <script>
+    import { initRevealObserver } from '../scripts/reveal';
+    import { initSolarSystem } from '../scripts/solarSystem';
+
+    function initPageEffects() {
+      initRevealObserver();
+      initSolarSystem();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPageEffects);
+    } else {
+      initPageEffects();
+    }
+
+    // Support des rechargements ou navigations dynamiques
+    document.addEventListener('astro:page-load', initPageEffects);
+  </script>
+</body>
+</html>

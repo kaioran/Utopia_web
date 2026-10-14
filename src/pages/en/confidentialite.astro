@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Privacy Policy • ${siteConfig.brand.name}`;
+const pageDesc = "Data protection and privacy policy for Utopia POS by StellarSoft.";
+---
+
+<BaseLayout locale="en" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/en/" class="back-link">← Return to Home</a>
+
+      <h1 class="legal-title">Privacy Policy</h1>
+      <p class="legal-meta">Last updated: October 2026 • Publisher: StellarSoft</p>
+
+      <div class="legal-content">
+        <h2>1. Zero-Cloud Local Sovereignty (100% Offline)</h2>
+        <p>
+          Utopia POS is built on complete data sovereignty. The application runs locally on your Windows PC. Your store records (sales receipts, inventory, margins, customer debts, and contact info) remain exclusively on your device and are never sent to external servers.
+        </p>
+
+        <h2>2. Data Collection on This Website</h2>
+        <p>
+          When you request a demo or download Utopia POS through our website:
+        </p>
+        <ul>
+          <li><strong>Data Collected:</strong> First name, WhatsApp phone number or email, city, and store category.</li>
+          <li><strong>Purpose:</strong> To send you the installer download link and provide technical setup assistance.</li>
+          <li><strong>Ethical Consent:</strong> No pre-checked boxes. You can unsubscribe at any time by replying "STOP".</li>
+        </ul>
+
+        <h2>3. Zero Intrusive Tracking</h2>
+        <p>
+          This website does not load third-party ad pixels or tracking cookies on initial page load.
+        </p>
+
+        <h2>4. Your Rights</h2>
+        <p>
+          You have full rights to access, rectify, or delete your contact information. Contact our team anytime at: <strong>contact@stellarsoft.com</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .legal-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    color: var(--chrome-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--chrome-border);
+  }
+  .legal-content h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content ul {
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    color: var(--chrome-text-muted);
+  }
+  .legal-content ul {
+    padding-left: 1.5rem;
+  }
+</style>

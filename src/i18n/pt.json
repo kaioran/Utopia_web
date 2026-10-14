@@ -1,0 +1,280 @@
+{
+  "nav": {
+    "skipToContent": "Ir para o conteúdo principal",
+    "features": "Funcionalidades",
+    "problems": "Desafios & Soluções",
+    "gallery": "Software em Imagens",
+    "benefits": "Benefícios",
+    "demo": "Demonstração",
+    "trust": "Segurança & Confiança",
+    "pricing": "Preços",
+    "beforeAfter": "Antes / Depois",
+    "start": "Começar",
+    "faq": "Perguntas Frequentes",
+    "downloadCta": "Solicitar Demonstração Gratuita",
+    "themeLight": "Tema Claro",
+    "themeDark": "Tema Escuro",
+    "switchLang": "Idiomas"
+  },
+  "hero": {
+    "badge": "Software de Ponto de Venda e Gestão Comercial",
+    "terminalCommand": "./pos --rapido --comercio",
+    "titlePrefix": "O seu comércio sob controlo,",
+    "titleHighlight": "todas as noites.",
+    "subtitle": "O Utopia ajuda os comerciantes a gerir stocks, vendas diárias e crédito a clientes sem esforço, sem Excel nem cadernos de papel.",
+    "target": "Para lojas de retalho, mercearias, drogarias, cosméticos e comércio independente",
+    "cta": "Solicitar Demonstração Gratuita",
+    "requirements": "Windows 10 ou 11 (64-bit) • 173 MB • 100% Offline e Sem Internet",
+    "watchVideo": "Ver Vídeo (90s)",
+    "exploreFeatures": "Explorar Funcionalidades",
+    "stat1Value": "15 min",
+    "stat1Label": "Instalação rápida",
+    "stat2Value": "100%",
+    "stat2Label": "Offline & Local",
+    "stat3Value": "Grátis",
+    "stat3Label": "Sem compromisso",
+    "cap1Title": "Caixa Tátil",
+    "cap1Sub": "Venda ultra-rápida",
+    "cap2Title": "Crédito a Clientes",
+    "cap2Sub": "Gestão de dívidas",
+    "cap3Title": "Fecho Z",
+    "cap3Sub": "Controlo diário",
+    "cap4Title": "Rede LAN",
+    "cap4Sub": "Multi-postos autónomo"
+  },
+  "problems": {
+    "tag": "Dificuldades do Dia a Dia",
+    "title": "3 Problemas que Custam Caro aos Comerciantes",
+    "item1": {
+      "title": "Créditos de clientes esquecidos",
+      "problem": "O caderno de dívidas perde-se, as anotações apagam-se e os créditos ficam por cobrar.",
+      "solution": "Cada cliente possui uma ficha digital com o saldo exato e histórico completo de compras."
+    },
+    "item2": {
+      "title": "Atendimento lento nas horas de ponta",
+      "problem": "Calcular mentalmente ou na calculadora gera filas de espera e erros no troco.",
+      "solution": "Leia o código de barras ou toque no ecrã: o total e o troco surgem instantaneamente."
+    },
+    "item3": {
+      "title": "Fecho de caixa noturno longo e confuso",
+      "problem": "Passar 45 minutos a contar notas sem ter a certeza se falta dinheiro na gaveta.",
+      "solution": "Um fecho Z guiado em 3 minutos que calcula o saldo previsto e assinala diferenças."
+    }
+  },
+  "features": {
+    "tag": "Concebido para o Comércio Real",
+    "title": "5 Ferramentas Práticas para Ganhar Tempo e Proteger as suas Vendas",
+    "item1": {
+      "badge": "Crédito Sob Controlo",
+      "title": "Nunca Mais Perca o Rasto aos Créditos de Clientes",
+      "desc": "Acabaram-se as notas espalhadas e as dúvidas nos pagamentos. Registe vendas a crédito com dois cliques.",
+      "points": [
+        "Saldo em tempo real visível em 2 segundos por cliente",
+        "Limites de crédito personalizados para prevenir incumprimentos",
+        "Histórico completo de amortizações e pagamentos em dinheiro"
+      ]
+    },
+    "item2": {
+      "badge": "Velocidade de Caixa",
+      "title": "Atenda Cada Cliente em Menos de 10 Segundos",
+      "desc": "Fluido e responsivo mesmo em horas de grande afluência. Leia com leitor de código de barras ou atalhos táteis.",
+      "points": [
+        "Pesquisa instantânea por código de barras, referência ou nome",
+        "Cálculo automático do troco com erro zero",
+        "Impressão imediata de talões térmicos (80mm / 58mm)"
+      ]
+    },
+    "item3": {
+      "badge": "Noites Tranquilas",
+      "title": "Feche a sua Caixa em Apenas 3 Minutos",
+      "desc": "Saiba exatamente o que deve estar na gaveta todas as noites. O sistema calcula as receitas teóricas.",
+      "points": [
+        "Auditoria X provisória disponível a qualquer momento",
+        "Relatórios de fecho Z diários numerados e sequenciais",
+        "Deteção assistida de discrepâncias de caixa"
+      ]
+    },
+    "item4": {
+      "badge": "Multi-Operadores Seguro",
+      "title": "Passe o Turno com Total Tranquilidade",
+      "desc": "Cada operador trabalha na sua sessão individual protegida por código PIN confidencial.",
+      "points": [
+        "Início de sessão rápido através de PIN pessoal",
+        "Restrição de operadores ao registo de vendas",
+        "Anulações e configurações gerais reservadas ao gerente"
+      ]
+    },
+    "item5": {
+      "badge": "Autonomia Local",
+      "title": "Venda Sempre, Mesmo Sem Ligação à Internet",
+      "desc": "Falha de rede ou corte de internet? As suas vendas continuam sem interrupções.",
+      "points": [
+        "Funcionamento 100% offline garantido a qualquer hora",
+        "Base de dados local instalada diretamente no seu PC",
+        "Zero assinaturas obrigatórias na nuvem: os dados são seus"
+      ]
+    }
+  },
+  "showcase": {
+    "tag": "Galeria do Software",
+    "title": "Uma Interface Limpa e Ultra-Rápida para o Retalho Moderno",
+    "subtitle": "Conheça as capturas de ecrã reais dos módulos principais do Utopia POS.",
+    "tab1": "Caixa Tátil",
+    "tab2": "Crédito a Clientes",
+    "tab3": "Fecho Z",
+    "tab4": "Gestão de Stocks",
+    "tab5": "Multi-Postos",
+    "placeholderLabel": "Captura Oficial do Ecrã Utopia POS"
+  },
+  "benefits": {
+    "tag": "Benefícios Reais",
+    "title": "3 Grandes Vantagens para o Seu Negócio",
+    "subtitle": "Poupe tempo diariamente, tenha visibilidade total sobre as suas margens e elimine o stress da gestão.",
+    "item1Title": "Tempo Poupado Diariamente",
+    "item1Metric": "+40 min / dia",
+    "item1Desc": "Registo ultra-rápido por toque e código de barras. Sem calculadoras; feche a caixa em 3 minutos.",
+    "item2Title": "Total Clareza Financeira",
+    "item2Metric": "100% Tempo Real",
+    "item2Desc": "Conheça a sua faturação, margens de lucro, alertas de stock e saldos devedores sem estimativas.",
+    "item3Title": "Controlo & Tranquilidade",
+    "item3Metric": "0 Falhas de Caixa",
+    "item3Desc": "Elimine erros de troco e discrepâncias de caixa inexplicadas. Vá para casa com as contas certas."
+  },
+  "demo": {
+    "tag": "Demonstração Prática",
+    "title": "Um Dia Típico na Loja com o Utopia em 3 Passos",
+    "subtitle": "Veja como o Utopia se integra perfeitamente na rotina da sua loja, da abertura ao fecho.",
+    "step1Time": "Manhã • 08:00",
+    "step1Title": "Abertura Segura com PIN",
+    "step1Desc": "Início de sessão da equipa em 3 segundos. Fundo de caixa validado, terminal pronto a faturar.",
+    "step2Time": "Dia • Contínuo",
+    "step2Title": "Vendas Rápidas e Crédito Fluido",
+    "step2Desc": "Leitura veloz, cálculo de troco, retenção de talão e afetação de crédito num só clique.",
+    "step3Time": "Noite • 20:00",
+    "step3Title": "Fecho Z e Caixa Equilibrada",
+    "step3Desc": "Relatório Z impresso em 3 minutos com detalhes por numerário, cartão e crédito. Contas limpas.",
+    "cta": "Solicitar Demonstração Gratuita"
+  },
+  "trust": {
+    "tag": "Segurança & Confiança",
+    "title": "Desenvolvido para Proteger o Seu Negócio",
+    "subtitle": "Um sistema POS robusto que garante privacidade absoluta dos dados e segurança em cada venda.",
+    "item1Title": "100% Offline & Dados Privados",
+    "item1Badge": "Zero Cloud",
+    "item1Desc": "Todos os registos ficam gravados no seu PC dentro da sua loja. Sem risco de fuga de informação.",
+    "item2Title": "Permissões de Caixa e Código PIN",
+    "item2Badge": "Permissões",
+    "item2Desc": "Cada colaborador tem um PIN próprio com permissões ajustáveis. Descontos e anulações são rastreados.",
+    "item3Title": "Apoio Técnico StellarSoft",
+    "item3Badge": "Suporte Ativo",
+    "item3Desc": "Apoio técnico dedicado: ajuda na configuração inicial, importação do catálogo Excel e suporte via WhatsApp."
+  },
+  "beforeAfter": {
+    "tag": "Comparação",
+    "title": "Cadernos e Excel vs Utopia POS",
+    "manualCol": "Cadernos de Papel ou Excel",
+    "utopiaCol": "Com o Utopia POS",
+    "point1": {
+      "manual": "Procurar a dívida de um cliente demora minutos a folhear cadernos.",
+      "utopia": "Escreva o nome em 2 segundos: o saldo aparece imediatamente no ecrã."
+    },
+    "point2": {
+      "manual": "Erros frequentes no cálculo de preços e troco devolvido.",
+      "utopia": "Totais automáticos ao cêntimo com troco exato garantido."
+    },
+    "point3": {
+      "manual": "Fecho de caixa aproximado com dúvidas sobre faltas de dinheiro.",
+      "utopia": "Fecho diário cristalino: o dinheiro na gaveta coincide com os talões."
+    }
+  },
+  "quickStart": {
+    "tag": "Instalação Rápida",
+    "title": "Operacional em 15 Minutos",
+    "step1Title": "1. Descarregue e Instale",
+    "step1Desc": "Instale o Utopia no seu PC Windows em menos de 2 minutos.",
+    "step2Title": "2. Adicione os Artigos",
+    "step2Desc": "Registe os primeiros produtos, contas de clientes e preços.",
+    "step3Title": "3. Comece a Vender",
+    "step3Desc": "Leia códigos de barras, imprima o primeiro talão e receba apoio via WhatsApp."
+  },
+  "pricing": {
+    "tag": "Preço Transparente",
+    "title": "Um Investimento com Retorno Imediato",
+    "subtitle": "Pacote acessível e claro, sem mensalidades recorrentes e sem custos ocultos.",
+    "trialBadge": "Licença Vitalícia",
+    "cta": "Solicitar Orçamento & Demonstração",
+    "feature1": "Licença de software vitalícia para o seu terminal de caixa",
+    "feature2": "Funcionamento 100% offline sem necessidade de ligação à internet",
+    "feature3": "Atualizações regulares e melhorias contínuas incluídas",
+    "feature4": "Apoio técnico direto da StellarSoft através do WhatsApp",
+    "feature5": "Ajuda na importação do seu catálogo existente em Excel",
+    "customNote": "Necessita de múltiplos postos em rede ou equipamentos (leitor, impressora térmica)? Contacte-nos para um orçamento chave na mão."
+  },
+  "testimonials": {
+    "tag": "Opiniões Verificadas",
+    "title": "O que Dizem os Comerciantes"
+  },
+  "faq": {
+    "tag": "Respostas às Suas Dúvidas",
+    "title": "Perguntas Frequentes",
+    "q1": {
+      "q": "Como é instalado o Utopia no meu computador?",
+      "a": "O Utopia é uma aplicação nativa para Windows 10 e 11 (64-bit). Basta descarregar o instalador (173 MB) e executá-lo: a instalação demora menos de 2 minutos."
+    },
+    "q2": {
+      "q": "O Utopia precisa de Internet para funcionar?",
+      "a": "Não. O Utopia funciona 100% offline. As vendas, stocks e contas de clientes são geridos localmente no seu computador sem dependência da internet."
+    },
+    "q3": {
+      "q": "Onde ficam guardados os dados da minha loja?",
+      "a": "Todos os dados permanecem no seu computador dentro do seu estabelecimento. Nenhum dado comercial é transmitido para servidores na nuvem."
+    },
+    "q4": {
+      "q": "Quais os idiomas suportados pelo Utopia?",
+      "a": "O software e o portal web suportam múltiplos idiomas: Português, Inglês, Francês, Espanhol, Alemão, Italiano, Turco, Árabe, Urdu, Hindi, Bengali e Filipino."
+    },
+    "q5": {
+      "q": "Que periféricos posso ligar ao Utopia?",
+      "a": "O Utopia é compatível com leitores de código de barras USB, ecrãs táteis, gavetas de dinheiro e impressoras térmicas comuns (80mm e 58mm)."
+    },
+    "q6": {
+      "q": "Como funciona o suporte técnico e formação?",
+      "a": "A equipa StellarSoft acompanha-o diretamente através do WhatsApp para auxiliar no arranque e responder a todas as suas questões."
+    }
+  },
+  "finalCta": {
+    "title": "Pronto para Ver o Utopia a Funcionar na sua Loja?",
+    "subtitle": "Solicite uma demonstração guiada ou instale o Utopia em 2 minutos para começar hoje mesmo.",
+    "cta": "Solicitar Demonstração Gratuita",
+    "requirements": "Windows 10 ou 11 (64-bit) • Sem compromisso • Apoio Dedicado StellarSoft"
+  },
+  "modal": {
+    "title": "Solicitar Demonstração Gratuita do Utopia",
+    "subtitle": "Preencha os seus dados para agendar a demonstração ou receber o instalador.",
+    "firstName": "Primeiro Nome",
+    "firstNamePlaceholder": "ex: Manuel",
+    "contact": "Número de WhatsApp ou Email",
+    "contactPlaceholder": "+351 912 345 678 ou contacto@dominio.com",
+    "storeType": "Tipo de Comércio",
+    "city": "Cidade (opcional)",
+    "cityPlaceholder": "ex: Lisboa, Porto, Luanda...",
+    "consent": "Aceito receber informações sobre o Utopia (via WhatsApp ou email). Posso cancelar a qualquer momento.",
+    "submit": "Pedir a Minha Demonstração",
+    "submitting": "A enviar...",
+    "errorContact": "Por favor, introduza um número de telefone ou email válido.",
+    "errorName": "Por favor, introduza o seu primeiro nome.",
+    "successTitle": "Pedido Enviado com Sucesso!",
+    "successSubtitle": "A nossa equipa StellarSoft está a preparar a sua demonstração e link de instalação.",
+    "fallbackLink": "Clique aqui para descarregar o instalador Windows diretamente.",
+    "whatsappFollowup": "Falar no WhatsApp Agora",
+    "close": "Fechar"
+  },
+  "footer": {
+    "editor": "por StellarSoft",
+    "desc": "Software de ponto de venda e gestão comercial para comerciantes e lojas independentes.",
+    "whatsappSupport": "Apoio WhatsApp",
+    "legalNotice": "Aviso Legal",
+    "privacyPolicy": "Política de Privacidade",
+    "rights": "Todos os direitos reservados."
+  }
+}

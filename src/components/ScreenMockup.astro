@@ -1,0 +1,657 @@
+---
+import type { SupportedLocale } from '../i18n';
+
+interface Props {
+  featureId: 'feature1' | 'feature2' | 'feature3' | 'feature4' | 'feature5';
+  locale: SupportedLocale;
+  imageSrc?: string;
+}
+
+const { featureId, locale, imageSrc } = Astro.props;
+const isAr = locale === 'ar';
+---
+
+<div class={`mockup-window mockup-${featureId}`} id={`screenshot-slot-${featureId}`} aria-hidden="true">
+  {/* Chrome de la fenêtre Technova */}
+  <div class="mockup-header">
+    <div class="mockup-controls">
+      <span class="m-dot red"></span>
+      <span class="m-dot yellow"></span>
+      <span class="m-dot green"></span>
+    </div>
+    <div class="mockup-title">
+      {featureId === 'feature1' && (isAr ? "يوتوبيا • سجل ديون الزبائن والكريدي" : "Utopia • Fichier Clients & Suivi des Crédits")}
+      {featureId === 'feature2' && (isAr ? "يوتوبيا • شاشة البيع السريع والباركود" : "Utopia • Caisse Tactile & Scan Code-barres")}
+      {featureId === 'feature3' && (isAr ? "يوتوبيا • كشف الإغلاق اليومي Z المرقم" : "Utopia • Assistant Clôture Z Journalière")}
+      {featureId === 'feature4' && (isAr ? "يوتوبيا • حسابات البائعين ورمز PIN" : "Utopia • Gestion des Vendeurs & Sécurité PIN")}
+      {featureId === 'feature5' && (isAr ? "يوتوبيا • العمل المستقل 100% بدون إنترنت" : "Utopia • Mode Autonome 100% Hors-Ligne")}
+    </div>
+    <div class="mockup-status-badge">
+      <span class="m-pulse"></span>
+      <span>{isAr ? "محلي 100%" : "Local 100%"}</span>
+    </div>
+  </div>
+
+  {/* Contenu spécifique : Screenshot réel ou Maquette simulée */}
+  {imageSrc ? (
+    <div class="mockup-real-image-box">
+      <img src={imageSrc} alt={`Capture d'écran Utopia POS - ${featureId}`} class="mockup-real-img" loading="lazy" />
+    </div>
+  ) : (
+  <div class="mockup-body">
+    {/* BÉNÉFICE 1 : CRÉANCES CLIENTS */}
+    {featureId === 'feature1' && (
+      <div class="m-content credit-mockup">
+        <div class="m-client-topbar">
+          <div>
+            <div class="m-client-name">Khelil Mohamed</div>
+            <div class="m-client-sub">{isAr ? "الهاتف: 0550 12 34 56" : "Tél : 0550 12 34 56"}</div>
+          </div>
+          <div class="m-balance-card">
+            <span class="m-balance-lbl">{isAr ? "الرصيد المتبقي (دين) :" : "Solde restant dû :"}</span>
+            <span class="m-balance-num">12 400</span>
+          </div>
+        </div>
+
+        <div class="m-table-simple">
+          <div class="m-t-head">
+            <span>{isAr ? "التاريخ" : "Date"}</span>
+            <span>{isAr ? "العملية" : "Opération"}</span>
+            <span class="t-end">{isAr ? "المبلغ" : "Montant"}</span>
+            <span class="t-end">{isAr ? "الرصيد" : "Reste"}</span>
+          </div>
+          <div class="m-t-row">
+            <span>08/10/2026</span>
+            <span>{isAr ? "شراء بالدين (فاتورة CF-089)" : "Achat à crédit (CF-089)"}</span>
+            <span class="t-end text-red">+ 8 500</span>
+            <span class="t-end font-bold">18 400</span>
+          </div>
+          <div class="m-t-row highlight-green">
+            <span>10/10/2026</span>
+            <span>{isAr ? "تسديد جزئي نقداً (وصل REG-041)" : "Règlement partiel reçu (REG-041)"}</span>
+            <span class="t-end text-green">- 6 000</span>
+            <span class="t-end font-bold">12 400</span>
+          </div>
+        </div>
+      </div>
+    )}
+
+    {/* BÉNÉFICE 2 : VITESSE D'ENCAISSEMENT */}
+    {featureId === 'feature2' && (
+      <div class="m-content pos-mockup">
+        <div class="m-pos-grid">
+          <div class="m-ticket-left">
+            <div class="m-line-item">
+              <div>
+                <div class="font-bold">Couscous Sim 1kg</div>
+                <div class="m-dim">613000000001 • x3</div>
+              </div>
+              <div class="font-mono">420,00</div>
+            </div>
+            <div class="m-line-item">
+              <div>
+                <div class="font-bold">Article Standard 2</div>
+                <div class="m-dim">613000000002 • x2</div>
+              </div>
+              <div class="font-mono">560,00</div>
+            </div>
+          </div>
+          <div class="m-pos-right">
+            <div class="m-big-change-box">
+              <span class="m-change-lbl">{isAr ? "المبلغ المطلوب إرجاعه للزبون :" : "Monnaie à rendre :"}</span>
+              <span class="m-change-amount">1 020</span>
+              <span class="m-paid-hint">{isAr ? "الزبون دفع: 2 000 نقداً" : "Reçu : 2 000 en espèces"}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    {/* BÉNÉFICE 3 : CLÔTURE DE JOURNÉE Z */}
+    {featureId === 'feature3' && (
+      <div class="m-content closure-mockup">
+        <div class="m-z-header">
+          <div>
+            <span class="m-z-tag">CLÔTURE Z N° 000142</span>
+            <div class="m-dim">11/10/2026 • {isAr ? "الصندوق رقم 01" : "Poste de caisse 01"}</div>
+          </div>
+          <div class="m-z-zero-gap">
+            <span class="m-zero-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span class="m-zero-txt">{isAr ? "مطابقة تامة (فارق الصندوق: 0,00)" : "Écart de caisse : 0,00"}</span>
+          </div>
+        </div>
+
+        <div class="m-z-stats">
+          <div class="m-z-stat-box">
+            <span class="m-dim">{isAr ? "إجمالي مبيعات اليوم" : "Total Ventes Jour"}</span>
+            <span class="m-stat-val">48 750</span>
+          </div>
+          <div class="m-z-stat-box">
+            <span class="m-dim">{isAr ? "السيولة المحسوبة في الصندوق" : "Espèces théoriques"}</span>
+            <span class="m-stat-val">34 200</span>
+          </div>
+          <div class="m-z-stat-box">
+            <span class="m-dim">{isAr ? "السيولة المحسوبة فعلياً" : "Espèces comptées"}</span>
+            <span class="m-stat-val text-green">34 200</span>
+          </div>
+        </div>
+      </div>
+    )}
+
+    {/* BÉNÉFICE 4 : GESTION DES VENDEURS */}
+    {featureId === 'feature4' && (
+      <div class="m-content vendor-mockup">
+        <div class="m-vendor-split">
+          <div class="m-vendor-list">
+            <div class="m-vendor-card active">
+              <span class="m-v-avatar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <div>
+                <div class="font-bold">Amine (Caisse Matin)</div>
+                <div class="m-dim">{isAr ? "جلسة نشطة • رمز PIN مفعل" : "Session active • PIN actif"}</div>
+              </div>
+            </div>
+            <div class="m-vendor-card">
+              <span class="m-v-avatar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <div>
+                <div class="font-bold">Youcef (Caisse Après-midi)</div>
+                <div class="m-dim">{isAr ? "غير متصل" : "Déconnecté"}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="m-pin-preview">
+            <span class="m-lock-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </span>
+            <span class="font-bold">{isAr ? "صلاحيات محدودة ومحمية" : "Accès sécurisé par code"}</span>
+            <div class="m-pin-dots">
+              <span class="p-dot filled"></span>
+              <span class="p-dot filled"></span>
+              <span class="p-dot filled"></span>
+              <span class="p-dot filled"></span>
+            </div>
+            <span class="m-dim text-center">{isAr ? "منع مسح التذاكر أو تعديل الأسعار" : "Suppression et remises verrouillées"}</span>
+          </div>
+        </div>
+      </div>
+    )}
+
+    {/* BÉNÉFICE 5 : AUTONOMIE HORS-LIGNE */}
+    {featureId === 'feature5' && (
+      <div class="m-content offline-mockup">
+        <div class="m-offline-banner">
+          <div class="m-off-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold">{isAr ? "يعمل بكامل وظائفه دون انترنت" : "100% Fonctionnel sans internet"}</div>
+            <div class="m-dim">{isAr ? "قاعدة بيانات محلية على جهازك • سرعة فورية" : "Base MariaDB locale • Aucune latence réseau"}</div>
+          </div>
+        </div>
+
+        <div class="m-db-status-grid">
+          <div class="m-db-item">
+            <span class="m-db-label">{isAr ? "مكان حفظ البيانات" : "Stockage données"}</span>
+            <span class="m-db-val">C:\Utopia_DB (Sur votre PC)</span>
+          </div>
+          <div class="m-db-item">
+            <span class="m-db-label">{isAr ? "حالة الخادم المحلي" : "Serveur local"}</span>
+            <span class="m-db-val text-green">En ligne (127.0.0.1)</span>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+  )}
+</div>
+
+<style>
+  .mockup-window {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 229, 255, 0.08);
+    color: #F8FAFC;
+    font-size: 0.82rem;
+    backdrop-filter: blur(16px);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  }
+
+  .mockup-window:hover {
+    border-color: rgba(0, 229, 255, 0.4);
+    box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 229, 255, 0.18);
+  }
+
+  .mockup-real-image-box {
+    width: 100%;
+    overflow: hidden;
+    background: #030712;
+  }
+
+  .mockup-real-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Adaptation au thème clair */
+  :global(html[data-theme="light"]) .mockup-window {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    color: #0F172A;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.08);
+  }
+
+  .mockup-header {
+    background: rgba(30, 41, 59, 0.85);
+    padding: 0.65rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  :global(html[data-theme="light"]) .mockup-header {
+    background: #F1F5F9;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .mockup-controls {
+    display: flex;
+    gap: 5px;
+  }
+
+  .m-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+  .m-dot.red { background: #EF4444; }
+  .m-dot.yellow { background: #F59E0B; }
+  .m-dot.green { background: #10B981; }
+
+  .mockup-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #94A3B8;
+  }
+
+  :global(html[data-theme="light"]) .mockup-title {
+    color: #475569;
+  }
+
+  .mockup-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #34D399;
+  }
+
+  .m-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 6px #10B981;
+  }
+
+  .mockup-body {
+    padding: 1.1rem;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Utility classes */
+  .font-bold { font-weight: 800; }
+  .font-mono { font-family: monospace; }
+  .m-dim { font-size: 0.72rem; color: #64748B; }
+  .t-end { text-align: end; }
+  .text-red { color: #EF4444; font-weight: 800; }
+  .text-green { color: #10B981; font-weight: 800; }
+
+  /* Credit Mockup */
+  .m-client-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 0.75rem;
+  }
+
+  :global(html[data-theme="light"]) .m-client-topbar {
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .m-client-name {
+    font-weight: 800;
+    font-size: 0.88rem;
+  }
+
+  .m-balance-card {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+    text-align: end;
+  }
+
+  .m-balance-lbl {
+    display: block;
+    font-size: 0.65rem;
+    color: #F87171;
+    font-weight: 700;
+  }
+
+  .m-balance-num {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #EF4444;
+  }
+
+  .m-table-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .m-t-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #64748B;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .m-t-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.4rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  :global(html[data-theme="light"]) .m-t-row {
+    background: #F8FAFC;
+    border: 1px solid #F1F5F9;
+  }
+
+  .highlight-green {
+    background: rgba(16, 185, 129, 0.08) !important;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  /* POS Mockup */
+  .m-pos-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .m-line-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  :global(html[data-theme="light"]) .m-line-item {
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .m-big-change-box {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .m-change-lbl {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #059669;
+    text-transform: uppercase;
+  }
+
+  .m-change-amount {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #10B981;
+  }
+
+  .m-paid-hint {
+    font-size: 0.7rem;
+    color: #64748B;
+  }
+
+  /* Z Closure Mockup */
+  .m-z-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  :global(html[data-theme="light"]) .m-z-header {
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .m-z-tag {
+    font-family: monospace;
+    font-size: 0.82rem;
+    font-weight: 900;
+    color: var(--accent-cyan);
+  }
+
+  .m-z-zero-gap {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #10B981;
+  }
+
+  .m-z-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .m-z-stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  :global(html[data-theme="light"]) .m-z-stat-box {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+  }
+
+  .m-stat-val {
+    font-size: 0.95rem;
+    font-weight: 900;
+  }
+
+  /* Vendor Mockup */
+  .m-vendor-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .m-vendor-card {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 0.5rem;
+  }
+
+  :global(html[data-theme="light"]) .m-vendor-card {
+    border: 1px solid #E2E8F0;
+  }
+
+  .m-vendor-card.active {
+    background: rgba(0, 174, 239, 0.1);
+    border-color: rgba(0, 174, 239, 0.4);
+  }
+
+  .m-pin-preview {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  :global(html[data-theme="light"]) .m-pin-preview {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+  }
+
+  .m-pin-dots {
+    display: flex;
+    gap: 6px;
+    margin: 0.3rem 0;
+  }
+
+  .p-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .p-dot.filled {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 6px var(--accent-cyan);
+  }
+
+  /* Offline Mockup */
+  .m-offline-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(0, 174, 239, 0.1);
+    border: 1px solid rgba(0, 174, 239, 0.3);
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .m-off-icon {
+    font-size: 1.4rem;
+  }
+
+  .m-db-status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .m-db-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  :global(html[data-theme="light"]) .m-db-item {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+  }
+
+  .m-db-label {
+    font-size: 0.68rem;
+    color: #64748B;
+  }
+
+  .m-db-val {
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .mockup-real-image-box {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #030712;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  }
+
+  .mockup-real-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mockup-window:hover .mockup-real-img {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 520px) {
+    .m-pos-grid, .m-vendor-split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

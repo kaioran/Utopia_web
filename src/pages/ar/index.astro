@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import ar from '../../i18n/ar.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${ar.hero.titlePrefix} ${ar.hero.titleHighlight}`;
+const pageDesc = siteConfig.heroPromise.ar;
+---
+
+<BaseLayout locale="ar" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : Promesse + capture du logiciel + démonstration */}
+  <Hero locale="ar" />
+
+  {/* 02. Problème → solution : Faire reconnaître les difficultés du quotidien */}
+  <Problems locale="ar" />
+
+  {/* 03. Le logiciel en images : Montrer l'interface réelle */}
+  <ScreenShowcase locale="ar" />
+
+  {/* 04. Fonctionnalités clés : 3 à 5 blocs illustrés */}
+  <Features locale="ar" />
+
+  {/* 05. Bénéfices : Temps, visibilité, maîtrise */}
+  <Benefits locale="ar" />
+
+  {/* 06. Démonstration : Parcours interactif d'une journée type */}
+  <Demo locale="ar" />
+
+  {/* 07. Confiance : Sécurité, rôles, accompagnement */}
+  <Trust locale="ar" />
+  <Testimonials locale="ar" />
+
+  {/* 08. Tarifs ou offre : Prix clairs ou demande de devis */}
+  <Pricing locale="ar" />
+
+  {/* 09. FAQ : Répondre aux objections */}
+  <Faq locale="ar" />
+
+  {/* 10. CTA final : Obtenir une démonstration */}
+  <FinalCta locale="ar" />
+
+  {/* Modale interactive de démonstration & collecte éthique */}
+  <DownloadModal client:load locale="ar" labels={ar.modal} />
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import de from '../../i18n/de.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${de.hero.titlePrefix} ${de.hero.titleHighlight}`;
+const pageDesc = de.hero.subtitle;
+---
+
+<BaseLayout locale="de" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : Versprechen + echte Screenshots + Demo */}
+  <Hero locale="de" />
+
+  {/* 02. Probleme → Lösungen : Hürden des Alltags */}
+  <Problems locale="de" />
+
+  {/* 03. Software-Galerie : Echte Kassenoberflächen */}
+  <ScreenShowcase locale="de" />
+
+  {/* 04. Kernfunktionen : 5 Bento-Module */}
+  <Features locale="de" />
+
+  {/* 05. Vorteile : Zeit, Transparenz, Kontrolle */}
+  <Benefits locale="de" />
+
+  {/* 06. Geführte Demo : Ein Tag mit Utopia in 3 Schritten */}
+  <Demo locale="de" />
+
+  {/* 07. Vertrauen : Offline-Sicherheit, Rollen, Support */}
+  <Trust locale="de" />
+  <Testimonials locale="de" />
+
+  {/* 08. Preise : Transparentes Angebot */}
+  <Pricing locale="de" />
+
+  {/* 09. FAQ : Häufige Fragen & Antworten */}
+  <Faq locale="de" />
+
+  {/* 10. Finaler CTA : Kostenlose Demo erhalten */}
+  <FinalCta locale="de" />
+
+  {/* Interaktive Demo- und Download-Modal */}
+  <DownloadModal client:load locale="de" labels={de.modal} />
+</BaseLayout>

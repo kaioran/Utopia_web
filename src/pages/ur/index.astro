@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import ur from '../../i18n/ur.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${ur.hero.titlePrefix} ${ur.hero.titleHighlight}`;
+const pageDesc = ur.hero.subtitle;
+---
+
+<BaseLayout locale="ur" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : وعدہ + اصل اسکرینیں + ڈیمو */}
+  <Hero locale="ur" />
+
+  {/* 02. مشکلات → حل : دکانداروں کے روزمرہ چیلنجز */}
+  <Problems locale="ur" />
+
+  {/* 03. سافٹ ویئر اسکرینیں : اصل انٹرفیس گیلری */}
+  <ScreenShowcase locale="ur" />
+
+  {/* 04. اہم خصوصیات : 5 عملی ماڈیولز */}
+  <Features locale="ur" />
+
+  {/* 05. کاروباری فوائد : وقت، شفافیت، کنٹرول */}
+  <Benefits locale="ur" />
+
+  {/* 06. رہنما ڈیمو : 3 مراحل میں کاروباری دن */}
+  <Demo locale="ur" />
+
+  {/* 07. تحفظ و اعتماد : 100% لوکل سیکیورٹی، پن کوڈ، سپورٹ */}
+  <Trust locale="ur" />
+  <Testimonials locale="ur" />
+
+  {/* 08. قیمتیں : واضح اور شفاف پیکیج */}
+  <Pricing locale="ur" />
+
+  {/* 09. اکثر پوچھے جانے والے سوالات : مکمل وضاحت */}
+  <Faq locale="ur" />
+
+  {/* 10. فائنل کال ٹو ایکشن : مفت ڈیمو حاصل کریں */}
+  <FinalCta locale="ur" />
+
+  {/* انٹرایکٹو ڈیمو و ڈاؤن لوڈ موڈال */}
+  <DownloadModal client:load locale="ur" labels={ur.modal} />
+</BaseLayout>

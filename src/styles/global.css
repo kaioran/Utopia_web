@@ -1,0 +1,600 @@
+@import './tokens.css';
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Cairo', var(--font-body), sans-serif;
+  color: var(--content-text);
+  background-color: var(--content-bg);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+/* RTL (Arabe & Urdu) */
+[dir="rtl"] body {
+  font-family: 'Cairo', var(--font-arabic), sans-serif;
+  text-align: right;
+}
+
+/* Typographies spécifiques pour écritures régionales */
+[lang="bn"], [lang="bn"] body, [lang="bn"] button, [lang="bn"] a, [lang="bn"] p, [lang="bn"] span, [lang="bn"] h1, [lang="bn"] h2, [lang="bn"] h3 {
+  font-family: 'Noto Sans Bengali', 'Cairo', sans-serif !important;
+}
+
+[lang="hi"], [lang="hi"] body, [lang="hi"] button, [lang="hi"] a, [lang="hi"] p, [lang="hi"] span, [lang="hi"] h1, [lang="hi"] h2, [lang="hi"] h3 {
+  font-family: 'Noto Sans Devanagari', 'Cairo', sans-serif !important;
+}
+
+/* Typographie Cairo pour tous les éléments et textes */
+button, input, select, textarea, a, span, p, label, li, small, strong, b, em {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* Application stricte et prioritaire du font CAIRO (y compris #header > div > div > a.action-btn.lang-btn > span) */
+#header > div > div > a.action-btn.lang-btn > span,
+#header .action-btn.lang-btn,
+#header .action-btn.lang-btn span,
+.action-btn.lang-btn,
+.action-btn.lang-btn span,
+.lang-text,
+.lang-dropdown,
+.lang-dropdown * {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+/* Sécurisation du positionnement RTL du menu déroulant des langues */
+[dir="rtl"] #header .lang-dropdown,
+[dir="rtl"] .lang-dropdown {
+  right: 0 !important;
+  left: auto !important;
+}
+
+/* Focus visible accessible */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Lien d'évitement accessible */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--accent-cyan);
+  color: #070B1A;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  z-index: 10000;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Typographie Cairo pour titres */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Cairo', var(--font-heading), sans-serif;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+[dir="rtl"] h1, 
+[dir="rtl"] h2, 
+[dir="rtl"] h3, 
+[dir="rtl"] h4, 
+[dir="rtl"] .font-heading {
+  font-family: 'Cairo', var(--font-arabic), sans-serif;
+  letter-spacing: normal;
+}
+
+/* Boutons communs Technova */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--accent-gradient-btn);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 229, 255, 0.45);
+  border-color: var(--accent-cyan);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--chrome-surface);
+  backdrop-filter: blur(8px);
+  color: var(--chrome-text);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--chrome-border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.btn-secondary:hover {
+  background: var(--chrome-surface-hover);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.15);
+}
+
+:global(html[data-theme="dark"]) .btn-secondary:hover {
+  color: #FFFFFF;
+}
+
+/* Badge Terminal Technova */
+.terminal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--badge-text);
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 15px rgba(2, 132, 199, 0.08);
+  backdrop-filter: blur(10px);
+  direction: ltr !important;
+  unicode-bidi: isolate;
+}
+
+.terminal-badge .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Texte dégradé éclatant Technova */
+.text-gradient {
+  background: var(--accent-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Cartes Glassmorphism Technova */
+.tech-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(16px);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-border-hover);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Conteneur pour Screenshots du logiciel */
+.screenshot-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #0B1120;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.screenshot-frame:hover {
+  border-color: rgba(0, 229, 255, 0.5);
+}
+
+.screenshot-frame-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.screenshot-frame-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.screenshot-frame-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.screenshot-frame-dots .dot-red { background: #EF4444; }
+.screenshot-frame-dots .dot-yellow { background: #F59E0B; }
+.screenshot-frame-dots .dot-green { background: #10B981; }
+
+.screenshot-frame-title {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: #94A3B8;
+  letter-spacing: 0.02em;
+}
+
+.screenshot-frame-content {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
+}
+
+.screenshot-frame-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Bouton WhatsApp flottant */
+/* Bouton WhatsApp flottant circulaire compact */
+.whatsapp-float-btn {
+  position: fixed !important;
+  bottom: 2rem !important;
+  right: 2rem !important;
+  left: auto !important;
+  z-index: 99999 !important;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 15px rgba(37, 211, 102, 0.3);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  animation: whatsappFloat 4s ease-in-out infinite;
+}
+
+[dir="rtl"] .whatsapp-float-btn {
+  right: auto !important;
+  left: 2rem !important;
+}
+
+.whatsapp-ping-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  opacity: 0;
+  animation: whatsappRing 3s cubic-bezier(0.1, 0.8, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes whatsappRing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+@keyframes whatsappFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.whatsapp-float-btn:hover {
+  animation-play-state: paused;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.65), 0 0 25px rgba(37, 211, 102, 0.5);
+}
+
+/* ==========================================================================
+   ANIMATIONS DE RÉVÉLATION AU DÉFILEMENT (Scroll Reveal)
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+[dir="rtl"] .reveal-left {
+  transform: translateX(35px);
+}
+.reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+[dir="rtl"] .reveal-right {
+  transform: translateX(-35px);
+}
+.reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94) translateY(20px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Cascade échelonnée (Staggered Reveals) pour grilles et listes */
+.reveal-stagger > *:nth-child(1) { transition-delay: 0.04s; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 0.10s; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 0.22s; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 0.28s; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 0.34s; }
+.reveal-stagger > *:nth-child(7) { transition-delay: 0.40s; }
+.reveal-stagger > *:nth-child(8) { transition-delay: 0.46s; }
+
+/* ==========================================================================
+   MICRO-ANIMATIONS PERMANENTES & AMBIANCE DYNAMIQUE
+   ========================================================================== */
+
+/* 1. Flottement doux permanent des maquettes et cartes visuelles */
+.ambient-float {
+  animation: ambientFloat 7s ease-in-out infinite alternate;
+}
+.ambient-float-reverse {
+  animation: ambientFloatReverse 8s ease-in-out infinite alternate;
+}
+
+@keyframes ambientFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes ambientFloatReverse {
+  0% { transform: translateY(-6px); }
+  50% { transform: translateY(2px); }
+  100% { transform: translateY(-6px); }
+}
+
+/* 2. Pulsations lumineuses des balises d'état */
+.pulse-beacon {
+  animation: pulseBeacon 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.85;
+    box-shadow: 0 0 0 6px rgba(2, 132, 199, 0);
+  }
+}
+
+.pulse-beacon-emerald {
+  animation: pulseBeaconEmerald 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseBeaconEmerald {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.85;
+    box-shadow: 0 0 0 6px rgba(5, 150, 105, 0);
+  }
+}
+
+/* 3. Lueur radar d'appel à l'action pour bouton CTA */
+.btn-radar-glow {
+  position: relative;
+}
+.btn-radar-glow::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  border: 2px solid var(--accent-cyan);
+  opacity: 0;
+  animation: radarWave 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes radarWave {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.6;
+  }
+  35% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* 4. Effet de survol interactif 3D doux sur cartes */
+.interactive-card {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+.interactive-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Transition fluide et respect de base */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS DE FOND TECHNOVA (Canvas Système Solaire, Cyber Grid & Orbes)
+   ========================================================================== */
+
+#solar-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+  transition: opacity var(--transition-normal);
+}
+
+[data-theme="dark"] #solar-canvas {
+  opacity: 0.95;
+}
+
+.cyber-grid {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: cyberGridMove 25s linear infinite;
+}
+
+@keyframes cyberGridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.floating-orb {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--orb-color) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatOrb 8s ease-in-out infinite;
+}
+
+.orb-bg-1 {
+  width: 380px;
+  height: 380px;
+  top: 5%;
+  left: 2%;
+  animation-duration: 9s;
+}
+
+.orb-bg-2 {
+  width: 440px;
+  height: 440px;
+  top: 35%;
+  right: 2%;
+  animation-duration: 12s;
+  animation-delay: -3s;
+}
+
+.orb-bg-3 {
+  width: 320px;
+  height: 320px;
+  bottom: 8%;
+  left: 12%;
+  animation-duration: 10s;
+  animation-delay: -6s;
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-25px) translateX(20px); }
+  66% { transform: translateY(15px) translateX(-15px); }
+}
+
+/* Positionnement des couches de contenu au-dessus du fond animé */
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+

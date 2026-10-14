@@ -1,0 +1,158 @@
+---
+import type { SupportedLocale } from '../i18n';
+import { getTranslations } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+const t = getTranslations(locale);
+
+const ctaLabel = t.finalCta.cta;
+const requirements = t.finalCta.requirements;
+---
+
+<section class="final-cta-section" aria-labelledby="final-cta-title">
+  <div class="final-cta-halo halo-cyan" aria-hidden="true"></div>
+  <div class="final-cta-halo halo-purple" aria-hidden="true"></div>
+
+  <div class="final-cta-container reveal-scale">
+    <div class="terminal-badge final-badge">
+      <span class="pulse-dot"></span>
+      <span>&gt;_ ./installer --windows --gratuit</span>
+    </div>
+
+    <h2 class="final-cta-title" id="final-cta-title">
+      {isAr ? "جاهز لتبسيط وتأمين " : "Prêt à simplifier la gestion de "}
+      <span class="text-gradient">{isAr ? "تجارتك اليوم ؟" : "votre commerce ?"}</span>
+    </h2>
+    <p class="final-cta-subtitle">{t.finalCta.subtitle}</p>
+
+    <div class="final-cta-actions">
+      <a href="#telecharger" class="btn-primary final-btn btn-radar-glow" id="final-cta-download">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>{ctaLabel}</span>
+      </a>
+    </div>
+
+    <div class="final-cta-meta">
+      <span class="meta-req">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+          <line x1="2" y1="20" x2="22" y2="20"></line>
+        </svg>
+        <span>{requirements}</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta-section {
+    position: relative;
+    background-color: var(--chrome-bg);
+    color: var(--chrome-text);
+    padding: 6rem 1.5rem;
+    overflow: hidden;
+    text-align: center;
+    border-top: 1px solid var(--chrome-border);
+  }
+
+  .final-cta-halo {
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(0, 174, 239, 0.2) 0%, rgba(99, 102, 241, 0.1) 50%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .halo-cyan {
+    animation: haloPulseCyan 8s ease-in-out infinite alternate;
+  }
+
+  .halo-purple {
+    animation: haloPulsePurple 10s ease-in-out infinite alternate;
+    bottom: -180px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(0, 174, 239, 0.08) 50%, transparent 70%);
+  }
+
+  @keyframes haloPulseCyan {
+    0% { transform: translateX(-50%) scale(1) translateY(0); opacity: 0.7; }
+    50% { transform: translateX(-48%) scale(1.08) translateY(-12px); opacity: 0.95; }
+    100% { transform: translateX(-52%) scale(0.96) translateY(6px); opacity: 0.7; }
+  }
+
+  @keyframes haloPulsePurple {
+    0% { transform: translateX(-50%) scale(1) translateY(0); opacity: 0.6; }
+    50% { transform: translateX(-53%) scale(1.06) translateY(-15px); opacity: 0.9; }
+    100% { transform: translateX(-47%) scale(0.95) translateY(8px); opacity: 0.6; }
+  }
+
+
+  .final-cta-container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .final-cta-title {
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .final-cta-subtitle {
+    font-size: 1.15rem;
+    color: var(--chrome-text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.25rem auto;
+    line-height: 1.6;
+  }
+
+  .final-cta-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .final-btn {
+    font-size: 1.1rem;
+    padding: 0.95rem 2.5rem;
+  }
+
+  .final-cta-meta {
+    font-size: 0.85rem;
+    color: var(--chrome-text-dim);
+  }
+
+  .meta-req {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  @media (max-width: 640px) {
+    .final-cta-section {
+      padding: 4rem 1rem;
+    }
+    .final-cta-title {
+      font-size: 1.85rem;
+    }
+    .final-btn {
+      width: 100%;
+    }
+  }
+</style>

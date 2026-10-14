@@ -1,0 +1,361 @@
+---
+import type { SupportedLocale } from '../i18n';
+import { getTranslations } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+const t = getTranslations(locale);
+---
+
+<section class="benefits-section" id="benefices" aria-labelledby="benefits-title">
+  {/* Halos d'ambiance en arrière-plan */}
+  <div class="benefits-glow glow-cyan" aria-hidden="true"></div>
+  <div class="benefits-glow glow-emerald" aria-hidden="true"></div>
+
+  <div class="benefits-container">
+    {/* En-tête de section Technova */}
+    <div class="section-header reveal">
+      <div class="terminal-badge">
+        <span class="pulse-dot"></span>
+        <span>&gt;_ ./performance --benefices --mesurables</span>
+      </div>
+      <h2 class="section-title" id="benefits-title">
+        {t.benefits.title}
+      </h2>
+      <p class="section-subtitle">
+        {t.benefits.subtitle}
+      </p>
+    </div>
+
+    {/* Grille des 3 Bénéfices Majeurs */}
+    <div class="benefits-grid reveal-stagger">
+      
+      {/* 1. TEMPS */}
+      <div class="benefit-card reveal interactive-card card-cyan">
+        <div class="card-glow-indicator cyan-glow pulse-beacon"></div>
+        <div class="card-top">
+          <div class="benefit-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <span class="metric-pill cyan-pill">{t.benefits.item1Metric}</span>
+        </div>
+        
+        <h3 class="benefit-title">{t.benefits.item1Title}</h3>
+        <p class="benefit-desc">{t.benefits.item1Desc}</p>
+
+        <div class="benefit-footer">
+          <div class="benefit-perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{isAr ? "بيع فوري دون انتظار" : "Encaissement immédiat"}</span>
+          </div>
+          <div class="benefit-perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{isAr ? "إغلاق Z في 3 دقائق" : "Clôture Z en 3 minutes"}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. VISIBILITÉ */}
+      <div class="benefit-card reveal interactive-card card-purple">
+        <div class="card-glow-indicator purple-glow pulse-beacon"></div>
+        <div class="card-top">
+          <div class="benefit-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <span class="metric-pill purple-pill">{t.benefits.item2Metric}</span>
+        </div>
+
+        <h3 class="benefit-title">{t.benefits.item2Title}</h3>
+        <p class="benefit-desc">{t.benefits.item2Desc}</p>
+
+        <div class="benefit-footer">
+          <div class="benefit-perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{isAr ? "متابعة دقيقة للأرباح" : "Marge nette en direct"}</span>
+          </div>
+          <div class="benefit-perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{isAr ? "رصيد ديون الزبائن فوراً" : "Solde créances instantané"}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. MAÎTRISE */}
+      <div class="benefit-card reveal interactive-card card-emerald">
+        <div class="card-glow-indicator emerald-glow pulse-beacon"></div>
+        <div class="card-top">
+          <div class="benefit-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <span class="metric-pill emerald-pill">{t.benefits.item3Metric}</span>
+        </div>
+
+        <h3 class="benefit-title">{t.benefits.item3Title}</h3>
+        <p class="benefit-desc">{t.benefits.item3Desc}</p>
+
+        <div class="benefit-footer">
+          <div class="benefit-perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{isAr ? "تطابق تام للنقود" : "Zéro écart tiroir-caisse"}</span>
+          </div>
+          <div class="benefit-perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{isAr ? "راحة بال كل مساء" : "Sérénité chaque soir"}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits-section {
+    position: relative;
+    padding: 5rem 1.5rem 5.5rem 1.5rem;
+    background-color: var(--content-bg);
+    overflow: hidden;
+    scroll-margin-top: 5.5rem;
+  }
+
+  .benefits-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    opacity: 0.12;
+  }
+
+  .glow-cyan {
+    top: 10%;
+    left: -100px;
+    background: radial-gradient(circle, #06b6d4, transparent);
+  }
+
+  .glow-emerald {
+    bottom: 5%;
+    right: -100px;
+    background: radial-gradient(circle, #10b981, transparent);
+  }
+
+  .benefits-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3.5rem auto;
+  }
+
+  .terminal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.22);
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: #06b6d4;
+    margin-bottom: 1rem;
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #06b6d4;
+    box-shadow: 0 0 8px #06b6d4;
+  }
+
+  .section-title {
+    font-size: 2.15rem;
+    font-weight: 800;
+    color: var(--content-text);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--content-text-muted);
+    line-height: 1.6;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  @media (max-width: 960px) {
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .benefit-card {
+    position: relative;
+    background: var(--card-bg, rgba(22, 29, 38, 0.7));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-cyan:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 12px 30px rgba(6, 182, 212, 0.12);
+  }
+
+  .card-purple:hover {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 12px 30px rgba(168, 85, 247, 0.12);
+  }
+
+  .card-emerald:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.12);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+
+  .benefit-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--content-text);
+  }
+
+  .card-cyan .benefit-icon-box {
+    color: #06b6d4;
+    background: rgba(6, 182, 212, 0.08);
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  .card-purple .benefit-icon-box {
+    color: #c084fc;
+    background: rgba(168, 85, 247, 0.08);
+    border-color: rgba(168, 85, 247, 0.2);
+  }
+
+  .card-emerald .benefit-icon-box {
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+
+  .metric-pill {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+  }
+
+  .cyan-pill {
+    background: rgba(6, 182, 212, 0.12);
+    color: #22d3ee;
+    border: 1px solid rgba(6, 182, 212, 0.28);
+  }
+
+  .purple-pill {
+    background: rgba(168, 85, 247, 0.12);
+    color: #d8b4fe;
+    border: 1px solid rgba(168, 85, 247, 0.28);
+  }
+
+  .emerald-pill {
+    background: rgba(16, 185, 129, 0.12);
+    color: #6ee7b7;
+    border: 1px solid rgba(16, 185, 129, 0.28);
+  }
+
+  .benefit-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--content-text);
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .benefit-desc {
+    font-size: 0.95rem;
+    color: var(--content-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .benefit-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .benefit-perk {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--content-text-muted);
+  }
+
+  .card-cyan .benefit-perk svg { color: #06b6d4; }
+  .card-purple .benefit-perk svg { color: #c084fc; }
+  .card-emerald .benefit-perk svg { color: #34d399; }
+</style>

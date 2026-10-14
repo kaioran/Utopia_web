@@ -1,0 +1,687 @@
+---
+interface Props {
+  locale: 'fr' | 'ar';
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+
+import fr from '../i18n/fr.json';
+import ar from '../i18n/ar.json';
+const t = isAr ? ar : fr;
+
+const steps = [
+  {
+    num: '01',
+    time: isAr ? "2 دقيقة" : "2 min",
+    title: t.quickStart.step1Title,
+    desc: t.quickStart.step1Desc,
+    theme: 'theme-cyan',
+    badge: isAr ? "تثبيت فوري • 100% محلي" : "Setup 1-clic • 100% Hors-Ligne",
+    chips: isAr ? ["ويندوز 10/11", "بدون إنترنت", "0 إعداد معقد"] : ["Windows 10/11", "Sans Internet", "0 config SQL"],
+    actionLabel: isAr ? "تحميل المثبت" : "Télécharger le setup",
+    actionUrl: "#telecharger",
+    iconPath: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M7 10l5 5 5-5 M12 15V3"
+  },
+  {
+    num: '02',
+    time: isAr ? "8 دقائق" : "8 min",
+    title: t.quickStart.step2Title,
+    desc: t.quickStart.step2Desc,
+    theme: 'theme-purple',
+    badge: isAr ? "كتالوج سلع مبسط" : "Catalogue & Fiches prêtes",
+    chips: isAr ? ["إكسيل", "باركود", "ديون الزبائن"] : ["Import Excel", "Code-barres", "Crédits clients"],
+    actionLabel: isAr ? "استكشاف الميزات" : "Voir les fonctionnalités",
+    actionUrl: "#fonctionnalites",
+    iconPath: "M12 20h9 M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+  },
+  {
+    num: '03',
+    time: isAr ? "5 دقائق" : "5 min",
+    title: t.quickStart.step3Title,
+    desc: t.quickStart.step3Desc,
+    theme: 'theme-emerald',
+    badge: isAr ? "جاهز للبيع والمرافقة" : "1er Ticket & Support direct",
+    chips: isAr ? ["وصل Z فوري", "كاشير لمسي", "واتساب نشط"] : ["Ticket Z direct", "Caisse tactile", "Support WhatsApp"],
+    actionLabel: isAr ? "تواصل عبر واتساب" : "Assistance WhatsApp",
+    actionUrl: "#faq",
+    iconPath: "M22 11.08V12a10 10 0 1 1-5.93-9.14 M22 4L12 14.01l-3-3"
+  },
+];
+---
+
+<section class="quickstart-section" id="demarrage" aria-labelledby="quickstart-title">
+  {/* Halos lumineux d'ambiance */}
+  <div class="quickstart-glow glow-cyan" aria-hidden="true"></div>
+  <div class="quickstart-glow glow-purple" aria-hidden="true"></div>
+
+  <div class="quickstart-container">
+    {/* En-tête de section Technova */}
+    <div class="section-header reveal">
+      <div class="terminal-badge">
+        <span class="pulse-dot"></span>
+        <span>&gt;_ ./demarrage --chrono --15min</span>
+      </div>
+      <h2 class="section-title" id="quickstart-title">
+        {isAr ? "جاهز للعمل في " : "Opérationnel en "}
+        <span class="text-gradient">{isAr ? "15 دقيقة فقط" : "15 minutes chrono"}</span>
+      </h2>
+      <p class="section-subtitle">
+        {isAr 
+          ? "ثلاث خطوات واضحة ومباشرة لتشغيل نقطة البيع في محلك بدون أي تعقيد تقني أو حاجة لاتصال إنترنت."
+          : "Trois étapes simples et guidées pour équiper votre magasin et commencer à encaisser dès aujourd'hui."}
+      </p>
+    </div>
+
+    {/* Pipeline cybernétique reliant les 3 étapes */}
+    <div class="pipeline-wrapper">
+      <div class="pipeline-track" aria-hidden="true">
+        <div class="pipeline-laser"></div>
+      </div>
+
+      {/* Les 3 cartes étapes */}
+      <div class="steps-grid reveal-stagger">
+        {steps.map((step, idx) => (
+          <div class={`step-card reveal interactive-card ${step.theme}`} data-step-index={idx}>
+            {/* Ligne haute : numéro et chrono */}
+            <div class="step-card-top">
+              <div class="step-num-wrapper">
+                <span class="step-num">{step.num}</span>
+              </div>
+              <div class="step-chrono-pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>{step.time}</span>
+              </div>
+            </div>
+
+            {/* Icône flottante animée */}
+            <div class="step-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d={step.iconPath}></path>
+              </svg>
+            </div>
+
+            {/* Titre & Description */}
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-desc">{step.desc}</p>
+
+            {/* Badges de micro-fonctionnalités */}
+            <div class="step-chips">
+              {step.chips.map(chip => (
+                <span class="step-chip">{chip}</span>
+              ))}
+            </div>
+
+            {/* Lien d'action rapide */}
+            <a href={step.actionUrl} class="step-action-link">
+              <span>{step.actionLabel}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Bandeau chronomètre récapitulatif interactif */}
+    <div class="quickstart-summary-banner reveal">
+      <div class="summary-banner-content">
+        <div class="summary-chrono-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="summary-text">
+          <span class="summary-headline">
+            {isAr ? "15 دقيقة فقط من التحميل إلى أول وصل زبون" : "15 minutes chrono du téléchargement au premier ticket"}
+          </span>
+          <span class="summary-sub">
+            {isAr ? "بدون تكوين مسبق، بدون اشتراك وبدون الحاجة لإنترنت في المحل." : "Sans prérequis technique, sans abonnement obligatoire et 100% autonome hors-ligne."}
+          </span>
+        </div>
+      </div>
+      <a href="#telecharger" class="btn-primary summary-cta">
+        <span>{isAr ? "ابدأ التجربة المجانية" : "Démarrer l'essai gratuit"}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quickstart-section {
+    position: relative;
+    padding: 6.5rem 1.5rem;
+    background-color: var(--content-bg);
+    overflow: hidden;
+    transition: background-color var(--transition-normal);
+  }
+
+  /* Halos lumineux d'ambiance */
+  .quickstart-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glow-cyan {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(0, 174, 239, 0.15) 0%, transparent 70%);
+    top: 10%;
+    left: -5%;
+    animation: floatGlow 10s ease-in-out infinite alternate;
+  }
+
+  .glow-purple {
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+    bottom: 5%;
+    right: -5%;
+    animation: floatGlow 12s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes floatGlow {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.1); }
+  }
+
+  .quickstart-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--content-text);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.85rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--content-text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Pipeline cybernétique reliant les 3 étapes */
+  .pipeline-wrapper {
+    position: relative;
+  }
+
+  .pipeline-track {
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 12%;
+    right: 12%;
+    height: 3px;
+    background: var(--chrome-border);
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 3px;
+  }
+
+  @media (min-width: 860px) {
+    .pipeline-track {
+      display: block;
+    }
+  }
+
+  .pipeline-laser {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 35%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-cyan) 50%, var(--accent-purple) 80%, transparent 100%);
+    box-shadow: 0 0 10px var(--accent-cyan);
+    animation: laserFlow 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes laserFlow {
+    0% { left: -35%; }
+    100% { left: 105%; }
+  }
+
+  [dir="rtl"] .pipeline-laser {
+    animation-name: laserFlowRtl;
+  }
+
+  @keyframes laserFlowRtl {
+    0% { right: -35%; left: auto; }
+    100% { right: 105%; left: auto; }
+  }
+
+  /* Grille des cartes */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 860px) {
+    .steps-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+  }
+
+  .step-card {
+    position: relative;
+    background: var(--content-surface);
+    border: 1px solid var(--content-border);
+    border-radius: var(--radius-xl);
+    padding: 2.25rem 1.75rem 1.85rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+  }
+
+  :global(html[data-theme="dark"]) .step-card {
+    background: rgba(15, 23, 42, 0.65);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.4);
+  }
+
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .step-card.theme-cyan:hover::before {
+    background: linear-gradient(90deg, #0284C7, #00E5FF);
+    box-shadow: 0 0 12px #00E5FF;
+  }
+  .step-card.theme-purple:hover::before {
+    background: linear-gradient(90deg, #7C3AED, #A78BFA);
+    box-shadow: 0 0 12px #A78BFA;
+  }
+  .step-card.theme-emerald:hover::before {
+    background: linear-gradient(90deg, #059669, #34D399);
+    box-shadow: 0 0 12px #34D399;
+  }
+
+  .step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.12);
+  }
+
+  :global(html[data-theme="dark"]) .step-card:hover {
+    box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.7);
+  }
+
+  .step-card.theme-cyan:hover {
+    border-color: rgba(2, 132, 199, 0.5);
+  }
+  .step-card.theme-purple:hover {
+    border-color: rgba(124, 58, 237, 0.5);
+  }
+  .step-card.theme-emerald:hover {
+    border-color: rgba(5, 150, 105, 0.5);
+  }
+
+  /* Ligne haute de la carte */
+  .step-card-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-num-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .step-num {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 900;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid currentColor;
+    letter-spacing: -0.02em;
+  }
+
+  .theme-cyan .step-num {
+    color: #0284C7;
+    background: rgba(2, 132, 199, 0.1);
+    box-shadow: 0 0 15px rgba(2, 132, 199, 0.2);
+  }
+  .theme-purple .step-num {
+    color: #7C3AED;
+    background: rgba(124, 58, 237, 0.1);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
+  }
+  .theme-emerald .step-num {
+    color: #059669;
+    background: rgba(5, 150, 105, 0.1);
+    box-shadow: 0 0 15px rgba(5, 150, 105, 0.2);
+  }
+
+  :global(html[data-theme="dark"]) .theme-cyan .step-num {
+    color: #00E5FF;
+    border-color: rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+  }
+  :global(html[data-theme="dark"]) .theme-purple .step-num {
+    color: #A78BFA;
+    border-color: rgba(167, 139, 250, 0.4);
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
+  }
+  :global(html[data-theme="dark"]) .theme-emerald .step-num {
+    color: #34D399;
+    border-color: rgba(52, 211, 153, 0.4);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.3);
+  }
+
+  .step-chrono-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .theme-cyan .step-chrono-pill {
+    color: #0284C7;
+    border: 1px solid rgba(2, 132, 199, 0.25);
+    background: rgba(2, 132, 199, 0.08);
+  }
+  .theme-purple .step-chrono-pill {
+    color: #7C3AED;
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    background: rgba(124, 58, 237, 0.08);
+  }
+  .theme-emerald .step-chrono-pill {
+    color: #059669;
+    border: 1px solid rgba(5, 150, 105, 0.25);
+    background: rgba(5, 150, 105, 0.08);
+  }
+
+  :global(html[data-theme="dark"]) .theme-cyan .step-chrono-pill {
+    color: #00E5FF;
+    border-color: rgba(0, 229, 255, 0.3);
+    background: rgba(0, 229, 255, 0.1);
+  }
+  :global(html[data-theme="dark"]) .theme-purple .step-chrono-pill {
+    color: #A78BFA;
+    border-color: rgba(167, 139, 250, 0.3);
+    background: rgba(167, 139, 250, 0.1);
+  }
+  :global(html[data-theme="dark"]) .theme-emerald .step-chrono-pill {
+    color: #34D399;
+    border-color: rgba(52, 211, 153, 0.3);
+    background: rgba(52, 211, 153, 0.1);
+  }
+
+  /* Icône flottante */
+  .step-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: iconFloat 4s ease-in-out infinite alternate;
+  }
+
+  .step-card:hover .step-icon-wrapper {
+    transform: scale(1.1) rotate(4deg);
+  }
+
+  @keyframes iconFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+  }
+
+  .theme-cyan .step-icon-wrapper {
+    background: rgba(2, 132, 199, 0.12);
+    color: #0284C7;
+    border: 1px solid rgba(2, 132, 199, 0.3);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.18);
+  }
+  .theme-purple .step-icon-wrapper {
+    background: rgba(124, 58, 237, 0.12);
+    color: #7C3AED;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.18);
+    animation-delay: -1.3s;
+  }
+  .theme-emerald .step-icon-wrapper {
+    background: rgba(5, 150, 105, 0.12);
+    color: #059669;
+    border: 1px solid rgba(5, 150, 105, 0.3);
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.18);
+    animation-delay: -2.6s;
+  }
+
+  :global(html[data-theme="dark"]) .theme-cyan .step-icon-wrapper {
+    color: #00E5FF;
+    border-color: rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+  }
+  :global(html[data-theme="dark"]) .theme-purple .step-icon-wrapper {
+    color: #A78BFA;
+    border-color: rgba(167, 139, 250, 0.4);
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.25);
+  }
+  :global(html[data-theme="dark"]) .theme-emerald .step-icon-wrapper {
+    color: #34D399;
+    border-color: rgba(52, 211, 153, 0.4);
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.25);
+  }
+
+  /* Titre & Description */
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--content-text);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .step-desc {
+    font-size: 0.92rem;
+    color: var(--content-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    min-height: 48px;
+  }
+
+  /* Micro-chips */
+  .step-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .step-chip {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    background: var(--chrome-surface-subtle);
+    border: 1px solid var(--chrome-border);
+    color: var(--chrome-text-dim);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .step-card:hover .step-chip {
+    color: var(--chrome-text);
+    border-color: var(--chrome-border-glow);
+  }
+
+  /* Lien d'action rapide */
+  .step-action-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: transform var(--transition-normal), color var(--transition-normal);
+  }
+
+  .step-action-link:hover {
+    color: var(--accent-cyan-bright);
+    transform: translateX(4px);
+  }
+
+  [dir="rtl"] .step-action-link:hover {
+    transform: translateX(-4px);
+  }
+
+  [dir="rtl"] .step-action-link svg {
+    transform: scaleX(-1);
+  }
+
+  /* Bandeau récapitulatif 15 min */
+  .quickstart-summary-banner {
+    margin-top: 3.5rem;
+    background: var(--content-surface);
+    border: 1px solid var(--content-border);
+    border-radius: var(--radius-2xl);
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  :global(html[data-theme="dark"]) .quickstart-summary-banner {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (min-width: 768px) {
+    .quickstart-summary-banner {
+      flex-direction: row;
+    }
+  }
+
+  .summary-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .summary-chrono-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-gradient-btn);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+    animation: iconPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes iconPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); }
+    50% { transform: scale(1.08); box-shadow: 0 6px 22px rgba(0, 229, 255, 0.55); }
+  }
+
+  .summary-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .summary-headline {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--content-text);
+  }
+
+  .summary-sub {
+    font-size: 0.85rem;
+    color: var(--content-text-muted);
+  }
+
+  .summary-cta {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.4rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  [dir="rtl"] .summary-cta svg {
+    transform: scaleX(-1);
+  }
+
+  @media (max-width: 640px) {
+    .quickstart-section {
+      padding: 4rem 1rem;
+    }
+    .section-title {
+      font-size: 1.85rem;
+    }
+    .summary-banner-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    .summary-text {
+      align-items: center;
+    }
+  }
+</style>

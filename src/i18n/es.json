@@ -1,0 +1,280 @@
+{
+  "nav": {
+    "skipToContent": "Saltar al contenido principal",
+    "features": "Funcionalidades",
+    "problems": "Problemas y Soluciones",
+    "gallery": "Capturas del Software",
+    "benefits": "Beneficios",
+    "demo": "Demostración guiada",
+    "trust": "Seguridad y Confianza",
+    "pricing": "Tarifas",
+    "beforeAfter": "Antes / Después",
+    "start": "Primeros pasos",
+    "faq": "Preguntas frecuentes",
+    "downloadCta": "Solicitar Demo Gratis",
+    "themeLight": "Modo Claro",
+    "themeDark": "Modo Oscuro",
+    "switchLang": "Idiomas"
+  },
+  "hero": {
+    "badge": "Software TPV & Gestión Comercial para Minoristas",
+    "terminalCommand": "./tpv --rapido --comercio",
+    "titlePrefix": "Su comercio bajo control,",
+    "titleHighlight": "cada noche sin descuadres.",
+    "subtitle": "Utopia ayuda a comerciantes y tiendas a gestionar su inventario, ventas diarias y cobros pendientes cada noche sin cuadernos ni Excel.",
+    "target": "Para tiendas de alimentación, ferreterías, moda, cosmética y comercios independientes",
+    "cta": "Solicitar Demo Gratis",
+    "requirements": "Windows 10 u 11 (64 bits) • 173 MB • 100% Sin conexión a internet obligatoria",
+    "watchVideo": "Ver vídeo de 90s",
+    "exploreFeatures": "Explorar funcionalidades",
+    "stat1Value": "15 min",
+    "stat1Label": "Puesta en marcha",
+    "stat2Value": "100%",
+    "stat2Label": "Offline & Local",
+    "stat3Value": "Gratis",
+    "stat3Label": "Sin compromiso",
+    "cap1Title": "TPV Táctil",
+    "cap1Sub": "Cobro ultrarrápido",
+    "cap2Title": "Crédito Clientes",
+    "cap2Sub": "Control de deudas",
+    "cap3Title": "Cierre Z",
+    "cap3Sub": "Arqueo de noche",
+    "cap4Title": "Red Local LAN",
+    "cap4Sub": "Multi-caja autónomo"
+  },
+  "problems": {
+    "tag": "Dificultades del Comercio Diario",
+    "title": "3 problemas costosos que sufren los comerciantes a diario",
+    "item1": {
+      "title": "Cobros pendientes y deudas de clientes olvidadas",
+      "problem": "El cuaderno de papel se extravía, las anotaciones se borran y el dinero queda sin cobrar.",
+      "solution": "Ficha digital de cada cliente con su saldo exacto y su historial completo de compras."
+    },
+    "item2": {
+      "title": "Cobro lento en momentos de máxima afluencia",
+      "problem": "Calcular mentalmente o con calculadora genera colas y errores al dar el cambio.",
+      "solution": "Escanee el código de barras o pulse en pantalla: el total y el cambio se calculan al instante."
+    },
+    "item3": {
+      "title": "Cierre de caja nocturno largo y estresante",
+      "problem": "Pasar 45 minutos contando billetes sin saber si falta dinero en el cajón portamonedas.",
+      "solution": "Cierre Z guiado en 3 minutos que calcula el efectivo teórico y detecta cualquier descuadre."
+    }
+  },
+  "features": {
+    "tag": "Diseñado para el comercio real",
+    "title": "5 herramientas prácticas para ganar tiempo y asegurar sus ventas",
+    "item1": {
+      "badge": "Créditos bajo control",
+      "title": "No pierda ni un céntimo de crédito a clientes",
+      "desc": "Se acabaron los papeles sueltos y las discusiones sobre importes. Registre ventas a crédito en dos clics y consulte el saldo en 2 segundos.",
+      "points": [
+        "Saldo en tiempo real disponible en 2 segundos por cliente",
+        "Límite de crédito configurable para evitar impagos",
+        "Historial completo de entregas a cuenta y pagos parciales"
+      ]
+    },
+    "item2": {
+      "badge": "Velocidad en caja",
+      "title": "Cobre a cada cliente en menos de 10 segundos",
+      "desc": "Fluido y ágil incluso en horas punta. Escanee productos con lector o use accesos directos táctiles: el cambio se calcula automáticamente.",
+      "points": [
+        "Búsqueda inmediata por código de barras, referencia o nombre",
+        "Cálculo automático del cambio sin errores",
+        "Impresión al instante en tickets térmicos (80 mm / 58 mm)"
+      ]
+    },
+    "item3": {
+      "badge": "Fin de jornada tranquilo",
+      "title": "Cierre su jornada con total tranquilidad en 3 minutos",
+      "desc": "Sepa con exactitud cuánto dinero debe haber en su cajón. El sistema compara el efectivo teórico con el recuento real.",
+      "points": [
+        "Informe X provisional disponible en cualquier momento del día",
+        "Cierre Z diario secuencial y numerado",
+        "Detección guiada de descuadres de caja con justificación"
+      ]
+    },
+    "item4": {
+      "badge": "Multi-cajero seguro",
+      "title": "Confíe la caja a sus empleados con total tranquilidad",
+      "desc": "Cada empleado inicia sesión con su propio código PIN. Supervise el trabajo sin otorgar acceso a los ajustes sensibles del negocio.",
+      "points": [
+        "Inicio de sesión rápido mediante PIN individual",
+        "Cajeros restringidos a introducir sus propias ventas",
+        "Cancelaciones de línea y ajustes reservados al responsable"
+      ]
+    },
+    "item5": {
+      "badge": "Autonomía local",
+      "title": "Venda sin interrupciones, incluso sin internet",
+      "desc": "¿Corte de red o avería de internet? Sus ventas continúan sin ralentizarse. Toda la información se guarda en el ordenador de su tienda.",
+      "points": [
+        "Funcionamiento garantizado 100% offline",
+        "Base de datos local instalada directamente en su PC",
+        "Sin cuotas en la nube obligatorias: sus datos se quedan con usted"
+      ]
+    }
+  },
+  "showcase": {
+    "tag": "Galería del Software",
+    "title": "Una interfaz limpia, rápida y pensada para el mostrador",
+    "subtitle": "Descubra las principales pantallas y funciones del software TPV Utopia POS.",
+    "tab1": "TPV Táctil",
+    "tab2": "Crédito Clientes",
+    "tab3": "Cierre Z",
+    "tab4": "Gestión Stock",
+    "tab5": "Multi-Terminal",
+    "placeholderLabel": "Captura de pantalla oficial Utopia POS"
+  },
+  "benefits": {
+    "tag": "Beneficios concretos",
+    "title": "3 grandes ventajas para el día a día de su negocio",
+    "subtitle": "Ahorre tiempo diario, mantenga una visibilidad nítida sobre márgenes y elimine el estrés de gestión.",
+    "item1Title": "Ahorro de tiempo diario",
+    "item1Metric": "+40 min / día",
+    "item1Desc": "Cobro ultrarrápido con código de barras y pantalla táctil. Sin calculadora ni cuadernos; arqueo nocturno en 3 minutos exactos.",
+    "item2Title": "Total claridad financiera",
+    "item2Metric": "100% en tiempo real",
+    "item2Desc": "Conozca sus ventas, márgenes netos, alertas de stock bajo y deudas de clientes al momento sin estimaciones vagas.",
+    "item3Title": "Control & Serenidad",
+    "item3Metric": "0 descuadres misteriosos",
+    "item3Desc": "Elimine fallos en el cambio y pérdidas inexplicadas. Vuelva a casa cada noche con un cajón verificado y archivado."
+  },
+  "demo": {
+    "tag": "Recorrido guiado",
+    "title": "Una jornada tipo con Utopia en 3 pasos",
+    "subtitle": "Vea cómo Utopia se integra con naturalidad en su comercio desde la apertura matinal hasta el cierre.",
+    "step1Time": "Mañana • 08:00",
+    "step1Title": "Apertura de caja segura",
+    "step1Desc": "Acceso mediante código PIN en 3 segundos. Fondo de caja inicial confirmado, terminal lista para el primer cliente.",
+    "step2Time": "Jornada • Continuo",
+    "step2Title": "Venta ágil y cobros fiados",
+    "step2Desc": "Escaneo de artículos, cálculo automático de cambio, retención de tickets y anotación de crédito en un solo gesto.",
+    "step3Time": "Noche • 20:00",
+    "step3Title": "Cierre Z y arqueo perfecto",
+    "step3Desc": "Informe Z impreso en 3 minutos con desglose de efectivo, tarjetas, créditos y diferencias. Cuentas claras cada noche.",
+    "cta": "Solicitar Demo Gratis"
+  },
+  "trust": {
+    "tag": "Seguridad & Confianza",
+    "title": "Diseñado para proteger su negocio",
+    "subtitle": "Un software robusto que garantiza la estricta privacidad de sus datos y la seguridad de sus cobros.",
+    "item1Title": "100% Offline & Datos Privados",
+    "item1Badge": "Cero Nube",
+    "item1Desc": "Todos los datos de ventas y clientes residen únicamente en su ordenador local. Sin dependencia de internet ni riesgos en la nube.",
+    "item2Title": "Roles de Empleado & PIN de Seguridad",
+    "item2Badge": "Permisos",
+    "item2Desc": "Cada empleado tiene un PIN único con permisos personalizados. Las anulaciones y descuentos quedan auditados.",
+    "item3Title": "Acompañamiento StellarSoft",
+    "item3Badge": "Soporte Dedicado",
+    "item3Desc": "Equipo técnico a su lado: ayuda en la instalación, importación de catálogos en Excel y asistencia rápida vía WhatsApp."
+  },
+  "beforeAfter": {
+    "tag": "Comparativa",
+    "title": "Cuaderno o Excel vs Utopia POS",
+    "manualCol": "Con cuaderno o Excel",
+    "utopiaCol": "Con Utopia POS",
+    "point1": {
+      "manual": "Buscar la deuda de un cliente lleva varios minutos hojeando hojas de papel.",
+      "utopia": "Nombre del cliente tecleado en 2 segundos: saldo inmediato en pantalla."
+    },
+    "point2": {
+      "manual": "Errores de cálculo habituales en precios y cambio a devolver.",
+      "utopia": "Total automático al céntimo, cambio exacto garantizado."
+    },
+    "point3": {
+      "manual": "Arqueo de noche impreciso con dudas constantes sobre faltantes o descuidos.",
+      "utopia": "Cierre diario impecable: el cajón coincide exactamente con los tickets registrados."
+    }
+  },
+  "quickStart": {
+    "tag": "Inicio Rápido",
+    "title": "Operativo en 15 minutos",
+    "step1Title": "1. Descargue e instale",
+    "step1Desc": "Instale Utopia en su ordenador Windows en menos de 2 minutos.",
+    "step2Title": "2. Añada sus artículos",
+    "step2Desc": "Registre sus primeros productos, precios y clientes habituales.",
+    "step3Title": "3. Empiece a cobrar",
+    "step3Desc": "Escanee, imprima el primer ticket y reciba asistencia por WhatsApp."
+  },
+  "pricing": {
+    "tag": "Tarifas Claras",
+    "title": "Una inversión rentable para su comercio",
+    "subtitle": "Fórmula transparente y accesible, sin suscripciones recurrentes ni costes ocultos.",
+    "trialBadge": "Licencia Definitiva",
+    "cta": "Solicitar Demo & Presupuesto",
+    "feature1": "Licencia permanente de por vida para su puesto de caja",
+    "feature2": "Funcionamiento 100% offline sin conexión a internet",
+    "feature3": "Actualizaciones y mejoras de software incluidas",
+    "feature4": "Asistencia técnica directa de StellarSoft vía WhatsApp",
+    "feature5": "Ayuda para importar su catálogo existente de artículos en Excel",
+    "customNote": "¿Necesita varias cajas en red o un pack completo de hardware (lector, impresora de tickets)? Contáctenos para una propuesta a medida."
+  },
+  "testimonials": {
+    "tag": "Opiniones verificadas",
+    "title": "Lo que opinan los comerciantes"
+  },
+  "faq": {
+    "tag": "Respuestas a sus dudas",
+    "title": "Preguntas frecuentes",
+    "q1": {
+      "q": "¿Cómo se instala Utopia en mi ordenador?",
+      "a": "Utopia es una aplicación de escritorio diseñada para Windows 10 y 11 (64 bits). Solo tiene que descargar el instalador (173 MB) y ejecutarlo: el proceso tarda menos de 2 minutos."
+    },
+    "q2": {
+      "q": "¿El software necesita internet para funcionar?",
+      "a": "No. Utopia funciona completamente fuera de línea (offline). Sus ventas, stock y cuentas de clientes se gestionan localmente en su PC sin depender de internet."
+    },
+    "q3": {
+      "q": "¿Dónde se almacenan los datos de mi tienda?",
+      "a": "Todos sus datos comerciales se quedan exclusivamente en su ordenador en su propio establecimiento. No se transmiten datos a servidores en la nube."
+    },
+    "q4": {
+      "q": "¿En qué idiomas está disponible Utopia?",
+      "a": "El software y la web están disponibles en español, inglés, francés, turco, alemán, italiano y árabe con maquetación nativa RTL."
+    },
+    "q5": {
+      "q": "¿Qué periféricos puedo conectar al TPV?",
+      "a": "Utopia es compatible con lectores de códigos de barras USB, monitores táctiles, cajones portamonedas e impresoras térmicas estándar (80 mm y 58 mm)."
+    },
+    "q6": {
+      "q": "¿Cómo funciona el soporte y la formación?",
+      "a": "El equipo de StellarSoft le asiste directamente a través de WhatsApp para guiarle en su primer inicio y resolver cualquier duda."
+    }
+  },
+  "finalCta": {
+    "title": "¿Listo para ver Utopia en acción en su comercio?",
+    "subtitle": "Solicite una demostración guiada o instale Utopia en 2 minutos para empezar hoy mismo.",
+    "cta": "Solicitar Demo Gratis",
+    "requirements": "Windows 10 u 11 (64 bits) • Sin compromiso • Soporte StellarSoft"
+  },
+  "modal": {
+    "title": "Solicitar Demostración Gratuita de Utopia",
+    "subtitle": "Rellene sus datos para concertar su demostración o recibir el enlace de descarga directa.",
+    "firstName": "Nombre",
+    "firstNamePlaceholder": "Ej: Carlos",
+    "contact": "Número de WhatsApp o E-mail",
+    "contactPlaceholder": "+34 600 000 000 o contacto@midominio.com",
+    "storeType": "Tipo de comercio",
+    "city": "Ciudad (opcional)",
+    "cityPlaceholder": "Ej: Madrid, Barcelona, Valencia...",
+    "consent": "Acepto recibir comunicaciones de asistencia sobre Utopia (por WhatsApp o email). Puedo darme de baja en cualquier momento.",
+    "submit": "Solicitar Mi Demostración",
+    "submitting": "Enviando...",
+    "errorContact": "Por favor, introduzca un número de teléfono o correo electrónico válido.",
+    "errorName": "Por favor, indique su nombre.",
+    "successTitle": "¡Solicitud enviada con éxito!",
+    "successSubtitle": "Nuestro equipo StellarSoft está preparando su demostración y el enlace de descarga.",
+    "fallbackLink": "Haga clic aquí para descargar el instalador de Windows directamente.",
+    "whatsappFollowup": "Abrir asistencia en WhatsApp ahora",
+    "close": "Cerrar"
+  },
+  "footer": {
+    "editor": "por StellarSoft",
+    "desc": "Software de TPV y gestión comercial para comerciantes y tiendas independientes.",
+    "whatsappSupport": "Soporte WhatsApp",
+    "legalNotice": "Aviso legal",
+    "privacyPolicy": "Política de privacidad",
+    "rights": "Todos los derechos reservados."
+  }
+}

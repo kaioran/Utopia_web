@@ -1,0 +1,280 @@
+{
+  "nav": {
+    "skipToContent": "Pumunta sa pangunahing nilalaman",
+    "features": "Mga Tampok",
+    "problems": "Mga Hamon at Solusyon",
+    "gallery": "Galeriya ng Software",
+    "benefits": "Mga Benepisyo",
+    "demo": "Gabay na Demo",
+    "trust": "Seguridad at Tiwala",
+    "pricing": "Presyo",
+    "beforeAfter": "Bago / Pagkatapos",
+    "start": "Magsimula",
+    "faq": "Mga Madalas Itanong",
+    "downloadCta": "Kumuha ng Libreng Demo",
+    "themeLight": "Maliwanag na Tema",
+    "themeDark": "Madilim na Tema",
+    "switchLang": "Mga Wika"
+  },
+  "hero": {
+    "badge": "POS Cashier at Retail Management Software",
+    "terminalCommand": "./pos --mabilis --tindahan",
+    "titlePrefix": "Ang iyong negosyo kontrolado,",
+    "titleHighlight": "bawat gabi.",
+    "subtitle": "Tinutulungan ng Utopia ang mga may-ari ng tindahan na subaybayan ang stock, benta, at utang ng suki nang madali—walang Excel o kwaderno.",
+    "target": "Para sa mga sari-sari store, grocery, hardware, botika, boutique at negosyo",
+    "cta": "Kumuha ng Libreng Demo",
+    "requirements": "Windows 10 o 11 (64-bit) • 173 MB • 100% Offline at Walang Internet na Kailangan",
+    "watchVideo": "Panoorin ang Demo (90s)",
+    "exploreFeatures": "Tuklasin ang mga Tampok",
+    "stat1Value": "15 min",
+    "stat1Label": "Mabilis na setup",
+    "stat2Value": "100%",
+    "stat2Label": "Offline at Lokal",
+    "stat3Value": "Libre",
+    "stat3Label": "Walang obligasyon",
+    "cap1Title": "Touch POS",
+    "cap1Sub": "Mabilis na benta",
+    "cap2Title": "Listahan ng Utang",
+    "cap2Sub": "Kredito ng suki",
+    "cap3Title": "Z Closure",
+    "cap3Sub": "Tuos sa gabi",
+    "cap4Title": "Local LAN",
+    "cap4Sub": "Multi-terminal network"
+  },
+  "problems": {
+    "tag": "Mga Araw-araw na Hamon",
+    "title": "3 Malalaking Problema na Nagpapalugi sa Tindahan",
+    "item1": {
+      "title": "Nakalimutang utang ng mga suki",
+      "problem": "Nawawala ang kwaderno ng pautang, nabubura ang sulat at hindi na nababayaran ang utang.",
+      "solution": "Bawat suki ay may digital profile na nagpapakita ng eksaktong balanse at kumpletong kasaysayan ng benta."
+    },
+    "item2": {
+      "title": "Mabagal na cashier tuwing rush hour",
+      "problem": "Ang manu-manong pagkwenta o calculator ay nagdudulot ng mahabang pila at maling sukli.",
+      "solution": "I-scan ang barcode o pindutin ang screen: agad na lumalabas ang kabuuan at tamang sukli."
+    },
+    "item3": {
+      "title": "Matagal at magulong pagbibilang ng pera sa gabi",
+      "problem": "45 minutong nagbibilang ng barya at pera nang hindi sigurado kung may kulang sa drawer.",
+      "solution": "Isang gabay na 3-minutong Z-closure na nagkukuwenta ng inaasahang pera at agad nakikita ang anumang kulang."
+    }
+  },
+  "features": {
+    "tag": "Binuo para sa Tunay na Negosyo",
+    "title": "5 Praktikal na Kasangkapan para Makatipid ng Oras at Protektahan ang Benta",
+    "item1": {
+      "badge": "Kontroladong Pautang",
+      "title": "Huwag Nang Mawala ang Tala ng Utang Kailanman",
+      "desc": "Wala nang nawawalang papel o pagtatalo sa bayad. Itala ang pautang sa dalawang click lamang.",
+      "points": [
+        "Lumalabas ang balanse ng suki sa loob ng 2 segundo",
+        "Maaaring magtakda ng credit limit upang maiwasan ang sobrang utang",
+        "Kumpletong talaan ng hulog at partial payments"
+      ]
+    },
+    "item2": {
+      "badge": "Mabilis na Cashier",
+      "title": "Serbisyuhan ang Bawat Kostumer sa Loob ng 10 Segundo",
+      "desc": "Mabilis at swabe kahit dagsa ang tao. Gamitin ang barcode scanner o touch shortcuts sa pag-checkout.",
+      "points": [
+        "Mabilis na paghahanap gamit ang barcode, code, o pangalan ng item",
+        "Awtomatikong pagkwenta ng sukli na walang mintis",
+        "Mabilis na pag-print ng thermal receipt (80mm / 58mm)"
+      ]
+    },
+    "item3": {
+      "badge": "Payapang Gabi",
+      "title": "Isara ang Cash Register sa Loob Lamang ng 3 Minuto",
+      "desc": "Alamin nang eksakto kung magkano ang dapat laman ng cash drawer gabi-gabi.",
+      "points": [
+        "Pansamantalang X-audit na maaaring tingnan anumang oras sa shift",
+        "May numerong araw-araw na Z-closure report",
+        "Madaling makita kung may labis o kulang sa pera"
+      ]
+    },
+    "item4": {
+      "badge": "Protektadong Cashier Staff",
+      "title": "Ipagkatiwala ang Kahera nang May Buong Tiwala",
+      "desc": "Bawat kahera ay may sariling ligtas na sesyon gamit ang confidential PIN code.",
+      "points": [
+        "Mabilis na pag-login gamit ang personal na PIN",
+        "Limitado ang mga tauhan sa pag-punch lamang ng benta",
+        "Ang pag-void ng items at mahahalagang settings ay para sa may-ari lamang"
+      ]
+    },
+    "item5": {
+      "badge": "Lokal na Kalayaan",
+      "title": "Tuloy-tuloy ang Benta Kahit Walang Koneksyon sa Internet",
+      "desc": "Nawalan ng internet o sira ang Wi-Fi? Ang iyong tindahan ay tuloy-tuloy pa rin ang benta.",
+      "points": [
+        "100% offline na operasyon sa lahat ng oras",
+        "Lokal na database na naka-install mismo sa iyong PC",
+        "Walang sapilitang buwanang bayad sa cloud: ang data mo ay sa iyo lang"
+      ]
+    }
+  },
+  "showcase": {
+    "tag": "Galeriya ng Software",
+    "title": "Malinis at Napakabilis na Interface para sa Tindahan",
+    "subtitle": "Tingnan ang mga aktuwal na screenshot ng mga pangunahing module ng Utopia POS.",
+    "tab1": "Touch POS",
+    "tab2": "Listahan ng Utang",
+    "tab3": "Z Closure",
+    "tab4": "Pamamahala ng Stock",
+    "tab5": "Multi-Terminal",
+    "placeholderLabel": "Opisyal na Screenshot ng Utopia POS"
+  },
+  "benefits": {
+    "tag": "Tunay na Pakinabang",
+    "title": "3 Malalaking Benepisyo para sa Iyong Negosyo",
+    "subtitle": "Makatipid ng oras araw-araw, magkaroon ng malinaw na kita, at alisin ang pag-aalala sa pamamahala.",
+    "item1Title": "Oras na Natitipid Araw-araw",
+    "item1Metric": "+40 min / araw",
+    "item1Desc": "Napakabilis na barcode at touch checkout. Wala nang calculator; magsara ng kaha sa loob ng 3 minuto.",
+    "item2Title": "Malinaw na Kita at Pera",
+    "item2Metric": "100% Real-Time",
+    "item2Desc": "Alamin ang iyong kabuuang benta, kita, alerto sa paubos na stock, at mga pautang nang walang hula-hula.",
+    "item3Title": "Kontrol at Kapayapaan ng Isip",
+    "item3Metric": "0 Kulang sa Pera",
+    "item3Desc": "Tanggalin ang maling sukli at nawawalang barya. Umuwi gabi-gabi nang panatag ang loob."
+  },
+  "demo": {
+    "tag": "Gabay na Demo",
+    "title": "Isang Karaniwang Araw sa Tindahan Kasama ang Utopia (3 Hakbang)",
+    "subtitle": "Tingnan kung paano pinapadali ng Utopia ang iyong tindahan mula bukas sa umaga hanggang sara sa gabi.",
+    "step1Time": "Umaga • 08:00",
+    "step1Title": "Ligtas na PIN Login",
+    "step1Desc": "Pag-login ng staff sa loob ng 3 segundo. Kumpirmahin ang pambaryang pera, handa na para sa unang suki.",
+    "step2Time": "Maghapon • Tuloy-tuloy",
+    "step2Title": "Mabilis na Benta at Pautang",
+    "step2Desc": "Mabilis na scan, awtomatikong sukli, hold-ticket, at one-click na pagtala sa pautang ng suki.",
+    "step3Time": "Gabi • 20:00",
+    "step3Title": "Z Closure at Tuos ng Pera",
+    "step3Desc": "Naka-print na Z report sa loob ng 3 minuto kasama ang cash, card, at pautang. Malinis na kwenta.",
+    "cta": "Kumuha ng Libreng Demo"
+  },
+  "trust": {
+    "tag": "Seguridad at Tiwala",
+    "title": "Binuo Upang Protektahan ang Iyong Negosyo",
+    "subtitle": "Isang maaasahang POS system na nagbibigay ng pribadong data at ligtas na transaksyon.",
+    "item1Title": "100% Offline at Pribadong Data",
+    "item1Badge": "Zero Cloud",
+    "item1Desc": "Ang lahat ng talaan ng tindahan ay nananatili sa sarili mong PC. Walang banta ng pagtagas ng data sa labas.",
+    "item2Title": "PIN Security at Cashier Roles",
+    "item2Badge": "Permiso",
+    "item2Desc": "Bawat empleyado ay may sariling PIN at takdang permiso. Ang mga diskwento at voided sales ay naitatala.",
+    "item3Title": "Tulong Mula sa StellarSoft",
+    "item3Badge": "Aktibong Suporta",
+    "item3Desc": "Direktang teknikal na tulong: gabay sa pag-setup, paglipat ng listahan ng produkto mula sa Excel, at suporta sa WhatsApp."
+  },
+  "beforeAfter": {
+    "tag": "Paghahambing",
+    "title": "Kwaderno at Excel Laban sa Utopia POS",
+    "manualCol": "Kwaderno o Excel",
+    "utopiaCol": "Gamit ang Utopia POS",
+    "point1": {
+      "manual": "Matagal maghanap ng utang sa pamamagitan ng pagbubuklat ng bawat pahina.",
+      "utopia": "I-type ang pangalan ng suki sa loob ng 2 segundo: agad lalabas ang balanse sa screen."
+    },
+    "point2": {
+      "manual": "Madalas magkamali sa pagkwenta ng presyo at pagsusukli.",
+      "utopia": "Awtomatikong kwenta hanggang sentimo at garantisadong tamang sukli."
+    },
+    "point3": {
+      "manual": "Laging may kaba at pag-aalinlangan kung may kulang sa benta sa gabi.",
+      "utopia": "Malinaw na araw-araw na pagsasara: tugmang-tugma ang pera sa resibo."
+    }
+  },
+  "quickStart": {
+    "tag": "Mabilis na Pagsisimula",
+    "title": "Handa Gamitin sa Loob ng 15 Minuto",
+    "step1Title": "1. I-download at I-install",
+    "step1Desc": "I-install ang Utopia sa iyong Windows PC sa loob ng 2 minuto.",
+    "step2Title": "2. Ilagay ang mga Produkto",
+    "step2Desc": "Ilista ang iyong mga produkto, mga suki, at tamang presyo.",
+    "step3Title": "3. Magsimula Nang Magbenta",
+    "step3Desc": "I-scan ang barcode, i-print ang unang resibo, at humingi ng tulong sa WhatsApp."
+  },
+  "pricing": {
+    "tag": "Malinaw na Presyo",
+    "title": "Isang Sulit na Pamumuhunan para sa Iyong Tindahan",
+    "subtitle": "Abot-kayang presyo, walang buwanang bayarin, at walang nakatagong charges.",
+    "trialBadge": "Panghabambuhay na Lisensya",
+    "cta": "Humingi ng Libreng Demo at Presyo",
+    "feature1": "Panghabambuhay na lisensya ng software para sa iyong POS terminal",
+    "feature2": "100% offline na operasyon kahit walang koneksyon sa internet",
+    "feature3": "Kasama ang regular na updates at mga bagong tampok",
+    "feature4": "Direktang teknikal na tulong mula sa StellarSoft sa WhatsApp",
+    "feature5": "Tulong sa pag-import ng iyong produktong nakalista sa Excel",
+    "customNote": "Kailangan ng maraming terminal o hardware (barcode scanner, thermal printer)? Makipag-ugnayan para sa kumpletong package."
+  },
+  "testimonials": {
+    "tag": "Mga Tunay na Review",
+    "title": "Sabi ng mga May-ari ng Negosyo"
+  },
+  "faq": {
+    "tag": "Mga Sagot sa Iyong mga Tanong",
+    "title": "Mga Madalas Itanong",
+    "q1": {
+      "q": "Paano i-install ang Utopia sa aking kompyuter?",
+      "a": "Ang Utopia ay desktop application para sa Windows 10 at 11 (64-bit). I-download lamang ang installer (173 MB) at patakbuhin ito: tapos ang setup sa loob ng 2 minuto."
+    },
+    "q2": {
+      "q": "Kailangan ba ng internet para gumana ang Utopia?",
+      "a": "Hindi. Ang Utopia ay 100% offline. Ang iyong benta, imbentaryo, at utang ng suki ay ligtas sa iyong sariling kompyuter nang walang internet."
+    },
+    "q3": {
+      "q": "Saan nakatago ang data ng aking tindahan?",
+      "a": "Nasa sarili mong kompyuter sa iyong tindahan ang lahat ng data. Walang impormasyon na ipinapadala sa mga server sa cloud."
+    },
+    "q4": {
+      "q": "Anu-anong wika ang sinusuportahan ng Utopia?",
+      "a": "Sinusuportahan ng software at website ang maraming wika: Filipino, Ingles, Espanyol, Portuges, Bengali, Hindi, Urdu, Pranses, Turko, Aleman, Italyano, at Arabe."
+    },
+    "q5": {
+      "q": "Anong mga gamit ang pwedeng ikabit sa Utopia?",
+      "a": "Tugma ang Utopia sa karaniwang USB barcode scanners, touchscreens, cash drawers, at karaniwang thermal receipt printers (80mm at 58mm)."
+    },
+    "q6": {
+      "q": "Paano ang teknikal na suporta at gabay?",
+      "a": "Ang StellarSoft team ay direktang tutulong sa iyo sa WhatsApp para sa unang paggamit at pagsagot sa iyong mga katanungan."
+    }
+  },
+  "finalCta": {
+    "title": "Handa Nang Subukan ang Utopia sa Iyong Tindahan?",
+    "subtitle": "Humingi ng libreng demo o i-download sa loob ng 2 minuto upang magsimula ngayon.",
+    "cta": "Kumuha ng Libreng Demo",
+    "requirements": "Windows 10 o 11 (64-bit) • Walang obligasyon • Suporta ng StellarSoft"
+  },
+  "modal": {
+    "title": "Humiling ng Libreng Demo ng Utopia",
+    "subtitle": "Punan ang iyong impormasyon para sa demo o makuha ang link ng installer.",
+    "firstName": "Pangalan",
+    "firstNamePlaceholder": "hal: Juan",
+    "contact": "WhatsApp Number o Email",
+    "contactPlaceholder": "+63 912 345 6789 o contact@domain.com",
+    "storeType": "Uri ng Tindahan",
+    "city": "Lungsod (opsyonal)",
+    "cityPlaceholder": "hal: Manila, Cebu, Davao...",
+    "consent": "Sumasang-ayon akong makatanggap ng mensahe ukol sa Utopia (sa WhatsApp o email). Maaaring mag-unsubscribe anumang oras.",
+    "submit": "Ipadala ang Aking Libreng Demo",
+    "submitting": "Ipinapadala...",
+    "errorContact": "Mangyaring maglagay ng wastong numero ng telepono o email.",
+    "errorName": "Mangyaring ilagay ang iyong pangalan.",
+    "successTitle": "Matagumpay na Naipadala ang Kahilingan!",
+    "successSubtitle": "Inihahanda na ng StellarSoft team ang iyong demo at link ng software.",
+    "fallbackLink": "Mag-click dito upang direktang i-download ang Windows installer.",
+    "whatsappFollowup": "Makipag-chat sa WhatsApp Ngayon",
+    "close": "Isara"
+  },
+  "footer": {
+    "editor": "gawa ng StellarSoft",
+    "desc": "POS at cashier software para sa mga tindahan at negosyo.",
+    "whatsappSupport": "WhatsApp Support",
+    "legalNotice": "Legal na Paunawa",
+    "privacyPolicy": "Patakaran sa Pagkapribado",
+    "rights": "Lahat ng karapatan ay nakalaan."
+  }
+}

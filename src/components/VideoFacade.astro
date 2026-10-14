@@ -1,0 +1,440 @@
+---
+interface Props {
+  locale: 'fr' | 'ar';
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+
+import { siteConfig } from '../config/site.config';
+const { video } = siteConfig;
+const durationText = `${Math.floor(video.durationSeconds / 60)}:${String(video.durationSeconds % 60).padStart(2, '0')}`;
+---
+
+{video.enabled ? (
+  <div class="video-facade-container" id="video-facade" data-youtube-id={video.youtubeId || ''} data-mp4={video.localMp4Url || ''}>
+    <div class="video-poster-wrapper">
+      <img 
+        src={video.posterUrl} 
+        alt={isAr ? "معاينة الفيديو التوضيحي لبرنامج يوتوبيا" : "Aperçu de la vidéo de démonstration d'Utopia POS"} 
+        class="video-poster-img"
+        width="640"
+        height="360"
+        loading="lazy"
+      />
+      <div class="video-overlay">
+        <button 
+          type="button" 
+          class="video-play-btn" 
+          aria-label={isAr ? "تشغيل الفيديو التوضيحي (90 ثانية)" : "Lire la vidéo de démonstration de 90 secondes"}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+        <span class="video-duration-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block; vertical-align:middle; margin-inline-end:4px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          {durationText}
+        </span>
+      </div>
+    </div>
+    <div class="video-player-target" id="video-player-slot"></div>
+  </div>
+) : (
+  <div class="hero-software-preview" aria-label={isAr ? "واجهة برنامج يوتوبيا" : "Aperçu de l'interface Utopia POS"}>
+    <div class="preview-chrome">
+      <div class="preview-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="preview-title">
+        Utopia POS 2026 • {isAr ? "شاشة البيع السريع" : "Caisse Tactile & Gestion Commerciale"}
+      </div>
+      <div class="preview-status">
+        <span class="status-indicator"></span>
+        <span>{isAr ? "متصل محلياً (بدون إنترنت)" : "Mode Local (100% Hors-Ligne)"}</span>
+      </div>
+    </div>
+    
+    <div class="preview-image-container">
+      <img
+        src="/screenshots/hero-caisse.png"
+        alt={isAr ? "شاشة البيع السريع لبرنامج يوتوبيا" : "Écran de vente express et caisse tactile Utopia POS"}
+        class="hero-screen-img"
+        width="1280"
+        height="760"
+        loading="eager"
+      />
+      <div class="preview-image-overlay">
+        <a href="#galerie-ecrans" class="preview-explore-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>{isAr ? "استكشف كل الشاشات" : "Découvrir tous les écrans"}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+)}
+
+<style>
+  .video-facade-container {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--chrome-border);
+    background: #000;
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-poster-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .video-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 19, 48, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
+  .video-poster-wrapper:hover .video-overlay {
+    background: rgba(14, 19, 48, 0.25);
+  }
+
+  .video-play-btn {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    color: #070B1A;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 174, 239, 0.5);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .video-poster-wrapper:hover .video-play-btn {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 174, 239, 0.7);
+  }
+
+  .video-duration-badge {
+    position: absolute;
+    bottom: 1rem;
+    inset-inline-end: 1rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Maquette réaliste du logiciel Utopia POS (CSS pur sans image) */
+  .hero-software-preview {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    background: #161D26;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 25px rgba(0, 174, 239, 0.15);
+    color: #F4F6F9;
+    font-size: 0.82rem;
+  }
+
+  .preview-chrome {
+    background: #1E2633;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .preview-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dot.red { background: #EF4444; }
+  .dot.yellow { background: #F59E0B; }
+  .dot.green { background: #10B981; }
+
+  .preview-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94A3B8;
+  }
+
+  .preview-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #34D399;
+  }
+
+  .status-indicator {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 8px #10B981;
+  }
+
+  .preview-body {
+    display: flex;
+    min-height: 250px;
+  }
+
+  .preview-sidebar {
+    width: 90px;
+    background: #111720;
+    border-inline-end: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 0.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .sidebar-item {
+    padding: 0.5rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94A3B8;
+    cursor: default;
+  }
+
+  .sidebar-item.active {
+    background: rgba(0, 174, 239, 0.15);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 174, 239, 0.3);
+  }
+
+  .preview-content {
+    flex: 1;
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .preview-ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .ticket-ref {
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+
+  .ticket-date {
+    font-size: 0.72rem;
+    color: #64748B;
+  }
+
+  .client-credit-badge {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .badge-label {
+    color: #FCA5A5;
+  }
+
+  .badge-val {
+    color: #EF4444;
+    font-weight: 800;
+    font-family: var(--font-heading);
+  }
+
+  .preview-table {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .table-head {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1.4fr;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #64748B;
+    padding: 0.25rem 0.4rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1.4fr;
+    font-size: 0.78rem;
+    padding: 0.25rem 0.4rem;
+    color: #E2E8F0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .text-center { text-align: center; }
+  .text-end { text-align: end; }
+  .font-mono { font-family: monospace; }
+  .font-bold { font-weight: 800; color: #38BDF8; }
+
+  .preview-totals-bar {
+    margin-top: 0.8rem;
+    background: #0D131C;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 0.6rem 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .change-calc {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.72rem;
+  }
+
+  .change-val {
+    color: #34D399;
+    font-weight: 700;
+  }
+
+  .text-dim { color: #94A3B8; }
+
+  .total-big {
+    text-align: end;
+  }
+
+  .total-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #94A3B8;
+    text-transform: uppercase;
+  }
+
+  .total-amount {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--accent-cyan);
+    line-height: 1;
+  }
+
+  .total-amount small {
+    font-size: 0.8rem;
+    color: #FFFFFF;
+  }
+
+  .preview-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #030712;
+  }
+
+  .hero-screen-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-software-preview:hover .hero-screen-img {
+    transform: scale(1.02);
+  }
+
+  .preview-image-overlay {
+    position: absolute;
+    bottom: 0.75rem;
+    inset-inline-end: 0.75rem;
+    z-index: 2;
+  }
+
+  .preview-explore-badge {
+    background: rgba(3, 7, 18, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    color: var(--accent-cyan);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .preview-explore-badge:hover {
+    background: rgba(0, 229, 255, 0.15);
+    border-color: var(--accent-cyan);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 520px) {
+    .preview-sidebar {
+      display: none;
+    }
+    .preview-totals-bar {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: stretch;
+      text-align: center;
+    }
+    .total-big {
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+import type { SupportedLocale } from '../i18n';
+import { getTranslations } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+const t = getTranslations(locale);
+
+import { siteConfig } from '../config/site.config';
+// Filtrer uniquement les témoignages avec consentement formellement accordé
+const verifiedTestimonials = (siteConfig.testimonials || []).filter(t => t.consentToPublish === true);
+---
+
+{verifiedTestimonials.length > 0 && (
+  <section class="testimonials-section" id="temoignages" aria-labelledby="testimonials-title">
+    <div class="testimonials-container">
+      <div class="section-header reveal">
+        <span class="section-tag">{t.testimonials.tag}</span>
+        <h2 class="section-title" id="testimonials-title">{t.testimonials.title}</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        {verifiedTestimonials.map((item) => (
+          <div class="testimonial-card reveal">
+            <p class="t-quote">“{isAr ? item.quoteAr : item.quoteFr}”</p>
+            <div class="t-author-meta">
+              {item.photoUrl && (
+                <img src={item.photoUrl} alt={item.authorName} class="t-photo" width="48" height="48" loading="lazy" />
+              )}
+              <div>
+                <div class="t-name">{item.authorName}</div>
+                <div class="t-store">{item.storeName} • {item.city}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .testimonials-section {
+    padding: 5rem 1.5rem;
+    background-color: var(--content-bg-alt);
+  }
+  .testimonials-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .testimonial-card {
+    background: var(--content-surface);
+    border: 1px solid var(--content-border);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .t-quote {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--content-text);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .t-author-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .t-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .t-name {
+    font-weight: 800;
+    color: var(--content-text);
+  }
+  .t-store {
+    font-size: 0.8rem;
+    color: var(--content-text-muted);
+  }
+</style>

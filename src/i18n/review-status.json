@@ -1,0 +1,30 @@
+{
+  "_notice": "Toutes les chaînes arabes doivent être relues par un locuteur natif avant la mise en production officielle.",
+  "status": {
+    "nav.switchLang": "A_RELIRE",
+    "nav.downloadCta": "A_RELIRE",
+    "hero.titlePrefix": "A_RELIRE",
+    "hero.titleHighlight": "A_RELIRE",
+    "hero.subtitle": "A_RELIRE",
+    "hero.target": "A_RELIRE",
+    "problems.title": "A_RELIRE",
+    "problems.item1.title": "A_RELIRE",
+    "problems.item1.problem": "A_RELIRE",
+    "problems.item1.solution": "A_RELIRE",
+    "problems.item2.title": "A_RELIRE",
+    "problems.item2.problem": "A_RELIRE",
+    "problems.item2.solution": "A_RELIRE",
+    "problems.item3.title": "A_RELIRE",
+    "problems.item3.problem": "A_RELIRE",
+    "problems.item3.solution": "A_RELIRE",
+    "features.title": "A_RELIRE",
+    "features.item1": "A_RELIRE",
+    "features.item2": "A_RELIRE",
+    "features.item3": "A_RELIRE",
+    "features.item4": "A_RELIRE",
+    "features.item5": "A_RELIRE",
+    "beforeAfter.title": "A_RELIRE",
+    "quickStart.title": "A_RELIRE",
+    "footer.desc": "A_RELIRE"
+  }
+}

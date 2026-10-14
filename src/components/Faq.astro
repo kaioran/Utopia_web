@@ -1,0 +1,178 @@
+---
+import type { SupportedLocale } from '../i18n';
+import { getTranslations } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+const t = getTranslations(locale);
+
+const faqs = [
+  t.faq.q1,
+  t.faq.q2,
+  t.faq.q3,
+  t.faq.q4,
+  t.faq.q5,
+  t.faq.q6,
+];
+---
+
+<section class="faq-section" id="faq" aria-labelledby="faq-title">
+  <div class="faq-container">
+    <div class="section-header reveal">
+      <div class="terminal-badge">
+        <span class="pulse-dot"></span>
+        <span>&gt;_ ./faq --reponses --transparence</span>
+      </div>
+      <h2 class="section-title" id="faq-title">
+        {isAr ? "الأسئلة الأكثر " : "Foire aux questions "}
+        <span class="text-gradient">{isAr ? "شائعاً وإجاباتها" : "fréquentes"}</span>
+      </h2>
+    </div>
+
+    {/* Accordéon accessible via <details> / <summary> */}
+    <div class="faq-list reveal-stagger">
+      {faqs.map((item) => (
+        <details class="faq-item reveal" name="faq-accordion">
+          <summary class="faq-question">
+            <span class="q-text">{item.q}</span>
+            <span class="q-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            <p>{item.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 5.5rem 1.5rem;
+    background-color: var(--content-bg);
+    transition: background-color var(--transition-normal);
+  }
+
+  .faq-container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-cyan-hover);
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-border);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--content-text);
+    letter-spacing: -0.02em;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: var(--content-surface);
+    border: 1px solid var(--content-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
+  }
+
+  .faq-item:hover {
+    border-color: rgba(0, 174, 239, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 174, 239, 0.08);
+  }
+
+  .faq-item[open] {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 4px 15px rgba(0, 174, 239, 0.12);
+  }
+
+  .faq-question {
+    list-style: none;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--content-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .q-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-cyan);
+    transition: transform 0.25s ease, color 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] .q-icon {
+    transform: rotate(45deg);
+    color: var(--accent-amber);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.35rem 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--content-text-muted);
+    border-top: 1px solid transparent;
+  }
+
+  .faq-item[open] .faq-answer {
+    border-top-color: var(--content-border);
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .faq-section {
+      padding: 3.5rem 1rem;
+    }
+    .section-title {
+      font-size: 1.7rem;
+    }
+    .faq-question {
+      font-size: 0.95rem;
+      padding: 1rem 1.2rem;
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import es from '../../i18n/es.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${es.hero.titlePrefix} ${es.hero.titleHighlight}`;
+const pageDesc = es.hero.subtitle;
+---
+
+<BaseLayout locale="es" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : Promesa + capturas reales + demo */}
+  <Hero locale="es" />
+
+  {/* 02. Problemas → Soluciones : Retos diarios del comercio */}
+  <Problems locale="es" />
+
+  {/* 03. Software en imágenes : Galería de pantallas reales */}
+  <ScreenShowcase locale="es" />
+
+  {/* 04. Funcionalidades clave : 5 bloques Bento ilustrados */}
+  <Features locale="es" />
+
+  {/* 05. Beneficios : Tiempo, visibilidad, control */}
+  <Benefits locale="es" />
+
+  {/* 06. Demostración guiada : Una jornada tipo en 3 pasos */}
+  <Demo locale="es" />
+
+  {/* 07. Confianza : Seguridad 100% local, roles PIN, soporte */}
+  <Trust locale="es" />
+  <Testimonials locale="es" />
+
+  {/* 08. Tarifas : Paquete claro y transparente */}
+  <Pricing locale="es" />
+
+  {/* 09. Preguntas frecuentes : Respuestas claras */}
+  <Faq locale="es" />
+
+  {/* 10. CTA final : Solicitar una demostración gratuita */}
+  <FinalCta locale="es" />
+
+  {/* Modal interactivo de demostración y descarga */}
+  <DownloadModal client:load locale="es" labels={es.modal} />
+</BaseLayout>

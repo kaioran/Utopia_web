@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import en from '../../i18n/en.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${en.hero.titlePrefix} ${en.hero.titleHighlight}`;
+const pageDesc = en.hero.subtitle;
+---
+
+<BaseLayout locale="en" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : Promise + software screenshot + CTA */}
+  <Hero locale="en" />
+
+  {/* 02. Problem → Solution : Daily retail challenges */}
+  <Problems locale="en" />
+
+  {/* 03. Software Showcase : Real interface gallery */}
+  <ScreenShowcase locale="en" />
+
+  {/* 04. Key Features : 5 Bento feature blocks */}
+  <Features locale="en" />
+
+  {/* 05. Tangible Benefits : Time, visibility, control */}
+  <Benefits locale="en" />
+
+  {/* 06. Guided Demo : 3-step typical retail day */}
+  <Demo locale="en" />
+
+  {/* 07. Trust & Security : Local data, roles, dedicated support */}
+  <Trust locale="en" />
+  <Testimonials locale="en" />
+
+  {/* 08. Pricing & Offer : Clear transparent package */}
+  <Pricing locale="en" />
+
+  {/* 09. FAQ : Retailer objections answered */}
+  <Faq locale="en" />
+
+  {/* 10. Final CTA : Get a free demo */}
+  <FinalCta locale="en" />
+
+  {/* Interactive Demo & Lead Modal */}
+  <DownloadModal client:load locale="en" labels={en.modal} />
+</BaseLayout>

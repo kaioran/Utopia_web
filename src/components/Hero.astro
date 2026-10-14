@@ -1,0 +1,1043 @@
+---
+import type { SupportedLocale } from '../i18n';
+import { getTranslations } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+const t = getTranslations(locale);
+
+const ctaLabel = t.hero.cta;
+
+const heroScreens = [
+  { id: 'caisse', title: t.hero.cap1Title, img: '/screens/03-caisse-retail-delphi-classic.png' },
+  { id: 'clients', title: t.hero.cap2Title, img: '/screens/11-gestion-clients-credits.png' },
+  { id: 'cloture', title: t.hero.cap3Title, img: '/screens/12-pilotage-clotures-statistiques.png' },
+  { id: 'stocks', title: t.hero.cap4Title, img: '/screens/10-gestion-articles-stocks.png' },
+];
+
+const statusLabels: Record<SupportedLocale, string> = {
+  fr: 'Caisse Locale Active // 100% Offline',
+  en: 'Active Local POS // 100% Offline',
+  pt: 'Caixa Local Ativa // 100% Offline',
+  es: 'Caja Local Activa // 100% Offline',
+  it: 'Cassa Locale Attiva // 100% Offline',
+  de: 'Lokales Kassensystem aktiv // 100% Offline',
+  tr: 'Yerel Kasa Aktif // %100 Çevrimdışı',
+  ar: 'نظام كاشير محلي نشط // 100% بدون إنترنت',
+  ur: 'لوکل کیش کاؤنٹر فعال // 100% آف لائن',
+  hi: 'लोकल कैश काउंटर सक्रिय // 100% ऑफलाइन',
+  bn: 'লোকাল ক্যাশিয়ার সক্রিয় // ১০০% অফলাইন',
+  fil: 'Aktibong Lokal na POS // 100% Offline',
+};
+
+const ringAriaLabels: Record<SupportedLocale, string> = {
+  fr: 'Aperçu en direct des interfaces Utopia',
+  en: 'Live preview of Utopia interfaces',
+  pt: 'Pré-visualização ao vivo das interfaces Utopia',
+  es: 'Vista previa en vivo de las interfaces de Utopia',
+  it: 'Anteprima dal vivo delle interfacce Utopia',
+  de: 'Live-Vorschau der Utopia-Benutzeroberflächen',
+  tr: 'Utopia arayüzlerinin canlı önizlemesi',
+  ar: 'نظرة حية على واجهات يوتوبيا',
+  ur: 'یوٹوپیا انٹرفیسز کا لائیو جائزہ',
+  hi: 'यूटोपिया इंटरफेस का लाइव पूर्वावलोकन',
+  bn: 'ইউটোপিয়া ইন্টারফেসের সরাসরি পূর্বরূপ',
+  fil: 'Live preview ng mga interface ng Utopia',
+};
+---
+
+<section class="hero-section" id="hero" aria-labelledby="hero-title">
+  <div class="hero-container">
+    {/* Colonne de gauche : Titre, Promesse, CTA & Statistiques */}
+    <div class="hero-content">
+      {/* Badge Système Technova */}
+      <div class="hero-badge-wrapper">
+        <div class="system-badge">
+          <span class="badge-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>
+          </span>
+          <span>{t.hero.badge} • v1.0.0</span>
+        </div>
+      </div>
+
+      {/* Titre Principal avec Dégradé Technova */}
+      <h1 class="hero-title" id="hero-title">
+        {t.hero.titlePrefix} <span class="text-gradient">{t.hero.titleHighlight}</span>
+      </h1>
+
+      {/* Sous-titre Épuré & Fluide */}
+      <p class="hero-subtitle">
+        {t.hero.subtitle}
+      </p>
+
+      {/* Boutons d'action doubles Technova */}
+      <div class="hero-actions">
+        <a href="#telecharger" class="btn-primary hero-cta-btn" id="hero-main-cta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>{ctaLabel}</span>
+        </a>
+
+        <a href="#galerie-ecrans" class="btn-secondary hero-secondary-btn" id="hero-explore-cta">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>{t.nav.gallery}</span>
+        </a>
+      </div>
+
+      {/* Compteurs de statistiques épurés & aérés (Style TechNova) */}
+      <div class="hero-stats-row">
+        <div class="stat-item">
+          <span class="stat-value val-cyan">{t.hero.stat1Value}</span>
+          <span class="stat-label">{t.hero.stat1Label}</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-value val-purple">{t.hero.stat2Value}</span>
+          <span class="stat-label">{t.hero.stat2Label}</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-value val-emerald">{t.hero.stat3Value}</span>
+          <span class="stat-label">{t.hero.stat3Label}</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Colonne de droite : Panneau de verre Technova (Glass Panel Card) avec Anneau Concentrique */}
+    <div class="hero-showcase reveal">
+      <div class="hero-glass-card">
+        {/* En-tête du panneau de verre */}
+        <div class="glass-card-header">
+          <span class="system-status-pill">
+            <span class="status-indicator"></span>
+            <span>{statusLabels[locale]}</span>
+          </span>
+          <span class="system-mode-tag">Windows 10/11</span>
+        </div>
+
+        {/* Graphique de l'anneau orbital concentrique Technova avec aperçu dynamique des interfaces */}
+        <div class="hero-ring-graphic" aria-label={ringAriaLabels[locale]}>
+          {/* Diaporama d'arrière-plan des interfaces réelles Utopia (faible opacité) */}
+          <div class="hero-backdrop-slideshow" id="hero-backdrop-slideshow" aria-hidden="true">
+            {heroScreens.map((screen, idx) => (
+              <div 
+                class={`hero-backdrop-slide ${idx === 0 ? 'is-active' : ''}`}
+                data-slide-index={idx}
+                data-slide-title={screen.title}
+              >
+                <img 
+                  src={screen.img} 
+                  alt="" 
+                  class="hero-backdrop-img"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                />
+              </div>
+            ))}
+            <div class="hero-backdrop-vignette"></div>
+            <div class="hero-backdrop-grid-overlay"></div>
+          </div>
+
+          <div class="ring-orbit ring-outer" aria-hidden="true">
+            <div class="orbit-node node-cyan" title="Vente Express"></div>
+            <div class="orbit-node node-purple" title="Crédits Kredy"></div>
+          </div>
+          <div class="ring-orbit ring-inner" aria-hidden="true">
+            <div class="orbit-node node-blue" title="Réseau Local"></div>
+            <div class="orbit-node node-emerald" title="Clôture Z"></div>
+          </div>
+          <div class="ring-center-core" aria-hidden="true">
+            <div class="core-pulse-glow"></div>
+            <div class="core-icon-container">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+                <path d="M7 8h10"></path>
+                <circle cx="12" cy="12" r="1"></circle>
+              </svg>
+            </div>
+          </div>
+
+          {/* Badge interactif cliquable pour voir plus dans la galerie */}
+          <a href="#galerie-ecrans" class="hero-backdrop-badge" id="hero-backdrop-badge" title={isAr ? "استكشف الشاشات بالكامل" : "Voir tous les écrans en détail"}>
+            <span class="backdrop-badge-dot"></span>
+            <span class="backdrop-badge-title" id="hero-backdrop-badge-title">{heroScreens[0].title}</span>
+            <svg class="backdrop-badge-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        {/* 4 Cartes de fonctionnalités satellites en grille 2x2 Technova */}
+        <div class="hero-capabilities-grid">
+          <div class="capability-item" data-screen-index="0">
+            <div class="cap-icon-box cyan-bg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+            </div>
+            <div class="cap-text">
+              <span class="cap-title">{t.hero.cap1Title}</span>
+              <span class="cap-sub">{t.hero.cap1Sub}</span>
+            </div>
+          </div>
+
+          <div class="capability-item" data-screen-index="1">
+            <div class="cap-icon-box purple-bg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="cap-text">
+              <span class="cap-title">{t.hero.cap2Title}</span>
+              <span class="cap-sub">{t.hero.cap2Sub}</span>
+            </div>
+          </div>
+
+          <div class="capability-item" data-screen-index="2">
+            <div class="cap-icon-box amber-bg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <div class="cap-text">
+              <span class="cap-title">{t.hero.cap3Title}</span>
+              <span class="cap-sub">{t.hero.cap3Sub}</span>
+            </div>
+          </div>
+
+          <div class="capability-item" data-screen-index="3">
+            <div class="cap-icon-box emerald-bg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="cap-text">
+              <span class="cap-title">{t.hero.cap4Title}</span>
+              <span class="cap-sub">{t.hero.cap4Sub}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    background-color: transparent;
+    color: var(--chrome-text);
+    padding: 5rem 1.5rem 5.5rem 1.5rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--chrome-border);
+  }
+
+  .hero-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-container {
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Badge Système Technova */
+  .hero-badge-wrapper {
+    margin-bottom: 1.25rem;
+  }
+
+  .system-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 1rem;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--badge-border);
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+  }
+
+  .badge-icon {
+    display: flex;
+    align-items: center;
+    color: var(--badge-text);
+  }
+
+  /* Titre Principal */
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.03em;
+    color: var(--chrome-text);
+  }
+
+  @media (min-width: 640px) {
+    .hero-title {
+      font-size: 3.2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: 3.6rem;
+    }
+  }
+
+  .text-gradient {
+    background: var(--accent-gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--chrome-text-muted);
+    margin-bottom: 2.25rem;
+    max-width: 560px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta-btn {
+    font-size: 1.05rem;
+    padding: 0.95rem 2rem;
+  }
+
+  .hero-secondary-btn {
+    font-size: 1rem;
+    padding: 0.95rem 1.75rem;
+    background: var(--chrome-surface);
+    color: var(--chrome-text);
+    border: 1px solid var(--chrome-border);
+  }
+
+  .hero-secondary-btn:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    background: var(--chrome-surface-hover);
+  }
+
+  /* Compteurs statistiques épurés (Style TechNova) */
+  .hero-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .val-cyan {
+    color: #0284C7;
+  }
+  .val-purple {
+    color: #7C3AED;
+  }
+  .val-emerald {
+    color: #059669;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--chrome-text-dim);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--chrome-border);
+  }
+
+  /* ==========================================================================
+     Panneau de verre Technova (Glass Panel Card)
+     ========================================================================== */
+  .hero-glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 28px;
+    padding: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08), 
+                0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+    position: relative;
+    z-index: 1;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  }
+
+  :global(html[data-theme="dark"]) .hero-glass-card {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  }
+
+  .glass-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--chrome-border);
+    margin-bottom: 1.5rem;
+  }
+
+  .system-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: #059669;
+    font-weight: 700;
+  }
+
+  :global(html[data-theme="dark"]) .system-status-pill {
+    color: #10B981;
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #10B981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10B981;
+    animation: pulseGlow 2s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .system-mode-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    background: var(--chrome-surface-subtle);
+    border: 1px solid var(--chrome-border);
+    border-radius: var(--radius-sm);
+    color: var(--chrome-text-dim);
+    font-weight: 600;
+  }
+
+  /* Graphique circulaire d'anneaux orbitaux Technova */
+  .hero-ring-graphic {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    margin: 0.5rem auto 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform var(--transition-normal);
+  }
+
+  .ring-orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px dashed rgba(2, 132, 199, 0.25);
+    animation: spinRing 26s linear infinite;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .ring-outer {
+    width: 250px;
+    height: 250px;
+    border-color: rgba(2, 132, 199, 0.35);
+  }
+
+  .ring-inner {
+    width: 175px;
+    height: 175px;
+    border-color: rgba(124, 58, 237, 0.3);
+    animation-direction: reverse;
+    animation-duration: 20s;
+  }
+
+  .orbit-node {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    box-shadow: 0 0 12px currentColor;
+  }
+
+  .node-cyan {
+    background: #00AEEF;
+    color: #00AEEF;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .node-purple {
+    background: #8B5CF6;
+    color: #8B5CF6;
+    bottom: 22px;
+    right: 28px;
+  }
+
+  .node-blue {
+    background: #2563EB;
+    color: #2563EB;
+    top: 50%;
+    left: -7px;
+    transform: translateY(-50%);
+  }
+
+  .node-emerald {
+    background: #10B981;
+    color: #10B981;
+    top: 50%;
+    right: -7px;
+    transform: translateY(-50%);
+  }
+
+  .ring-center-core {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #1D4ED8 0%, #0284C7 50%, #7C3AED 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    box-shadow: 0 12px 28px -5px rgba(2, 132, 199, 0.45);
+    z-index: 2;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .core-pulse-glow {
+    position: absolute;
+    inset: -6px;
+    border-radius: 26px;
+    background: radial-gradient(circle, rgba(0, 174, 239, 0.4) 0%, transparent 70%);
+    animation: corePulse 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes corePulse {
+    0% { transform: scale(0.95); opacity: 0.6; }
+    100% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .core-icon-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes spinRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Grille 2x2 des 4 capacités satellites */
+  .hero-capabilities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+  }
+
+  .capability-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--chrome-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  :global(html[data-theme="dark"]) .capability-item {
+    background: rgba(15, 23, 42, 0.7);
+  }
+
+  .capability-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 8px 16px rgba(2, 132, 199, 0.12);
+  }
+
+  .cap-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cyan-bg {
+    background: rgba(2, 132, 199, 0.12);
+    color: #0284C7;
+  }
+  .purple-bg {
+    background: rgba(124, 58, 237, 0.12);
+    color: #7C3AED;
+  }
+  .amber-bg {
+    background: rgba(217, 119, 6, 0.12);
+    color: #D97706;
+  }
+  .emerald-bg {
+    background: rgba(5, 150, 105, 0.12);
+    color: #059669;
+  }
+
+  .cap-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .cap-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--chrome-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cap-sub {
+    font-size: 0.72rem;
+    color: var(--chrome-text-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Diaporama d'interfaces Utopia en arrière-plan du graphique central */
+  .hero-backdrop-slideshow {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 24px rgba(2, 132, 199, 0.25), 0 0 35px rgba(2, 132, 199, 0.12);
+    border: 1px solid rgba(2, 132, 199, 0.2);
+    background: radial-gradient(circle at center, rgba(2, 132, 199, 0.08) 0%, transparent 80%);
+    transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                border-radius 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.45s ease;
+  }
+
+  .hero-backdrop-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.06) rotate(-0.5deg);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .hero-backdrop-slide.is-active {
+    opacity: 0.35;
+    transform: scale(1) rotate(0deg);
+  }
+
+  :global(html[data-theme="dark"]) .hero-backdrop-slide.is-active {
+    opacity: 0.42;
+  }
+
+  .hero-backdrop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: saturate(1.2) contrast(1.1);
+    transition: filter 0.4s ease, object-position 0.4s ease;
+  }
+
+  /* Vignette radiale subtile pour intégrer la capture sans masquer les orbites */
+  .hero-backdrop-vignette {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0) 15%,
+      rgba(255, 255, 255, 0.25) 55%,
+      rgba(255, 255, 255, 0.75) 85%,
+      rgba(248, 250, 252, 0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.4s ease, border-radius 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  :global(html[data-theme="dark"]) .hero-backdrop-vignette {
+    background: radial-gradient(
+      circle at center,
+      rgba(15, 23, 42, 0) 15%,
+      rgba(15, 23, 42, 0.35) 55%,
+      rgba(15, 23, 42, 0.8) 85%,
+      rgba(15, 23, 42, 0.96) 100%
+    );
+  }
+
+  .hero-backdrop-grid-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-image: linear-gradient(rgba(2, 132, 199, 0.08) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(2, 132, 199, 0.08) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.45;
+    transition: opacity 0.4s ease, border-radius 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ==========================================================================
+     Transformation Cercle -> Rectangle (Pleine largeur de la carte au survol)
+     ========================================================================== */
+  .hero-ring-graphic:hover .hero-backdrop-slideshow,
+  .hero-glass-card:hover .hero-ring-graphic .hero-backdrop-slideshow {
+    width: 100%;
+    height: 245px;
+    border-radius: 16px;
+    border-color: rgba(0, 174, 239, 0.65);
+    box-shadow: 0 16px 36px -6px rgba(2, 132, 199, 0.35),
+                0 0 0 1px rgba(0, 174, 239, 0.45);
+  }
+
+  :global(html[data-theme="dark"]) .hero-ring-graphic:hover .hero-backdrop-slideshow,
+  :global(html[data-theme="dark"]) .hero-glass-card:hover .hero-ring-graphic .hero-backdrop-slideshow {
+    border-color: rgba(56, 189, 248, 0.55);
+    box-shadow: 0 20px 42px -8px rgba(0, 0, 0, 0.65),
+                0 0 0 1px rgba(56, 189, 248, 0.4);
+  }
+
+  /* Diapositive active : 100% d'opacité nette et intégrale */
+  .hero-ring-graphic:hover .hero-backdrop-slide.is-active,
+  .hero-glass-card:hover .hero-ring-graphic .hero-backdrop-slide.is-active {
+    opacity: 1 !important;
+    transform: scale(1) rotate(0deg);
+  }
+
+  .hero-ring-graphic:hover .hero-backdrop-img,
+  .hero-glass-card:hover .hero-ring-graphic .hero-backdrop-img {
+    filter: saturate(1.05) contrast(1.03);
+    object-position: center 25%;
+  }
+
+  /* Effacement de la vignette radiale pour dévoiler toute la capture */
+  .hero-ring-graphic:hover .hero-backdrop-vignette,
+  .hero-glass-card:hover .hero-ring-graphic .hero-backdrop-vignette {
+    opacity: 0;
+    border-radius: 16px;
+  }
+
+  /* Effacement du quadrillage de fond */
+  .hero-ring-graphic:hover .hero-backdrop-grid-overlay,
+  .hero-glass-card:hover .hero-ring-graphic .hero-backdrop-grid-overlay {
+    opacity: 0;
+    border-radius: 16px;
+  }
+
+  /* Effacement doux des anneaux orbitaux et des nœuds satellites */
+  .hero-ring-graphic:hover .ring-orbit,
+  .hero-glass-card:hover .hero-ring-graphic .ring-orbit {
+    opacity: 0;
+    transform: scale(0.92);
+    pointer-events: none;
+  }
+
+  /* Effacement doux du cœur central et de l'icône */
+  .hero-ring-graphic:hover .ring-center-core,
+  .hero-glass-card:hover .hero-ring-graphic .ring-center-core {
+    opacity: 0;
+    transform: scale(0.65);
+    pointer-events: none;
+  }
+
+  /* Badge interactif sous le cercle/carré */
+  .hero-backdrop-badge {
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.32rem 0.85rem;
+    background: var(--chrome-surface);
+    border: 1px solid var(--chrome-border);
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.18);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, bottom 0.35s ease, background 0.35s ease;
+    cursor: pointer;
+  }
+
+  .hero-ring-graphic:hover .hero-backdrop-badge,
+  .hero-glass-card:hover .hero-ring-graphic .hero-backdrop-badge {
+    bottom: -18px;
+    background: rgba(15, 23, 42, 0.94);
+    color: #F8FAFC;
+    border-color: rgba(0, 174, 239, 0.85);
+    box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.45);
+  }
+
+  .hero-backdrop-badge:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
+    border-color: var(--accent-cyan);
+  }
+
+  .backdrop-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-cyan);
+    box-shadow: 0 0 8px var(--accent-cyan);
+    animation: pulseDot 2s infinite ease-in-out;
+  }
+
+  .backdrop-badge-title {
+    transition: opacity 0.25s ease;
+  }
+
+  .backdrop-badge-arrow {
+    opacity: 0.6;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  [dir="rtl"] .backdrop-badge-arrow {
+    transform: rotate(180deg);
+  }
+
+  .hero-backdrop-badge:hover .backdrop-badge-arrow {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  [dir="rtl"] .hero-backdrop-badge:hover .backdrop-badge-arrow {
+    transform: rotate(180deg) translateX(2px);
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  .capability-item {
+    cursor: pointer;
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .capability-item:hover,
+  .capability-item.is-active-screen {
+    transform: translateY(-2px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.18);
+  }
+
+  @media (max-width: 480px) {
+    .hero-capabilities-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-glass-card {
+      padding: 1.5rem 1rem;
+    }
+    .hero-ring-graphic {
+      width: 100%;
+      height: 220px;
+    }
+    .hero-backdrop-slideshow {
+      width: 220px;
+      height: 220px;
+    }
+    .hero-ring-graphic:hover .hero-backdrop-slideshow,
+    .hero-glass-card:hover .hero-ring-graphic .hero-backdrop-slideshow {
+      width: 100%;
+      height: 195px;
+    }
+    .ring-outer {
+      width: 210px;
+      height: 210px;
+    }
+    .ring-inner {
+      width: 145px;
+      height: 145px;
+    }
+  }
+</style>
+
+<script>
+  function initHeroSlideshow() {
+    const container = document.getElementById('hero-backdrop-slideshow');
+    if (!container) return;
+
+    const slides = container.querySelectorAll<HTMLElement>('.hero-backdrop-slide');
+    const badgeTitle = document.getElementById('hero-backdrop-badge-title');
+    const capCards = document.querySelectorAll<HTMLElement>('.capability-item[data-screen-index]');
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let timer: number | null = null;
+
+    function showSlide(index: number) {
+      currentIndex = index;
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add('is-active');
+        } else {
+          slide.classList.remove('is-active');
+        }
+      });
+
+      capCards.forEach((card, i) => {
+        if (i === index) {
+          card.classList.add('is-active-screen');
+        } else {
+          card.classList.remove('is-active-screen');
+        }
+      });
+
+      if (badgeTitle) {
+        const title = slides[index].getAttribute('data-slide-title');
+        if (title) {
+          badgeTitle.style.opacity = '0';
+          setTimeout(() => {
+            badgeTitle.textContent = title;
+            badgeTitle.style.opacity = '1';
+          }, 200);
+        }
+      }
+    }
+
+    function nextSlide() {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      showSlide(nextIndex);
+    }
+
+    function startTimer() {
+      if (timer) clearInterval(timer);
+      timer = window.setInterval(nextSlide, 3800);
+    }
+
+    startTimer();
+
+    // Interaction : survol des cartes satellites pour afficher immédiatement l'écran correspondant
+    capCards.forEach((card, idx) => {
+      card.addEventListener('mouseenter', () => {
+        if (timer) clearInterval(timer);
+        showSlide(idx);
+      });
+      card.addEventListener('mouseleave', () => {
+        startTimer();
+      });
+    });
+
+    // Interaction : survol de la zone graphique pour figer la capture examinée et clic pour passer au suivant
+    const ringGraphic = document.querySelector<HTMLElement>('.hero-ring-graphic');
+    if (ringGraphic) {
+      ringGraphic.addEventListener('mouseenter', () => {
+        if (timer) clearInterval(timer);
+      });
+      ringGraphic.addEventListener('mouseleave', () => {
+        startTimer();
+      });
+      ringGraphic.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest('.hero-backdrop-badge')) {
+          nextSlide();
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSlideshow);
+  } else {
+    initHeroSlideshow();
+  }
+
+  document.addEventListener('astro:page-load', initHeroSlideshow);
+</script>

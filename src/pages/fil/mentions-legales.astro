@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Legal na Paunawa • ${siteConfig.brand.name}`;
+const pageDesc = "Opisyal na legal na paunawa para sa Utopia POS ng StellarSoft.";
+---
+
+<BaseLayout locale="fil" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/fil/" class="back-link">← Bumalik sa simula</a>
+
+      <h1 class="legal-title">Legal na Paunawa</h1>
+      <p class="legal-meta">May-akda: StellarSoft • Software: Utopia POS</p>
+
+      <div class="legal-content">
+        <h2>1. Tagapaglathala ng Software at Website</h2>
+        <p>
+          Ang POS at retail management software na <strong>Utopia POS</strong> at ang website na ito ay binuo at inilathala ng <strong>StellarSoft</strong>.
+        </p>
+        <ul>
+          <li><strong>Kumpanya:</strong> StellarSoft</li>
+          <li><strong>Email:</strong> contact@stellarsoft.com</li>
+          <li><strong>WhatsApp Support:</strong> Direktang suporta sa negosyo at teknikal</li>
+          <li><strong>Operating System:</strong> Windows 10, Windows 11 (64-bit)</li>
+        </ul>
+
+        <h2>2. Intellectual Property</h2>
+        <p>
+          Lahat ng trademark, logo, disenyo ng user interface, source code, at nakasulat na nilalaman ay eksklusibong pag-aari ng StellarSoft.
+        </p>
+
+        <h2>3. Offline na Operasyon at Pananagutan</h2>
+        <p>
+          Ang Utopia POS ay ibinibigay para sa lokal at autonomous na paggamit sa kompyuter ng tindahan. Ang may-ari ay may pananagutan sa kanyang lokal na backup ng data at pagsunod sa mga umiiral na batas sa negosyo.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--content-text);
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--content-text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content p {
+    color: var(--content-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: var(--content-text);
+  }
+</style>

@@ -1,0 +1,1683 @@
+---
+import type { SupportedLocale } from '../i18n';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+
+// 13 Écrans Authentiques capturés depuis Utopia POS
+const screensData = [
+  {
+    id: '01-connexion-caissier-pin',
+    file: '/screens/01-connexion-caissier-pin.png',
+    categoryKey: 'security',
+    categoryFr: 'Sécurité & Accès',
+    categoryAr: 'الأمان والورديات',
+    badgeFr: 'Prise de Poste Sécurisée',
+    badgeAr: 'تسجيل دخول مؤمن',
+    titleFr: 'Connexion Caissier & Contrôle d\'Accès PIN',
+    titleAr: 'تسجيل دخول الكاشير والتحكم برمز PIN',
+    descFr: 'Écran de sélection des vendeurs et de prise de poste quotidienne. Chaque caissier s\'identifie avec son code PIN confidentiel ou son badge vendeur, avec choix de la caisse (Poste 1 à 5) et fond de caisse initial.',
+    descAr: 'واجهة اختيار البائع واستلام الوردية اليومية. يسجل كل كاشير دخوله برمز PIN السري أو شارة البائع مع اختيار رقم الكاشير (جهاز 1 إلى 5) ومبلغ صندوق الانطلاق.',
+    tagsFr: ['Code PIN individuel', 'Sélection de poste (LAN 1-5)', 'Fond de caisse de départ'],
+    tagsAr: ['رمز PIN شخصي', 'اختيار نقطة البيع (1-5)', 'مبلغ عهدة الصندوق']
+  },
+  {
+    id: '02-dashboard-journal-ventes',
+    file: '/screens/02-dashboard-journal-ventes.png',
+    categoryKey: 'management',
+    categoryFr: 'Gestion & Pilotage',
+    categoryAr: 'الإدارة والقيادة',
+    badgeFr: 'Vue Direction en Direct',
+    badgeAr: 'لوحة القيادة المباشرة',
+    titleFr: 'Tableau de Bord & Pilotage Général des Ventes',
+    titleAr: 'لوحة القيادة والمتابعة العامة للمبيعات',
+    descFr: 'Hub de gestion stratégique pour le chef d\'entreprise : suivi du chiffre d\'affaires en direct, ventilation des modes de règlement, courbe des ventes horaires, alertes de rupture et accès instantané à tous les modules.',
+    descAr: 'مركز المتابعة الاستراتيجية للمسؤول: متابعة رقم الأعمال لحظياً، تفصيل طرق الدفع، منحنى المبيعات بالساعة، تنبيهات نفاد المخزون ووصول فوري لجميع الوحدات.',
+    tagsFr: ['CA temps réel', 'Graphique des ventes', 'Raccourcis rapides ERP'],
+    tagsAr: ['المداخيل فورياً', 'منحنى بياني للمبيعات', 'اختصارات سريعة']
+  },
+  {
+    id: '03-caisse-retail-delphi-classic',
+    file: '/screens/03-caisse-retail-delphi-classic.png',
+    categoryKey: 'caisse',
+    categoryFr: 'Caisses & Métiers',
+    categoryAr: 'الكاشير والأنشطة',
+    badgeFr: 'Retail & Prêt-à-Porter',
+    badgeAr: 'التجزئة والألبسة',
+    titleFr: 'Caisse Retail • Thème Delphi Classique',
+    titleAr: 'نقطة بيع التجزئة • مظهر دلفي الكلاسيكي',
+    descFr: 'L\'interface de référence pour supérettes, quincailleries et boutiques : lecture continue des codes-barres sans perte de focus, écran LCD du ticket en cours, calcul ultra-précis du rendu de monnaie et multi-règlements.',
+    descAr: 'الواجهة المعتمدة للمحلات، السوبرماركت ومحلات الخردوات: مسح متواصل للباركود، شاشة LCD للتذكرة الحالية، حساب دقيق للباقي ودعم الدفع المتعدد.',
+    tagsFr: ['Recherche code-barres instantanée', 'Rendu de monnaie garanti', 'Multi-règlements'],
+    tagsAr: ['مسح باركود فوري', 'حساب تلقائي للباقي', 'دفع نقدي وتجزئة']
+  },
+  {
+    id: '04-caisse-retail-tactile-dark',
+    file: '/screens/04-caisse-retail-tactile-dark.png',
+    categoryKey: 'caisse',
+    categoryFr: 'Caisses & Métiers',
+    categoryAr: 'الكاشير والأنشطة',
+    badgeFr: 'Tactile Haute Densité',
+    badgeAr: 'لمسي عالي الدقة',
+    titleFr: 'Caisse Retail • Thème Tactile Sombre',
+    titleAr: 'نقطة بيع التجزئة • الوضع اللمسي الداكن',
+    descFr: 'Mode sombre ergonomique spécialement conçu pour les écrans tactiles POS. Réduit la fatigue visuelle des caissiers lors de longues journées de travail et met en valeur les produits avec de grandes tuiles de sélection.',
+    descAr: 'الوضع الليلي المريح المصمم خصيصاً لشاشات نقاط البيع اللمسية POS. يريح عين الكاشير خلال الورديات الطويلة ويعرض المنتجات بأزرار لمسية واضحة.',
+    tagsFr: ['Confort visuel sombre', 'Touches tactiles larges', '100% tactile sans souris'],
+    tagsAr: ['تصميم مريح للعين', 'أزرار لمسية كبيرة', '100% لمس بدون فأرة']
+  },
+  {
+    id: '05-caisse-boulangerie-snacking',
+    file: '/screens/05-caisse-boulangerie-snacking.png',
+    categoryKey: 'caisse',
+    categoryFr: 'Caisses & Métiers',
+    categoryAr: 'الكاشير والأنشطة',
+    badgeFr: 'Boulangerie & Pâtisserie',
+    badgeAr: 'المخابز والحلويات',
+    titleFr: 'Caisse Boulangerie, Pâtisserie & Formules Midi',
+    titleAr: 'كاشير المخابز، الحلويات والوجبات السريعة',
+    descFr: 'Vitesse de passage maximale pour les boulangeries et snacking : grille tactile dédiée aux baguettes, viennoiseries et gâteaux, gestion des formules déjeuner (sandwich + boisson + dessert) et rendu monnaie express.',
+    descAr: 'سرعة قياسية لخدمة الزبائن في المخابز والوجبات الخفيفة: شبكة لمسية سريعة للخبز والمعجنات، عروض الغداء الكاملة وتسهيل إرجاع الصرف.',
+    tagsFr: ['Touches baguettes & viennoiseries', 'Formules sandwichs', 'Débit clients express'],
+    tagsAr: ['أزرار سريعة للخبز والحلويات', 'عروض الغداء والسندويش', 'انسيابية طابور الدفع']
+  },
+  {
+    id: '06-caisse-restaurant-plan-tables',
+    file: '/screens/06-caisse-restaurant-plan-tables.png',
+    categoryKey: 'caisse',
+    categoryFr: 'Caisses & Métiers',
+    categoryAr: 'الكاشير والأنشطة',
+    badgeFr: 'Restauration & Bar',
+    badgeAr: 'المطاعم والمقاهي',
+    titleFr: 'Caisse Restauration • Plan de Salles & Gestion des Tables',
+    titleAr: 'كاشير المطاعم والمقاهي • مخطط الصالات والطاولات',
+    descFr: 'Plan interactif de votre établissement : suivi en direct des tables (libres, occupées, en attente d\'addition), gestion du nombre de couverts, envoi des commandes en cuisine/bar et partage d\'addition par convive.',
+    descAr: 'مخطط تفاعلي لمطعمك أو مقهاك: متابعة حية لحالة الطاولات (شاغرة، مشغولة، بانتظار الفاتورة)، عدد الزبائن، إرسال الطلبات للمطبخ وتقسيم الحساب.',
+    tagsFr: ['Plan de salle interactif', 'Gestion des couverts', 'Notes séparées par convive'],
+    tagsAr: ['مخطط صالات تفاعلي', 'متابعة عدد الكراسي', 'تقسيم الفاتورة لكل ضيف']
+  },
+  {
+    id: '07-caisse-tabac-presse-fdj',
+    file: '/screens/07-caisse-tabac-presse-fdj.png',
+    categoryKey: 'caisse',
+    categoryFr: 'Caisses & Métiers',
+    categoryAr: 'الكاشير والأنشطة',
+    badgeFr: 'Tabac, Presse & FDJ',
+    badgeAr: 'التبغ والصحافة وألعاب الحظ',
+    titleFr: 'Caisse Tabac, Presse & Loterie FDJ',
+    titleAr: 'كاشير التبغ، الصحافة وألعاب اليانصيب',
+    descFr: 'Module spécialisé pour bureaux de tabac et presse : vente directe de paquets et multiplicateur cartouches x10, tickets de grattage et tirage FDJ, timbres fiscaux, recharges téléphoniques et déduction des gains joueurs.',
+    descAr: 'وحدة متخصصة لأكشاك التبغ والصحافة: بيع مباشر للعلب ومضاعف الحزم x10، بطاقات ألعاب الحظ، الطوابع الجبائية، بطاقات الشحن وصرف أرباح اللاعبين من الصندوق.',
+    tagsFr: ['Cartouches direct x10', 'Validation gains FDJ', 'Timbres & dématérialisé'],
+    tagsAr: ['بيع حزم السجائر x10', 'صرف أرباح ألعاب الحظ', 'طوابع وبطاقات إلكترونية']
+  },
+  {
+    id: '08-caisse-boucherie-primeur-balance',
+    file: '/screens/08-caisse-boucherie-primeur-balance.png',
+    categoryKey: 'caisse',
+    categoryFr: 'Caisses & Métiers',
+    categoryAr: 'الكاشير والأنشطة',
+    badgeFr: 'Pesée & Boucherie',
+    badgeAr: 'الوزن والجزارة',
+    titleFr: 'Caisse Boucherie, Primeur & Pesée Balance',
+    titleAr: 'كاشير الجزارة، الخضار والفواكه مع الميزان',
+    descFr: 'Intégration directe avec balances électroniques au gramme près : lecture du poids en direct, calcul automatique du prix au kilo, déduction de la tare et décodage instantané des codes-barres poids-prix.',
+    descAr: 'ربط مباشر بالموازين الإلكترونية بدقة الجرام: قراءة الوزن آلياً، حساب السعر للكيلوغرام، خصم وزن العلبة (Tare) وقراءة باركود الوزن والسعر تلقائياً.',
+    tagsFr: ['Balance connectée RS232/USB', 'Calcul prix au kilo', 'Codes-barres à pesée'],
+    tagsAr: ['ربط الميزان الإلكتروني', 'حساب تلقائي حسب الوزن', 'باركود الوزن المتغير']
+  },
+  {
+    id: '09-caisse-salon-coiffure-planning',
+    file: '/screens/09-caisse-salon-coiffure-planning.png',
+    categoryKey: 'caisse',
+    categoryFr: 'Caisses & Métiers',
+    categoryAr: 'الكاشير والأنشطة',
+    badgeFr: 'Salons & Soins',
+    badgeAr: 'الحلاقة والتجميل',
+    titleFr: 'Caisse Salon de Coiffure & Planning Collaborateurs',
+    titleAr: 'كاشير صالونات الحلاقة والتجميل وجدول المواعيد',
+    descFr: 'Conçu pour les salons de coiffure, esthétique et spas : attribution de chaque prestation (coupe, couleur, soin) au collaborateur concerné, calcul des pourboires et commissions, et fiche historique client.',
+    descAr: 'مصمم لصالونات الحلاقة ومراكز التجميل والعناية: إسناد كل خدمة (قص، صبغة، علاج) للموظف المختص، حساب العمولات وسجل الخدمات السابقة للزبون.',
+    tagsFr: ['Attribution par coiffeur', 'Forfaits coupes & soins', 'Calcul des commissions'],
+    tagsAr: ['إسناد الخدمة للحلاق', 'باقات التجميل والعناية', 'حساب نسب الموظفين']
+  },
+  {
+    id: '10-gestion-articles-stocks',
+    file: '/screens/10-gestion-articles-stocks.png',
+    categoryKey: 'stock',
+    categoryFr: 'Stocks & Catalogue',
+    categoryAr: 'المخزون والمنتجات',
+    badgeFr: 'Catalogue & Alertes',
+    badgeAr: 'المنتجات والتنبيهات',
+    titleFr: 'Catalogue Articles, Tarifs & Alertes Stocks',
+    titleAr: 'دليل المنتجات، الأسعار وتنبيهات المخزون',
+    descFr: 'Base de données articles complète : gestion des codes-barres EAN-13, seuils d\'alerte de rupture de stock, calcul des coefficients de marge, multi-rayons, gestion de la TVA et impression d\'étiquettes prix gondole.',
+    descAr: 'قاعدة بيانات شاملة لجميع السلع: إدارة الباركود EAN-13، حدود التنبيه لإعادة الطلب، حساب هوامش الربح، تعدد الأقسام، نسب الضرائب وطباعة ملصقات الأسعار للرفوف.',
+    tagsFr: ['Codes-barres EAN-13', 'Seuil critique de réassort', 'Calcul des marges'],
+    tagsAr: ['باركود EAN-13', 'تنبيهات نفاد المخزون', 'حساب هامش الربح']
+  },
+  {
+    id: '11-gestion-clients-credits',
+    file: '/screens/11-gestion-clients-credits.png',
+    categoryKey: 'management',
+    categoryFr: 'Gestion & Pilotage',
+    categoryAr: 'الإدارة والقيادة',
+    badgeFr: 'Crédits & Kredy',
+    badgeAr: 'الكريدي وديون الزبائن',
+    titleFr: 'Fiches Clients & Suivi des Dettes (Kredy)',
+    titleAr: 'سجلات الزبائن ومتابعة الديون (الكريدي)',
+    descFr: 'Finis les cahiers de dettes perdus : suivi en direct du solde débiteur de chaque client, historique de tous les achats à crédit, enregistrement des versements d\'acomptes et plafond de crédit personnalisable.',
+    descAr: 'وداعاً لدفاتر الكريدي الورقية الضائعة: متابعة لحظية لديون كل زبون، سجل كامل لجميع المشتريات بالآجل، تسجيل دفعات التسديد وسقف مالي محدد لكل زبون.',
+    tagsFr: ['Solde crédit en direct', 'Plafond d\'endettement', 'Historique des versements'],
+    tagsAr: ['رصيد الدين في ثانية', 'سقف ديون مخصص', 'سجل الدفعات والتسديد']
+  },
+  {
+    id: '12-pilotage-clotures-statistiques',
+    file: '/screens/12-pilotage-clotures-statistiques.png',
+    categoryKey: 'management',
+    categoryFr: 'Gestion & Pilotage',
+    categoryAr: 'الإدارة والقيادة',
+    badgeFr: 'Clôture Z & Fiscalité',
+    badgeAr: 'إغلاق Z والضرائب',
+    titleFr: 'Hub de Pilotage, Clôtures Z & TVA Fiscale',
+    titleAr: 'مركز القيادة، إغلاق الصندوق Z والتقارير المالية',
+    descFr: 'Clôture de caisse guidée et sans stress : calcul automatique des espèces théoriques, pointage du tiroir-caisse, détection des écarts de caisse, ventilation fiscale de la TVA et archivage inaltérable conforme.',
+    descAr: 'إغلاق اليومية المحاسبي بكل ثقة وبدون ضغط: حساب المبلغ النظري في الدرج، مقارنته بالنقود الفعلية، كشف أي فارق بدقة، تفصيل الضرائب وأرشفة قانونية مؤمنة.',
+    tagsFr: ['Rapport Z numéroté', 'Détection des écarts', 'Ventilation TVA fiscale'],
+    tagsAr: ['تقرير Z مرقم', 'كشف الفروقات بدقة', 'تفصيل الضرائب والمحاسبة']
+  },
+  {
+    id: '13-gestion-fournisseurs-achats',
+    file: '/screens/13-gestion-fournisseurs-achats.png',
+    categoryKey: 'stock',
+    categoryFr: 'Stocks & Catalogue',
+    categoryAr: 'المخزون والمنتجات',
+    badgeFr: 'Achats & Approvisionnement',
+    badgeAr: 'المشتريات وإعادة التموين',
+    titleFr: 'Fournisseurs & Commandes d\'Achats',
+    titleAr: 'دليل الموردين وطلبيات الشراء',
+    descFr: 'Maîtrisez vos approvisionnements : répertoire fournisseurs complet, historique des bons de livraison (BL), factures d\'achat, suivi des prix d\'achat négociés et mise à jour automatique des stocks lors de la réception.',
+    descAr: 'تحكم في تموين متجرك: دليل كامل للموردين، متابعة وصول البضائع (BL)، فواتير الشراء، تتبع أسعار التكلفة وتحديث المخزون آلياً بمجرد الاستلام.',
+    tagsFr: ['Bons de livraison & réceptions', 'Historique des prix d\'achat', 'Réapprovisionnement'],
+    tagsAr: ['سندات الاستلام BL', 'تاريخ أسعار الشراء', 'تغذية المخزون آلياً']
+  }
+];
+
+const categories = [
+  { key: 'all', labelFr: 'Tous les écrans (13)', labelAr: 'جميع الشاشات (13)' },
+  { key: 'caisse', labelFr: 'Caisses & Métiers (7)', labelAr: 'الكاشير والأنشطة (7)' },
+  { key: 'stock', labelFr: 'Stocks & Achats (2)', labelAr: 'المخزون والمشتريات (2)' },
+  { key: 'management', labelFr: 'Pilotage & Clôtures (3)', labelAr: 'القيادة والإغلاق (3)' },
+  { key: 'security', labelFr: 'Sécurité & Accès (1)', labelAr: 'الأمان والورديات (1)' }
+];
+---
+
+<section class="showcase-section" id="galerie-ecrans" aria-labelledby="showcase-title" dir={isAr ? 'rtl' : 'ltr'}>
+  {/* Halos d'ambiance Technova */}
+  <div class="showcase-glow glow-top" aria-hidden="true"></div>
+  <div class="showcase-glow glow-bottom" aria-hidden="true"></div>
+
+  <div class="showcase-container">
+    {/* En-tête de section */}
+    <div class="section-header reveal">
+      <div class="terminal-badge">
+        <span class="pulse-dot"></span>
+        <span>&gt;_ ./utopia --screens --walkthrough --metiers</span>
+      </div>
+      <h2 class="section-title" id="showcase-title">
+        {isAr ? "استكشف يوتوبيا " : "Explorez Utopia "}
+        <span class="text-gradient">{isAr ? "شاشة بشاشة وبكل تفاصيله" : "écran par écran en images réelles"}</span>
+      </h2>
+      <p class="section-subtitle">
+        {isAr 
+          ? "جولة استكشافية شاملة: تعرّف على واجهات الكاشير المتخصصة حسب نشاطك التجاري (تجزئة، مطاعم، مخابز، تبغ، جزارة، حلاقة) مع كافة وحدات التسيير والمخزون."
+          : "Une visite guidée complète : découvrez les caisses spécialisées par métier (Retail, Restauration, Boulangerie, Tabac, Boucherie, Salon) et les outils de gestion quotidienne."}
+      </p>
+    </div>
+
+    {/* Filtres par Catégorie de Métiers (Pills) */}
+    <div class="category-filters-wrapper reveal">
+      <div class="category-filters" role="tablist" aria-label={isAr ? "تصنيفات الشاشات" : "Filtres des écrans"}>
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            class={`category-pill ${idx === 0 ? 'active' : ''}`}
+            data-category={cat.key}
+            role="tab"
+            aria-selected={idx === 0 ? 'true' : 'false'}
+            id={`filter-${cat.key}`}
+          >
+            <span>{isAr ? cat.labelAr : cat.labelFr}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* Conteneur Fenêtre Principale / Showcase Tunnel */}
+    <div class="showcase-window-wrapper reveal-scale">
+      <div class="showcase-window ambient-float">
+        {/* Barre de titre Windows / Mac High-Tech */}
+        <div class="window-chrome">
+          <div class="window-dots" aria-hidden="true">
+            <span class="w-dot red"></span>
+            <span class="w-dot yellow"></span>
+            <span class="w-dot green"></span>
+          </div>
+
+          <div class="window-title" id="tunnel-window-title">
+            Utopia POS 2026 • {isAr ? screensData[0].titleAr : screensData[0].titleFr}
+          </div>
+
+          <div class="window-actions">
+            <span class="window-counter" id="tunnel-counter-badge">
+              <span id="current-slide-num">01</span> / <span id="total-slides-num">13</span>
+            </span>
+            <button 
+              type="button" 
+              class="window-btn-action" 
+              id="btn-open-lightbox" 
+              title={isAr ? "تكبير بملء الشاشة" : "Agrandir en plein écran"}
+              aria-label={isAr ? "تكبير بملء الشاشة" : "Agrandir en plein écran"}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 3h6v6"></path>
+                <path d="M9 21H3v-6"></path>
+                <path d="M21 3l-7 7"></path>
+                <path d="M3 21l7-7"></path>
+              </svg>
+              <span class="btn-text-responsive">{isAr ? "ملء الشاشة" : "Plein écran"}</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Corps de la Visionneuse Tunnel */}
+        <div class="tunnel-viewport">
+          {/* Bouton Précédent */}
+          <button 
+            type="button" 
+            class="tunnel-nav-btn prev-btn" 
+            id="tunnel-prev-btn" 
+            title={isAr ? "الشاشة السابقة" : "Écran précédent"}
+            aria-label={isAr ? "الشاشة السابقة" : "Écran précédent"}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points={isAr ? "9 18 15 12 9 6" : "15 18 9 12 15 6"}></polyline>
+            </svg>
+          </button>
+
+          {/* Diaporama des 13 captures d'écran réelles */}
+          <div class="tunnel-slides-stage" id="tunnel-slides-stage">
+            {screensData.map((screen, idx) => (
+              <div
+                class={`tunnel-slide ${idx === 0 ? 'active' : ''}`}
+                data-slide-index={idx}
+                data-category={screen.categoryKey}
+                id={`slide-${screen.id}`}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${isAr ? screen.titleAr : screen.titleFr} (${idx + 1} / 13)`}
+              >
+                <div class="slide-image-wrapper">
+                  <div class="slide-badge-overlay">
+                    <span class="badge-pulse-dot"></span>
+                    <span class="badge-text">{isAr ? screen.badgeAr : screen.badgeFr}</span>
+                  </div>
+
+                  <img
+                    src={screen.file}
+                    alt={`${isAr ? screen.titleAr : screen.titleFr} - Utopia POS`}
+                    class="screen-real-image"
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+
+                  <div class="image-zoom-hint" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      <line x1="11" y1="8" x2="11" y2="14"></line>
+                      <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                    <span>{isAr ? "انقر للمعاينة المكبرة عالية الدقة" : "Cliquez pour agrandir en HD"}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bouton Suivant */}
+          <button 
+            type="button" 
+            class="tunnel-nav-btn next-btn" 
+            id="tunnel-next-btn" 
+            title={isAr ? "الشاشة التالية" : "Écran suivant"}
+            aria-label={isAr ? "الشاشة التالية" : "Écran suivant"}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points={isAr ? "15 18 9 12 15 6" : "9 18 15 12 9 6"}></polyline>
+            </svg>
+          </button>
+        </div>
+
+        {/* Fiche d'aide & Explication Pédagogique du Logiciel (Tunnel Guidance Card - Compact & Épuré) */}
+        <div class="tunnel-guidance-card" id="tunnel-guidance-card">
+          <div class="guidance-main-row">
+            <div class="guidance-text-col">
+              <div class="guidance-heading-line">
+                <span class="guidance-step-pill" id="guidance-step-pill">
+                  {isAr ? `الشاشة 01 من 13 • ${screensData[0].categoryAr}` : `Écran 01 sur 13 • ${screensData[0].categoryFr}`}
+                </span>
+                <h3 class="guidance-title" id="guidance-title">
+                  {isAr ? screensData[0].titleAr : screensData[0].titleFr}
+                </h3>
+                <span class="guidance-offline-pill">
+                  <span class="status-dot"></span>
+                  {isAr ? "100% محلي دون إنترنت" : "100% Hors-Ligne"}
+                </span>
+              </div>
+
+              <p class="guidance-description" id="guidance-description">
+                {isAr ? screensData[0].descAr : screensData[0].descFr}
+              </p>
+
+              <div class="guidance-tags" id="guidance-tags">
+                {(isAr ? screensData[0].tagsAr : screensData[0].tagsFr).map(tag => (
+                  <span class="feature-tag">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{tag}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Commandes compactes intégrées à droite */}
+            <div class="guidance-actions-col">
+              <button 
+                type="button" 
+                class="control-btn autoplay-toggle" 
+                id="btn-autoplay-toggle"
+                aria-label={isAr ? "تشغيل أو إيقاف التمرير التلقائي" : "Démarrer ou arrêter le défilement automatique"}
+              >
+                <span class="icon-play" id="icon-autoplay-play">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                </span>
+                <span class="icon-pause is-hidden" id="icon-autoplay-pause">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+                </span>
+                <span id="text-autoplay-status">{isAr ? "تلقائي" : "Auto"}</span>
+              </button>
+              
+              <div class="autoplay-progress-bar" id="autoplay-progress-bar" aria-hidden="true">
+                <div class="progress-fill" id="autoplay-progress-fill"></div>
+              </div>
+
+              <span class="keyboard-tip">
+                <kbd>&larr;</kbd><kbd>&rarr;</kbd>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Ruban / Filmstrip des Miniatures (Thumbnails Direct Jump) */}
+        <div class="thumbnails-strip-wrapper">
+          <div class="thumbnails-strip" id="thumbnails-strip" role="tablist" aria-label={isAr ? "معاينة مصغرة للشاشات" : "Miniatures des écrans"}>
+            {screensData.map((screen, idx) => (
+              <button
+                type="button"
+                class={`thumb-btn ${idx === 0 ? 'active' : ''}`}
+                data-slide-target={idx}
+                data-category={screen.categoryKey}
+                id={`thumb-${screen.id}`}
+                role="tab"
+                aria-selected={idx === 0 ? 'true' : 'false'}
+                aria-label={`${isAr ? screen.titleAr : screen.titleFr}`}
+                title={`${idx + 1}. ${isAr ? screen.titleAr : screen.titleFr}`}
+              >
+                <span class="thumb-index">{(idx + 1).toString().padStart(2, '0')}</span>
+                <img
+                  src={screen.file}
+                  alt=""
+                  class="thumb-img"
+                  loading="lazy"
+                />
+                <span class="thumb-overlay"></span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* MODALE LIGHTBOX PLEIN ÉCRAN */}
+  <div 
+    class="showcase-lightbox" 
+    id="showcase-lightbox" 
+    aria-hidden="true" 
+    role="dialog" 
+    aria-modal="true"
+    aria-label={isAr ? "معاينة الشاشة بملء الشاشة" : "Aperçu de l'écran en plein écran"}
+  >
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-dialog">
+      <div class="lightbox-header">
+        <div class="lightbox-title-box">
+          <span class="lightbox-badge" id="lightbox-badge">Utopia POS</span>
+          <h4 class="lightbox-title" id="lightbox-title">Aperçu</h4>
+        </div>
+        <button 
+          type="button" 
+          class="lightbox-close-btn" 
+          id="lightbox-close-btn" 
+          title={isAr ? "إغلاق (Esc)" : "Fermer (Échap)"}
+          aria-label={isAr ? "إغلاق" : "Fermer"}
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="lightbox-body">
+        <button type="button" class="lightbox-nav-btn prev" id="lightbox-prev-btn" aria-label={isAr ? "السابق" : "Précédent"}>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points={isAr ? "9 18 15 12 9 6" : "15 18 9 12 15 6"}></polyline>
+          </svg>
+        </button>
+
+        <div class="lightbox-image-container">
+          <img src="" alt="" class="lightbox-image" id="lightbox-image" />
+        </div>
+
+        <button type="button" class="lightbox-nav-btn next" id="lightbox-next-btn" aria-label={isAr ? "التالي" : "Suivant"}>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points={isAr ? "15 18 9 12 15 6" : "9 18 15 12 9 6"}></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="lightbox-footer">
+        <span class="lightbox-counter" id="lightbox-counter">01 / 13</span>
+        <span class="lightbox-hint">{isAr ? "اضغط Esc أو انقر بالخارج للإغلاق" : "Appuyez sur Échap pour fermer"}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+  .showcase-section {
+    position: relative;
+    scroll-margin-top: 5.5rem;
+    padding: 2.25rem 1rem 2.75rem 1rem;
+    background-color: var(--chrome-bg);
+    color: var(--chrome-text);
+    overflow: hidden;
+    border-bottom: 1px solid var(--chrome-border);
+  }
+
+  .showcase-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glow-top {
+    top: -120px;
+    left: 20%;
+    width: 650px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.16) 0%, transparent 70%);
+  }
+
+  .glow-bottom {
+    bottom: -150px;
+    right: 15%;
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, transparent 70%);
+  }
+
+  .showcase-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .terminal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.8rem;
+    background: rgba(0, 229, 255, 0.08);
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 8px var(--accent-cyan);
+    animation: pulseBeacon 2s infinite ease-in-out;
+  }
+
+  @keyframes pulseBeacon {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+  }
+
+  .section-title {
+    font-size: 1.95rem;
+    font-weight: 900;
+    color: var(--chrome-text);
+    letter-spacing: -0.02em;
+    max-width: 900px;
+    line-height: 1.2;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #00E5FF 0%, #8B5CF6 60%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    color: var(--chrome-text-muted);
+    max-width: 750px;
+    line-height: 1.45;
+  }
+
+  /* Filtres par Catégories */
+  .category-filters-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    background: var(--card-bg);
+    border: 1px solid var(--chrome-border);
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .category-pill {
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--chrome-text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .category-pill:hover {
+    color: var(--chrome-text);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .category-pill.active {
+    color: #FFFFFF;
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.85) 0%, rgba(139, 92, 246, 0.85) 100%);
+    box-shadow: 0 4px 14px rgba(0, 229, 255, 0.3);
+  }
+
+  /* Fenêtre Principale */
+  .showcase-window-wrapper {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .showcase-window {
+    background: var(--card-bg);
+    border: 1px solid var(--chrome-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 229, 255, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(16px);
+  }
+
+  /* Barre de titre chrome */
+  .window-chrome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.15rem;
+    background: rgba(15, 23, 42, 0.8);
+    border-bottom: 1px solid var(--chrome-border);
+    gap: 1rem;
+  }
+
+  .window-dots {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .w-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+
+  .w-dot.red { background: #EF4444; }
+  .w-dot.yellow { background: #F59E0B; }
+  .w-dot.green { background: #10B981; }
+
+  .window-title {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #F8FAFC;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 550px;
+  }
+
+  .window-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .window-counter {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #00E5FF;
+    background: rgba(0, 229, 255, 0.15);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+  }
+
+  .window-btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.65rem;
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .window-btn-action:hover {
+    background: rgba(0, 229, 255, 0.25);
+    border-color: #00E5FF;
+    color: #FFFFFF;
+  }
+
+  /* Viewport de la visionneuse */
+  .tunnel-viewport {
+    position: relative;
+    background: #060B14;
+    overflow: hidden;
+  }
+
+  .tunnel-slides-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 400px;
+    background: #04070E;
+  }
+
+  .tunnel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.985);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-in;
+  }
+
+  .tunnel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  .slide-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .screen-real-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .slide-badge-overlay {
+    position: absolute;
+    top: 1.25rem;
+    inset-inline-start: 1.25rem;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    background: rgba(10, 16, 30, 0.94);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 229, 255, 0.5);
+    border-radius: var(--radius-full);
+    color: #FFFFFF;
+    font-size: 0.84rem;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  }
+
+  .badge-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 8px #10B981;
+  }
+
+  .image-zoom-hint {
+    position: absolute;
+    bottom: 1.25rem;
+    inset-inline-end: 1.25rem;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.95rem;
+    background: rgba(10, 16, 30, 0.94);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-sm);
+    color: #F8FAFC;
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.25s ease;
+  }
+
+  .slide-image-wrapper:hover .image-zoom-hint {
+    opacity: 1;
+    transform: translateY(0);
+    color: #FFFFFF;
+  }
+
+  /* Boutons de Navigation Latéraux */
+  .tunnel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .tunnel-nav-btn:hover {
+    background: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    color: #050B14;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+  }
+
+  .prev-btn { inset-inline-start: 1rem; }
+  .next-btn { inset-inline-end: 1rem; }
+
+  /* Carte d'Aide & Tunnel Pédagogique - Version Ultra Compacte */
+  .tunnel-guidance-card {
+    padding: 0.5rem 1rem;
+    background: rgba(10, 16, 30, 0.96);
+    border-top: 1px solid var(--chrome-border);
+  }
+
+  .guidance-main-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .guidance-text-col {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .guidance-heading-line {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .guidance-step-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #00E5FF;
+    background: rgba(0, 229, 255, 0.18);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(0, 229, 255, 0.45);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .guidance-offline-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #34D399;
+    background: rgba(16, 185, 129, 0.18);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 8px #10B981;
+  }
+
+  .guidance-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  }
+
+  .guidance-description {
+    font-size: 0.85rem;
+    color: #E2E8F0;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 500;
+  }
+
+  .guidance-tags {
+    display: none;
+  }
+
+  /* Commandes Compactes */
+  .guidance-actions-col {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .control-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: var(--radius-full);
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .control-btn:hover {
+    background: rgba(0, 229, 255, 0.25);
+    border-color: #00E5FF;
+    color: #FFFFFF;
+  }
+
+  .autoplay-progress-bar {
+    width: 55px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #00E5FF;
+    box-shadow: 0 0 8px #00E5FF;
+    transition: width 0.1s linear;
+  }
+
+  .keyboard-tip {
+    font-size: 0.72rem;
+    color: #CBD5E1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  kbd {
+    display: inline-block;
+    padding: 0.1rem 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+  }
+
+  /* Ruban des Miniatures (Thumbnails Strip) Ultra-Compact */
+  .thumbnails-strip-wrapper {
+    background: rgba(8, 12, 22, 0.98);
+    border-top: 1px solid var(--chrome-border);
+    padding: 0.4rem 0.75rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-cyan) transparent;
+  }
+
+  .thumbnails-strip {
+    display: flex;
+    gap: 0.4rem;
+    min-width: max-content;
+  }
+
+  .thumb-btn {
+    position: relative;
+    width: 68px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #0F172A;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .thumb-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 229, 255, 0.5);
+  }
+
+  .thumb-btn.active {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .thumb-btn.is-hidden-category {
+    display: none;
+  }
+
+  .thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .thumb-index {
+    position: absolute;
+    bottom: 3px;
+    inset-inline-start: 4px;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+  }
+
+  .thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    transition: background 0.2s ease;
+  }
+
+  .thumb-btn.active .thumb-overlay {
+    background: transparent;
+  }
+
+  /* MODALE LIGHTBOX */
+  .showcase-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .showcase-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 7, 14, 0.94);
+    backdrop-filter: blur(16px);
+  }
+
+  .lightbox-dialog {
+    position: relative;
+    z-index: 10;
+    width: 95vw;
+    max-width: 1500px;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    background: #0B1120;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+  }
+
+  .lightbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid var(--chrome-border);
+  }
+
+  .lightbox-title-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .lightbox-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    background: rgba(0, 229, 255, 0.12);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+  }
+
+  .lightbox-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .lightbox-close-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--chrome-border);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .lightbox-close-btn:hover {
+    background: #EF4444;
+    border-color: #EF4444;
+    transform: scale(1.08);
+  }
+
+  .lightbox-body {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow: hidden;
+    background: #050811;
+  }
+
+  .lightbox-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 5;
+  }
+
+  .lightbox-nav-btn:hover {
+    background: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    color: #050B14;
+    transform: translateY(-50%) scale(1.08);
+  }
+
+  .lightbox-nav-btn.prev { inset-inline-start: 1.5rem; }
+  .lightbox-nav-btn.next { inset-inline-end: 1.5rem; }
+
+  .lightbox-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    background: rgba(15, 23, 42, 0.9);
+    border-top: 1px solid var(--chrome-border);
+  }
+
+  .lightbox-counter {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+  }
+
+  .lightbox-hint {
+    font-size: 0.8rem;
+    color: #CBD5E1;
+  }
+
+  .is-hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .showcase-section {
+      padding: 3rem 1rem;
+    }
+    .section-title {
+      font-size: 1.75rem;
+    }
+    .tunnel-slides-stage {
+      aspect-ratio: 4 / 3;
+      max-height: 340px;
+    }
+    .guidance-main-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+    .guidance-actions-col {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .guidance-title {
+      font-size: 1rem;
+      white-space: normal;
+    }
+    .tunnel-nav-btn {
+      width: 38px;
+      height: 38px;
+    }
+    .btn-text-responsive {
+      display: none;
+    }
+    .keyboard-tip {
+      display: none;
+    }
+  }
+</style>
+
+<script is:inline define:vars={{ screensData, isAr }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const screens = screensData || [];
+    if (!screens.length) return;
+
+    let currentIndex = 0;
+    let currentFilter = 'all';
+    let isAutoplay = false;
+    let autoplayTimer = null;
+    let autoplayProgress = 0;
+    const AUTOPLAY_DURATION = 5000; // 5 secondes par écran
+
+    // Éléments du DOM
+    const slides = Array.from(document.querySelectorAll('.tunnel-slide'));
+    const thumbs = Array.from(document.querySelectorAll('.thumb-btn'));
+    const filterPills = Array.from(document.querySelectorAll('.category-pill'));
+    const prevBtn = document.getElementById('tunnel-prev-btn');
+    const nextBtn = document.getElementById('tunnel-next-btn');
+
+    // Éléments d'information
+    const windowTitle = document.getElementById('tunnel-window-title');
+    const currentNumEl = document.getElementById('current-slide-num');
+    const totalNumEl = document.getElementById('total-slides-num');
+    const stepPill = document.getElementById('guidance-step-pill');
+    const guidanceTitle = document.getElementById('guidance-title');
+    const guidanceDesc = document.getElementById('guidance-description');
+    const guidanceTags = document.getElementById('guidance-tags');
+
+    // Autoplay
+    const autoplayToggleBtn = document.getElementById('btn-autoplay-toggle');
+    const iconPlay = document.getElementById('icon-autoplay-play');
+    const iconPause = document.getElementById('icon-autoplay-pause');
+    const autoplayStatusText = document.getElementById('text-autoplay-status');
+    const progressFill = document.getElementById('autoplay-progress-fill');
+
+    // Lightbox
+    const lightbox = document.getElementById('showcase-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxBadge = document.getElementById('lightbox-badge');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+    const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+    const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+    const lightboxNextBtn = document.getElementById('lightbox-next-btn');
+    const openLightboxBtn = document.getElementById('btn-open-lightbox');
+
+    function getFilteredIndices() {
+      if (currentFilter === 'all') {
+        return screens.map((_, i) => i);
+      }
+      return screens
+        .map((s, i) => (s.categoryKey === currentFilter ? i : -1))
+        .filter(i => i !== -1);
+    }
+
+    function updateGuidance(index) {
+      const data = screens[index];
+      if (!data) return;
+
+      const title = isAr ? data.titleAr : data.titleFr;
+      const desc = isAr ? data.descAr : data.descFr;
+      const cat = isAr ? data.categoryAr : data.categoryFr;
+      const tags = isAr ? data.tagsAr : data.tagsFr;
+
+      if (windowTitle) {
+        windowTitle.textContent = `Utopia POS 2026 • ${title}`;
+      }
+      if (currentNumEl) {
+        currentNumEl.textContent = (index + 1).toString().padStart(2, '0');
+      }
+      if (totalNumEl) {
+        totalNumEl.textContent = screens.length.toString().padStart(2, '0');
+      }
+      if (stepPill) {
+        stepPill.textContent = isAr 
+          ? `الشاشة ${(index + 1).toString().padStart(2, '0')} من ${screens.length} • ${cat}`
+          : `Écran ${(index + 1).toString().padStart(2, '0')} sur ${screens.length} • ${cat}`;
+      }
+      if (guidanceTitle) {
+        guidanceTitle.textContent = title;
+      }
+      if (guidanceDesc) {
+        guidanceDesc.textContent = desc;
+      }
+      if (guidanceTags) {
+        guidanceTags.innerHTML = tags.map(tag => `
+          <span class="feature-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>${tag}</span>
+          </span>
+        `).join('');
+      }
+    }
+
+    function goToSlide(newIndex) {
+      if (newIndex < 0) newIndex = screens.length - 1;
+      if (newIndex >= screens.length) newIndex = 0;
+
+      currentIndex = newIndex;
+
+      // Mettre à jour les slides du carrousel
+      slides.forEach((s, idx) => {
+        if (idx === currentIndex) {
+          s.classList.add('active');
+          s.setAttribute('aria-hidden', 'false');
+        } else {
+          s.classList.remove('active');
+          s.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      // Mettre à jour les miniatures
+      thumbs.forEach((th, idx) => {
+        if (idx === currentIndex) {
+          th.classList.add('active');
+          th.setAttribute('aria-selected', 'true');
+          // Faire défiler le conteneur de miniatures pour garder la miniature visible
+          th.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          th.classList.remove('active');
+          th.setAttribute('aria-selected', 'false');
+        }
+      });
+
+      updateGuidance(currentIndex);
+      resetAutoplayTimer();
+
+      // Si la lightbox est ouverte, mettre à jour son image
+      if (lightbox && lightbox.classList.contains('active')) {
+        updateLightbox();
+      }
+    }
+
+    function nextSlide() {
+      const filtered = getFilteredIndices();
+      const currentPosInFiltered = filtered.indexOf(currentIndex);
+      if (currentPosInFiltered === -1 || currentPosInFiltered === filtered.length - 1) {
+        goToSlide(filtered[0]);
+      } else {
+        goToSlide(filtered[currentPosInFiltered + 1]);
+      }
+    }
+
+    function prevSlide() {
+      const filtered = getFilteredIndices();
+      const currentPosInFiltered = filtered.indexOf(currentIndex);
+      if (currentPosInFiltered <= 0) {
+        goToSlide(filtered[filtered.length - 1]);
+      } else {
+        goToSlide(filtered[currentPosInFiltered - 1]);
+      }
+    }
+
+    // Gestion de l'Autoplay
+    function startAutoplay() {
+      isAutoplay = true;
+      if (iconPlay) iconPlay.classList.add('is-hidden');
+      if (iconPause) iconPause.classList.remove('is-hidden');
+      if (autoplayStatusText) {
+        autoplayStatusText.textContent = isAr ? "إيقاف مؤقت" : "Pause";
+      }
+      resetAutoplayTimer();
+    }
+
+    function stopAutoplay() {
+      isAutoplay = false;
+      if (autoplayTimer) clearInterval(autoplayTimer);
+      if (iconPlay) iconPlay.classList.remove('is-hidden');
+      if (iconPause) iconPause.classList.add('is-hidden');
+      if (autoplayStatusText) {
+        autoplayStatusText.textContent = isAr ? "تشغيل تلقائي" : "Défilement auto";
+      }
+      if (progressFill) progressFill.style.width = '0%';
+    }
+
+    function resetAutoplayTimer() {
+      if (!isAutoplay) return;
+      if (autoplayTimer) clearInterval(autoplayTimer);
+
+      autoplayProgress = 0;
+      const interval = 50;
+      const step = (interval / AUTOPLAY_DURATION) * 100;
+
+      autoplayTimer = setInterval(() => {
+        autoplayProgress += step;
+        if (progressFill) progressFill.style.width = `${Math.min(autoplayProgress, 100)}%`;
+
+        if (autoplayProgress >= 100) {
+          nextSlide();
+        }
+      }, interval);
+    }
+
+    // Gestion Lightbox
+    function updateLightbox() {
+      const data = screens[currentIndex];
+      if (!data) return;
+      if (lightboxImage) lightboxImage.src = data.file;
+      if (lightboxTitle) lightboxTitle.textContent = isAr ? data.titleAr : data.titleFr;
+      if (lightboxBadge) lightboxBadge.textContent = isAr ? data.badgeAr : data.badgeFr;
+      if (lightboxCounter) {
+        lightboxCounter.textContent = `${(currentIndex + 1).toString().padStart(2, '0')} / ${screens.length.toString().padStart(2, '0')}`;
+      }
+    }
+
+    function openLightbox() {
+      if (!lightbox) return;
+      updateLightbox();
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      stopAutoplay();
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Événements boutons principaux
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+    // Clic sur miniature
+    thumbs.forEach(th => {
+      th.addEventListener('click', () => {
+        const target = parseInt(th.getAttribute('data-slide-target') || '0', 10);
+        goToSlide(target);
+      });
+    });
+
+    // Clic sur l'image pour ouvrir en plein écran
+    slides.forEach(slide => {
+      slide.addEventListener('click', openLightbox);
+    });
+
+    if (openLightboxBtn) {
+      openLightboxBtn.addEventListener('click', openLightbox);
+    }
+
+    // Événements Lightbox
+    if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+    if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', prevSlide);
+    if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', nextSlide);
+
+    // Toggle Autoplay
+    if (autoplayToggleBtn) {
+      autoplayToggleBtn.addEventListener('click', () => {
+        if (isAutoplay) {
+          stopAutoplay();
+        } else {
+          startAutoplay();
+        }
+      });
+    }
+
+    // Filtres Catégories
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const cat = pill.getAttribute('data-category') || 'all';
+        currentFilter = cat;
+
+        filterPills.forEach(p => {
+          p.classList.remove('active');
+          p.setAttribute('aria-selected', 'false');
+        });
+        pill.classList.add('active');
+        pill.setAttribute('aria-selected', 'true');
+
+        // Mettre à jour la visibilité des miniatures selon la catégorie
+        thumbs.forEach(th => {
+          const itemCat = th.getAttribute('data-category');
+          if (cat === 'all' || itemCat === cat) {
+            th.classList.remove('is-hidden-category');
+          } else {
+            th.classList.add('is-hidden-category');
+          }
+        });
+
+        // Naviguer vers le premier écran de la catégorie
+        const filtered = getFilteredIndices();
+        if (filtered.length > 0 && !filtered.includes(currentIndex)) {
+          goToSlide(filtered[0]);
+        }
+      });
+    });
+
+    // Navigation Clavier
+    window.addEventListener('keydown', (e) => {
+      if (lightbox && lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') isAr ? nextSlide() : prevSlide();
+        if (e.key === 'ArrowRight') isAr ? prevSlide() : nextSlide();
+        return;
+      }
+
+      if (e.key === 'ArrowLeft') {
+        isAr ? nextSlide() : prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        isAr ? prevSlide() : nextSlide();
+      } else if (e.key === ' ') {
+        // Espace = toggle pause/play quand le showcase est visible
+        const rect = document.getElementById('galerie-ecrans')?.getBoundingClientRect();
+        if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
+          e.preventDefault();
+          if (isAutoplay) stopAutoplay(); else startAutoplay();
+        }
+      }
+    });
+
+    // Support du Touch Swipe sur mobile
+    const stage = document.getElementById('tunnel-slides-stage');
+    if (stage) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      stage.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      stage.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) {
+            isAr ? prevSlide() : nextSlide();
+          } else {
+            isAr ? nextSlide() : prevSlide();
+          }
+        }
+      }, { passive: true });
+    }
+
+    // Initialisation
+    updateGuidance(0);
+  });
+</script>

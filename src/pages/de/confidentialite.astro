@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Datenschutzerklärung • ${siteConfig.brand.name}`;
+const pageDesc = "Datenschutz- und Vertraulichkeitsrichtlinie für Utopia POS von StellarSoft.";
+---
+
+<BaseLayout locale="de" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/de/" class="back-link">← Zurück zur Startseite</a>
+
+      <h1 class="legal-title">Datenschutzerklärung</h1>
+      <p class="legal-meta">Stand: Oktober 2026 • Herausgeber: StellarSoft</p>
+
+      <div class="legal-content">
+        <h2>1. Zero-Cloud-Prinzip (100% Offline & Lokal)</h2>
+        <p>
+          Utopia POS basiert auf uneingeschränkter Datensouveränität. Die Software läuft lokal auf Ihrem Windows-Computer. Ihre Betriebsdaten (Warenkatalog, Bons, Umsätze, Margen, Kundenschulden) werden ausschließlich auf Ihrem Gerät gespeichert und zu keinem Zeitpunkt an externe Server übertragen.
+        </p>
+
+        <h2>2. Datenerhebung auf dieser Website</h2>
+        <p>
+          Wenn Sie eine Demonstration anfordern oder Utopia POS herunterladen:
+        </p>
+        <ul>
+          <li><strong>Erhobene Daten:</strong> Vorname, WhatsApp-Nummer oder E-Mail-Adresse, Stadt und Branche Ihres Geschäfts.</li>
+          <li><strong>Zweck:</strong> Bereitstellung des direkten Downloadlinks sowie technische Unterstützung bei der Erstinstallation.</li>
+          <li><strong>Freiwillige Einwilligung:</strong> Keine vorangekreuzten Checkboxen. Sie können den Kontakt jederzeit per Nachricht abbestellen.</li>
+        </ul>
+
+        <h2>3. Keine Tracking-Cookies</h2>
+        <p>
+          Diese Website lädt beim ersten Aufruf keine externen Werbepixel oder Tracking-Cookies.
+        </p>
+
+        <h2>4. Ihre Rechte</h2>
+        <p>
+          Sie haben jederzeit das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Kontaktdaten. Schreiben Sie uns einfach an: <strong>contact@stellarsoft.com</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .legal-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    color: var(--chrome-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--chrome-border);
+  }
+  .legal-content h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content ul {
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    color: var(--chrome-text-muted);
+  }
+  .legal-content ul {
+    padding-left: 1.5rem;
+  }
+</style>

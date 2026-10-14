@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import hi from '../../i18n/hi.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${hi.hero.titlePrefix} ${hi.hero.titleHighlight}`;
+const pageDesc = hi.hero.subtitle;
+---
+
+<BaseLayout locale="hi" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : वादा + वास्तविक स्क्रीनशॉट + डेमो */}
+  <Hero locale="hi" />
+
+  {/* 02. समस्याएं → समाधान : दुकानदारों की रोजमर्रा की चुनौतियां */}
+  <Problems locale="hi" />
+
+  {/* 03. सॉफ्टवेयर गैलरी : वास्तविक स्क्रीनशॉट */}
+  <ScreenShowcase locale="hi" />
+
+  {/* 04. प्रमुख विशेषताएं : 5 उपयोगी टूल्स */}
+  <Features locale="hi" />
+
+  {/* 05. व्यावसायिक लाभ : समय, पारदर्शिता, नियंत्रण */}
+  <Benefits locale="hi" />
+
+  {/* 06. गाइडेड वॉकथ्रू : 3 चरणों में सामान्य दिन */}
+  <Demo locale="hi" />
+
+  {/* 07. सुरक्षा और विश्वास : 100% लोकल सुरक्षा, पिन कोड, सपोर्ट */}
+  <Trust locale="hi" />
+  <Testimonials locale="hi" />
+
+  {/* 08. स्पष्ट कीमतें : पारदर्शी पैकेज */}
+  <Pricing locale="hi" />
+
+  {/* 09. अक्सर पूछे जाने वाले सवाल : स्पष्ट उत्तर */}
+  <Faq locale="hi" />
+
+  {/* 10. फाइनल कॉल टू एक्शन : मुफ्त डेमो प्राप्त करें */}
+  <FinalCta locale="hi" />
+
+  {/* इंटरैक्टिव डेमो व डाउनलोड मोडल */}
+  <DownloadModal client:load locale="hi" labels={hi.modal} />
+</BaseLayout>

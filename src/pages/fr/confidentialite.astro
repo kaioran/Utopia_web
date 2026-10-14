@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Politique de confidentialité • ${siteConfig.brand.name}`;
+const pageDesc = "Politique de protection des données et de confidentialité d'Utopia POS par StellarSoft.";
+---
+
+<BaseLayout locale="fr" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/fr/" class="back-link">← Retour à l'accueil</a>
+
+      <h1 class="legal-title">Politique de Confidentialité</h1>
+      <p class="legal-meta">Dernière mise à jour : 11 octobre 2026 • Éditeur : StellarSoft</p>
+
+      <div class="legal-content">
+        <h2>1. Philosophie zéro-nuage (100% Hors-Ligne)</h2>
+        <p>
+          Utopia POS est conçu selon le principe de souveraineté absolue de vos données. L'application s'exécute intégralement en local sur votre ordinateur Windows. Vos données commerciales (catalogue produits, ventes, tickets de caisse, marges, dettes clients et coordonnées de vos clients) sont enregistrées exclusivement sur votre machine locale et ne sont jamais transmises à des serveurs tiers ou distants.
+        </p>
+
+        <h2>2. Collecte des données sur ce site web</h2>
+        <p>
+          Lors du téléchargement d'Utopia POS via notre formulaire ou lors de nos échanges :
+        </p>
+        <ul>
+          <li><strong>Données collectées :</strong> Prénom, numéro WhatsApp ou adresse e-mail, ville et catégorie de votre commerce.</li>
+          <li><strong>Finalité :</strong> Vous transmettre le lien de téléchargement direct de l'installeur Windows, assurer le support technique d'installation et vous accompagner lors de la prise en main du logiciel.</li>
+          <li><strong>Consentement éthique :</strong> Aucune case de consentement n'est pré-cochée. Vous conservez la possibilité de vous désinscrire à tout moment de nos communications en répondant simplement "STOP" par WhatsApp ou par e-mail.</li>
+        </ul>
+
+        <h2>3. Aucun traceur publicitaire intrusif</h2>
+        <p>
+          Notre site web ne charge aucun script publicitaire tiers, aucun pixel Facebook ou traceur Google au chargement initial de la page.
+        </p>
+
+        <h2>4. Vos droits</h2>
+        <p>
+          Vous bénéficiez d'un droit permanent d'accès, de rectification et de suppression de vos coordonnées de contact. Pour toute demande, contactez directement l'équipe StellarSoft à l'adresse suivante : <strong>contact@stellarsoft.com</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-text-muted);
+    margin-bottom: 2.5rem;
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--content-text-muted);
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

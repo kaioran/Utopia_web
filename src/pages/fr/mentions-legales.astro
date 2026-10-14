@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `Mentions légales • ${siteConfig.brand.name}`;
+const pageDesc = "Mentions légales officielles d'Utopia POS, édité par StellarSoft.";
+---
+
+<BaseLayout locale="fr" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/fr/" class="back-link">← Retour à l'accueil</a>
+
+      <h1 class="legal-title">Mentions Légales</h1>
+      <p class="legal-meta">Éditeur : StellarSoft • Logiciel Utopia POS</p>
+
+      <div class="legal-content">
+        <h2>1. Éditeur de l'application et du site</h2>
+        <p>
+          Le logiciel de caisse et de gestion commerciale <strong>Utopia POS</strong> ainsi que ce site web sont développés et édités par <strong>StellarSoft</strong>.
+        </p>
+        <ul>
+          <li><strong>Société éditrice :</strong> StellarSoft</li>
+          <li><strong>Contact e-mail :</strong> contact@stellarsoft.com</li>
+          <li><strong>Assistance WhatsApp :</strong> Support direct commercial & technique</li>
+          <li><strong>Système d'exploitation cible :</strong> Windows 10, Windows 11 (64-bit)</li>
+        </ul>
+
+        <h2>2. Propriété intellectuelle</h2>
+        <p>
+          L'ensemble des marques, logos, visuels d'interface, code source et contenus textuels présents sur ce site et dans le logiciel Utopia POS sont la propriété exclusive de StellarSoft. Toute reproduction ou distribution non autorisée est formellement interdite.
+        </p>
+
+        <h2>3. Responsabilité & Logiciel hors-ligne</h2>
+        <p>
+          Utopia POS est fourni pour un usage local autonome sur le matériel informatique du commerçant. L'utilisateur est responsable de la conservation de ses sauvegardes locales de base de données (dossier de données de caisse) ainsi que du respect de ses obligations fiscales et comptables locales.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-text-muted);
+    margin-bottom: 2.5rem;
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--content-text-muted);
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

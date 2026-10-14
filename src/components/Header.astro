@@ -1,0 +1,504 @@
+---
+import type { SupportedLocale } from '../i18n';
+import { getTranslations } from '../i18n';
+import { siteConfig, supportedLocales } from '../config/site.config';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+const isAr = locale === 'ar';
+const t = getTranslations(locale);
+const ctaLabel = t.hero.cta || (isAr ? siteConfig.cta.downloadButtonAr : siteConfig.cta.downloadButtonFr);
+
+const currentLocale = supportedLocales.find(l => l.code === locale) || supportedLocales[0];
+---
+
+<header class="sticky-header" id="header" role="banner">
+  <div class="header-container">
+    {/* Left (or Right in RTL) : Logo Utopia */}
+    <a href={`/${locale}/`} class="brand-link" aria-label="Utopia - Accueil">
+      <div class="logo-wrapper">
+        <img 
+          src="/logo/logo-utopia-transparent.png" 
+          alt="Utopia Logo" 
+          class="logo-img logo-light"
+          width="48"
+          height="48"
+          loading="eager"
+        />
+        <img 
+          src="/logo/logo-utopia-fond-sombre-transparent.png" 
+          alt="Utopia Logo" 
+          class="logo-img logo-dark"
+          width="48"
+          height="48"
+          loading="eager"
+        />
+      </div>
+    </a>
+
+    {/* Center Navigation Links (desktop) */}
+    <nav class="nav-links" aria-label={t.nav.skipToContent}>
+      <a href="#galerie-ecrans">{t.nav.gallery}</a>
+      <a href="#fonctionnalites">{t.nav.features}</a>
+      <a href="#benefices">{t.nav.benefits}</a>
+      <a href="#tarifs">{t.nav.pricing}</a>
+      <a href="#faq">{t.nav.faq}</a>
+    </nav>
+
+    {/* Right Controls : Lang switcher, Theme toggle, CTA Button */}
+    <div class="header-actions">
+      {/* Sélecteur de langue interactif */}
+      <a 
+        href="#lang-picker" 
+        class="action-btn lang-btn" 
+        id="lang-menu-btn"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label={t.nav.switchLang}
+      >
+        <span class="lang-text">
+          {currentLocale.code !== 'ar' && <span class="lang-flag">{currentLocale.flag}</span>}
+          <span class="lang-code">{currentLocale.code === 'ar' ? 'ar' : currentLocale.code.toUpperCase()}</span>
+        </span>
+        <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+
+      {/* Menu déroulant des langues européennes et internationales */}
+      <div class="lang-dropdown" id="lang-dropdown-menu" role="menu" aria-label="Langues">
+        {supportedLocales.map((loc) => (
+          <a 
+            href={`/${loc.code}/`} 
+            class={`lang-dropdown-item ${loc.code === locale ? 'is-active' : ''}`}
+            role="menuitem"
+            hreflang={loc.code}
+          >
+            <span class="dropdown-flag">{loc.flag}</span>
+            <span class="dropdown-name">{loc.nativeLabel}</span>
+            {loc.code === locale && (
+              <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            )}
+          </a>
+        ))}
+      </div>
+
+      {/* Interrupteur de Thème */}
+      <button 
+        type="button" 
+        id="theme-toggle-btn" 
+        class="action-btn theme-btn" 
+        aria-label={isAr ? "تبديل الوضع الفاتح / الداكن" : "Basculer thème clair / sombre"}
+        title={isAr ? "تبديل الوضع" : "Changer de thème"}
+      >
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      {/* Bouton principal de téléchargement */}
+      <a href="#telecharger" class="btn-primary header-cta" id="header-cta-btn">
+        <span>{ctaLabel}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--chrome-surface);
+    border-bottom: 1px solid var(--chrome-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
+  }
+
+  .header-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: var(--chrome-text);
+  }
+
+  .logo-wrapper {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity var(--transition-normal);
+  }
+
+  .logo-light {
+    opacity: 1;
+  }
+  .logo-dark {
+    opacity: 0;
+  }
+
+  :global(html[data-theme="dark"]) .logo-light {
+    opacity: 0;
+  }
+  :global(html[data-theme="dark"]) .logo-dark {
+    opacity: 1;
+  }
+
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  @media (min-width: 860px) {
+    .nav-links {
+      display: flex;
+    }
+  }
+
+  .nav-links a {
+    color: var(--chrome-text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Cairo', sans-serif !important;
+    text-decoration: none;
+    position: relative;
+    padding: 0.35rem 0;
+    transition: color 0.25s ease;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+    transition: width 0.25s ease;
+    border-radius: 2px;
+  }
+
+  :global([dir="rtl"]) .nav-links a::after {
+    left: auto;
+    right: 0;
+  }
+
+  .nav-links a:hover {
+    color: var(--chrome-text);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--chrome-surface-subtle);
+    color: var(--chrome-text);
+    border: 1px solid var(--chrome-border);
+    border-radius: var(--radius-full);
+    padding: 0.5rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif !important;
+    cursor: pointer;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-normal);
+  }
+
+  .action-btn:hover {
+    background: var(--chrome-surface-hover);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    box-shadow: 0 0 15px rgba(2, 132, 199, 0.15);
+  }
+
+  /* Règle explicite exigée : #header > div > div > a.action-btn.lang-btn > span */
+  #header > div > div > a.action-btn.lang-btn > span,
+  #header .action-btn.lang-btn,
+  #header .action-btn.lang-btn span,
+  .action-btn.lang-btn,
+  .action-btn.lang-btn span,
+  .lang-text,
+  .lang-code {
+    font-family: 'Cairo', sans-serif !important;
+  }
+
+  .lang-btn {
+    min-width: 76px;
+    gap: 0.35rem;
+  }
+
+  .lang-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .lang-flag {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .lang-code {
+    letter-spacing: 0.05em;
+  }
+
+  .chevron-icon {
+    transition: transform var(--transition-normal);
+  }
+
+  .lang-btn:hover .chevron-icon,
+  .lang-btn.is-open .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Menu déroulant de sélection des langues */
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: auto;
+    min-width: 175px;
+    background: var(--content-surface);
+    border: 1px solid var(--chrome-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+    padding: 0.4rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.2rem;
+    z-index: 1001;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Positionnement RTL : directement sous le bouton de langue à droite */
+  :global([dir="rtl"]) .lang-dropdown,
+  :global(html[dir="rtl"]) .lang-dropdown {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+  .lang-btn:hover + .lang-dropdown,
+  .lang-dropdown:hover,
+  .lang-dropdown.is-open {
+    display: flex;
+    animation: dropdownFadeIn 0.15s ease-out;
+  }
+
+  @keyframes dropdownFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .lang-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: var(--radius-sm);
+    color: var(--content-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Cairo', sans-serif !important;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+  }
+
+  .lang-dropdown-item:hover {
+    background: var(--chrome-surface-hover);
+    color: var(--accent-cyan);
+  }
+
+  .lang-dropdown-item.is-active {
+    background: var(--badge-bg);
+    color: var(--accent-cyan);
+    font-weight: 700;
+  }
+
+  .dropdown-flag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    font-size: 1.05rem;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .dropdown-name {
+    flex: 1;
+    font-family: 'Cairo', sans-serif !important;
+  }
+
+  .check-icon {
+    color: var(--accent-cyan);
+  }
+
+  .theme-btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+  }
+
+  /* Icônes de thème */
+  .sun-icon {
+    display: none;
+  }
+  .moon-icon {
+    display: block;
+    color: var(--accent-cyan);
+  }
+
+  :global(html[data-theme="dark"]) .sun-icon {
+    display: block;
+    color: #FBBF24;
+  }
+  :global(html[data-theme="dark"]) .moon-icon {
+    display: none;
+  }
+
+  .header-cta {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.25rem;
+    white-space: nowrap;
+    font-family: 'Cairo', sans-serif !important;
+  }
+
+  @media (max-width: 640px) {
+    .header-cta {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import { toggleTheme } from '../scripts/theme';
+  const themeBtn = document.getElementById('theme-toggle-btn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      toggleTheme();
+    });
+  }
+
+  // Interaction tactile / clavier pour le sélecteur de langue
+  const langBtn = document.getElementById('lang-menu-btn');
+  const langDropdown = document.getElementById('lang-dropdown-menu');
+  const headerActions = document.querySelector('.header-actions') as HTMLElement | null;
+
+  function updateDropdownPosition() {
+    if (!langBtn || !langDropdown || !headerActions) return;
+    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+    const actionsRect = headerActions.getBoundingClientRect();
+    const btnRect = langBtn.getBoundingClientRect();
+
+    if (isRtl) {
+      // En RTL, la marge droite du dropdown s'aligne exactement sur le bord droit du bouton
+      const rightOffset = Math.max(0, actionsRect.right - btnRect.right);
+      langDropdown.style.right = `${rightOffset}px`;
+      langDropdown.style.left = 'auto';
+    } else {
+      // En LTR, la marge gauche du dropdown s'aligne exactement sur le bord gauche du bouton
+      const leftOffset = Math.max(0, btnRect.left - actionsRect.left);
+      langDropdown.style.left = `${leftOffset}px`;
+      langDropdown.style.right = 'auto';
+    }
+  }
+
+  if (langBtn && langDropdown) {
+    updateDropdownPosition();
+    window.addEventListener('resize', updateDropdownPosition, { passive: true });
+    langBtn.addEventListener('mouseenter', updateDropdownPosition);
+
+    langBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = langDropdown.classList.contains('is-open');
+      if (isOpen) {
+        langDropdown.classList.remove('is-open');
+        langBtn.classList.remove('is-open');
+        langBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        updateDropdownPosition();
+        langDropdown.classList.add('is-open');
+        langBtn.classList.add('is-open');
+        langBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node;
+      if (!langBtn.contains(target) && !langDropdown.contains(target)) {
+        langDropdown.classList.remove('is-open');
+        langBtn.classList.remove('is-open');
+        langBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        langDropdown.classList.remove('is-open');
+        langBtn.classList.remove('is-open');
+        langBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

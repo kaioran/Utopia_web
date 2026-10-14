@@ -1,0 +1,44 @@
+---
+// Redirection automatique vers /fr/ par défaut avec détection client
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0;url=/fr/" />
+  <title>Utopia POS • StellarSoft</title>
+  <link rel="canonical" href="/fr/" />
+  <script is:inline>
+    // Détection de la langue du navigateur de l'utilisateur
+    var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    if (lang.indexOf('tr') === 0) {
+      window.location.replace('/tr/');
+    } else if (lang.indexOf('de') === 0) {
+      window.location.replace('/de/');
+    } else if (lang.indexOf('es') === 0) {
+      window.location.replace('/es/');
+    } else if (lang.indexOf('it') === 0) {
+      window.location.replace('/it/');
+    } else if (lang.indexOf('en') === 0) {
+      window.location.replace('/en/');
+    } else if (lang.indexOf('ar') === 0) {
+      window.location.replace('/ar/');
+    } else if (lang.indexOf('ur') === 0) {
+      window.location.replace('/ur/');
+    } else if (lang.indexOf('hi') === 0) {
+      window.location.replace('/hi/');
+    } else if (lang.indexOf('bn') === 0) {
+      window.location.replace('/bn/');
+    } else if (lang.indexOf('pt') === 0) {
+      window.location.replace('/pt/');
+    } else if (lang.indexOf('fil') === 0 || lang.indexOf('tl') === 0) {
+      window.location.replace('/fil/');
+    } else {
+      window.location.replace('/fr/');
+    }
+  </script>
+</head>
+<body>
+  <p>Redirection vers <a href="/fr/">Utopia POS</a>...</p>
+</body>
+</html>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `إشعار قانوني • ${siteConfig.brand.name}`;
+const pageDesc = "الإشعار القانوني الرسمي لبرنامج يوتوبيا لنقاط البيع والتسيير التجاري المطور من طرف StellarSoft.";
+---
+
+<BaseLayout locale="ar" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/ar/" class="back-link">→ العودة إلى الصفحة الرئيسية</a>
+
+      <h1 class="legal-title">الإشعار القانوني</h1>
+      <p class="legal-meta">الناشر والمطور : StellarSoft • برنامج Utopia POS</p>
+
+      <div class="legal-content">
+        <h2>1. ناشر الموقع والبرنامج</h2>
+        <p>
+          برنامج نقاط البيع والتسيير التجاري <strong>Utopia POS</strong> وهذا الموقع الإلكتروني تم تطويرهما ونشرهما من طرف شركة <strong>StellarSoft</strong>.
+        </p>
+        <ul>
+          <li><strong>الجهة الناشرة :</strong> StellarSoft</li>
+          <li><strong>البريد الإلكتروني :</strong> contact@stellarsoft.com</li>
+          <li><strong>الدعم عبر واتساب :</strong> مساعدة تقنية وتجارية مباشرة</li>
+          <li><strong>النظام المتوافق :</strong> ويندوز 10 أو ويندوز 11 (64 بت)</li>
+        </ul>
+
+        <h2>2. الملكية الفكرية</h2>
+        <p>
+          جميع العلامات التجارية، والشعارات، وواجهات الاستخدام، والأكواد البرمجية والمحتوى المكتوب على هذا الموقع وداخل برنامج Utopia POS هي ملكية حصرية لشركة StellarSoft. يُمنع منعاً باتاً أي استنساخ أو توزيع غير مصرح به.
+        </p>
+
+        <h2>3. المسؤولية والعمل دون اتصال</h2>
+        <p>
+          برنامج Utopia POS مخصص للعمل المحلي الذاتي على حاسوب التاجر. التاجر مسؤول بالكامل عن الاحتفاظ بنسخ احتياطية محلية لقاعدة بياناته (ملف بيانات الصندوق) وكذلك عن الامتثال لالتزاماته المحاسبية والضريبية.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-text-muted);
+    margin-bottom: 2.5rem;
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--content-text);
+  }
+  .legal-content p, .legal-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--content-text-muted);
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    padding-right: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

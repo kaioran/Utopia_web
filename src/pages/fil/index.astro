@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Problems from '../../components/Problems.astro';
+import ScreenShowcase from '../../components/ScreenShowcase.astro';
+import Features from '../../components/Features.astro';
+import Benefits from '../../components/Benefits.astro';
+import Demo from '../../components/Demo.astro';
+import Trust from '../../components/Trust.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import DownloadModal from '../../components/DownloadModal';
+import fil from '../../i18n/fil.json';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `${siteConfig.brand.name} • ${fil.hero.titlePrefix} ${fil.hero.titleHighlight}`;
+const pageDesc = fil.hero.subtitle;
+---
+
+<BaseLayout locale="fil" title={pageTitle} description={pageDesc}>
+  {/* 01. Hero : Pangako + totoong screenshots + demo */}
+  <Hero locale="fil" />
+
+  {/* 02. Mga Problema → Solusyon : Hamon ng tindahan */}
+  <Problems locale="fil" />
+
+  {/* 03. Software sa mga Larawan : Galeriya ng mga screen */}
+  <ScreenShowcase locale="fil" />
+
+  {/* 04. Pangunahing Tampok : 5 praktikal na tools */}
+  <Features locale="fil" />
+
+  {/* 05. Mga Benepisyo : Oras, linaw, kontrol */}
+  <Benefits locale="fil" />
+
+  {/* 06. Gabay na Demo : Isang araw sa 3 hakbang */}
+  <Demo locale="fil" />
+
+  {/* 07. Tiwala at Seguridad : 100% lokal, PIN roles, suporta */}
+  <Trust locale="fil" />
+  <Testimonials locale="fil" />
+
+  {/* 08. Presyo : Malinaw at abot-kayang plano */}
+  <Pricing locale="fil" />
+
+  {/* 09. Madalas Itanong : Malinaw na kasagutan */}
+  <Faq locale="fil" />
+
+  {/* 10. Huling Tawag sa Pagkilos : Kumuha ng libreng demo */}
+  <FinalCta locale="fil" />
+
+  {/* Interactive modal para sa demo at download */}
+  <DownloadModal client:load locale="fil" labels={fil.modal} />
+</BaseLayout>

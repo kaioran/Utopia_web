@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/site.config';
+
+const pageTitle = `कानूनी नोटिस • ${siteConfig.brand.name}`;
+const pageDesc = "यूटोपिया पीओएस और स्टेलरसॉफ्ट की आधिकारिक कानूनी जानकारी।";
+---
+
+<BaseLayout locale="hi" title={pageTitle} description={pageDesc}>
+  <section class="legal-page-section">
+    <div class="legal-container">
+      <a href="/hi/" class="back-link">← मुख्य पृष्ठ पर वापस जाएं</a>
+
+      <h1 class="legal-title">कानूनी सूचना</h1>
+      <p class="legal-meta">प्रकाशक: स्टेलरसॉफ्ट • सॉफ्टवेयर: यूटोपिया पीओएस</p>
+
+      <div class="legal-content">
+        <h2>1. सॉफ्टवेयर और वेबसाइट प्रकाशक</h2>
+        <p>
+          बिलिंग और रिटेल प्रबंधन सॉफ्टवेयर <strong>यूटोपिया पीओएस</strong> और यह वेबसाइट <strong>स्टेलरसॉफ्ट</strong> द्वारा विकसित और प्रकाशित किए गए हैं।
+        </p>
+        <ul>
+          <li><strong>कंपनी:</strong> स्टेलरसॉफ्ट</li>
+          <li><strong>ईमेल:</strong> contact@stellarsoft.com</li>
+          <li><strong>व्हाट्सएप सहायता:</strong> सीधी वाणिज्यिक और तकनीकी सहायता</li>
+          <li><strong>ऑपरेटिंग सिस्टम:</strong> विंडोज 10, विंडोज 11 (64-बिट)</li>
+        </ul>
+
+        <h2>2. बौद्धिक संपदा और कॉपीराइट</h2>
+        <p>
+          सभी ट्रेडमार्क, लोगो, यूजर इंटरफेस डिजाइन, सोर्स कोड और लिखित सामग्री स्टेलरसॉफ्ट की अनन्य संपत्ति हैं।
+        </p>
+
+        <h2>3. ऑफलाइन संचालन और जिम्मेदारी</h2>
+        <p>
+          यूटोपिया पीओएस दुकान के कंप्यूटर पर स्थानीय स्वायत्त उपयोग के लिए प्रदान किया जाता है। स्थानीय डेटा बैकअप और व्यापारिक नियमों का पालन करना दुकानदार की स्वयं की जिम्मेदारी है।
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page-section {
+    padding: 4rem 1.5rem 6rem;
+    background-color: var(--content-bg);
+    color: var(--content-text);
+    min-height: 70vh;
+  }
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .legal-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--content-text);
+    margin-bottom: 0.5rem;
+  }
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--content-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .legal-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--content-text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content p {
+    color: var(--content-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: var(--content-text);
+  }
+</style>
